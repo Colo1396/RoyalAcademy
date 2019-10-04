@@ -79,6 +79,7 @@
     <Content Include="web\index.html" />
     <Content Include="web\scripts\jquery-3.2.1.min.js" />
     <Content Include="web\scripts\login.js" />
+    <Content Include="web\menu.html" />
     <Content Include="ws\Login.asmx" />
   </ItemGroup>
   <ItemGroup>
