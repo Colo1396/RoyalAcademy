@@ -22,7 +22,7 @@ namespace AutoEvaluacionG6.ws
         [WebMethod]
         public string Logear(String usuario, String clave)
         {
-            String sql = "select usuario, clave from usuario where  usuario = '" + usuario + "' and clave = '" + clave + "'";
+            String sql = "select idUsuario, clave from usuario where  idUsuario = '" + usuario + "' and clave = '" + clave + "'";
 
             SqlConnection connection = null;
             SqlDataReader lector = null;

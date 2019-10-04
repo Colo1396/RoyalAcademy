@@ -11,7 +11,8 @@ namespace AutoEvaluacionG6.conexion
     {
         public static SqlConnection getConexion()
         {
-            return new SqlConnection(WebConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString);
+            string cn = "server=localhost;uid=root;pwd=root;database=autoevaluaciong6";
+            return new SqlConnection(cn);
         }
     }
 }
