@@ -95,7 +95,8 @@ function validarLogin() {
    
         // chekeamos el resultado. Checkeo un string porque retorne un string en el WS.
         if (retorno == "true") {
-            alert("Tu usuario es Correcto, futura redireccion al menu segun perfil");
+            // redireccion al menu
+            location.href = "menu.html";
         } else {
             alert("Tu usuario es incorrecto");
         }

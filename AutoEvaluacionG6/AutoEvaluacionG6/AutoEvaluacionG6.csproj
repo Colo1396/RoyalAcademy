@@ -73,13 +73,35 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="web\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="web\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="web\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="web\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="web\bootstrap\css\bootstrap.css.map" />
+    <Content Include="web\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="web\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="web\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="web\bootstrap\js\bootstrap.js.map" />
+    <Content Include="web\bootstrap\js\bootstrap.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
+    <Content Include="web\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="web\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="web\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="web\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="web\bootstrap\css\bootstrap.css" />
+    <Content Include="web\bootstrap\css\bootstrap.min.css" />
+    <Content Include="web\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="web\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="web\bootstrap\js\bootstrap.js" />
+    <Content Include="web\bootstrap\js\bootstrap.min.js" />
     <Content Include="web\index.html" />
+    <Content Include="web\preguntas.html" />
     <Content Include="web\scripts\jquery-3.2.1.min.js" />
     <Content Include="web\scripts\login.js" />
     <Content Include="web\menu.html" />
+    <Content Include="web\scripts\menu.js" />
     <Content Include="ws\Login.asmx" />
   </ItemGroup>
   <ItemGroup>

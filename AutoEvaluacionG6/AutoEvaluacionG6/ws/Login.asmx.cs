@@ -22,12 +22,13 @@ namespace AutoEvaluacionG6.ws
         [WebMethod]
         public string Logear(String usuario, String clave)
         {
-            String sql = "select usuario,apellido,nombre,codPerfil from usuarios where  codUsuario = '" + usuario + "' and clave = '" + clave + "')";
+            String sql = "select usuario, clave from usuario where  usuario = '" + usuario + "' and clave = '" + clave + "'";
 
             SqlConnection connection = null;
             SqlDataReader lector = null;
 
-            string apellido = "", nombre = "", perfil = "";
+      
+
             String retorno = "false";
             try
             {
@@ -44,9 +45,6 @@ namespace AutoEvaluacionG6.ws
                 {
                     while (lector.Read())
                     {
-                        apellido = lector.GetValue(lector.GetOrdinal("apellido")).ToString();
-                        nombre = lector.GetValue(lector.GetOrdinal("nombre")).ToString();
-                        perfil = lector.GetValue(lector.GetOrdinal("codPerfil")).ToString();
                     }
                     retorno = "true";
                 }
