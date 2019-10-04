@@ -53,6 +53,63 @@ F:\Dropbox\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\obj\Debug\Royal 
 F:\Dropbox\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\obj\Debug\Royal Academy G6.csproj.CopyComplete
 F:\Dropbox\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\obj\Debug\Royal Academy G6.dll
 F:\Dropbox\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\obj\Debug\Royal Academy G6.pdb
+<<<<<<< HEAD
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\Royal Academy G6.dll.config
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\Royal Academy G6.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\Royal Academy G6.pdb
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\csc.exe
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\csc.exe.config
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\csc.rsp
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\csi.exe
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\csi.exe.config
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\csi.rsp
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\Microsoft.Managed.Core.targets
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\System.AppContext.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\System.Collections.Immutable.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\System.Console.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\System.Diagnostics.StackTrace.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\System.IO.Compression.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\System.IO.FileSystem.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\System.IO.FileSystem.Primitives.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\System.IO.Pipes.AccessControl.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\System.IO.Pipes.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\System.Reflection.Metadata.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\System.Security.AccessControl.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\System.Security.Claims.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\System.Security.Cryptography.Encoding.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\System.Security.Cryptography.Primitives.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\System.Security.Principal.Windows.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\System.Text.Encoding.CodePages.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\System.ValueTuple.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\System.Xml.ReaderWriter.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\System.Xml.XmlDocument.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\System.Xml.XPath.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\System.Xml.XPath.XDocument.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\vbc.exe
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\vbc.exe.config
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\vbc.rsp
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\VBCSCompiler.exe
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\roslyn\VBCSCompiler.exe.config
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\obj\Debug\Royal Academy G6.csprojAssemblyReference.cache
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\obj\Debug\Royal Academy G6.csproj.CopyComplete
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\obj\Debug\Royal Academy G6.dll
+F:\RoyalAcademyGitHub\Royal Academy G6\Royal Academy G6\obj\Debug\Royal Academy G6.pdb
+=======
 C:\Users\Naza\Documents\Repositorios GitHub\RoyalAcademy\Royal Academy G6\Royal Academy G6\bin\Royal Academy G6.dll.config
 C:\Users\Naza\Documents\Repositorios GitHub\RoyalAcademy\Royal Academy G6\Royal Academy G6\bin\Royal Academy G6.dll
 C:\Users\Naza\Documents\Repositorios GitHub\RoyalAcademy\Royal Academy G6\Royal Academy G6\bin\Royal Academy G6.pdb
@@ -108,3 +165,4 @@ C:\Users\Naza\Documents\Repositorios GitHub\RoyalAcademy\Royal Academy G6\Royal 
 C:\Users\Naza\Documents\Repositorios GitHub\RoyalAcademy\Royal Academy G6\Royal Academy G6\obj\Debug\Royal Academy G6.csproj.CopyComplete
 C:\Users\Naza\Documents\Repositorios GitHub\RoyalAcademy\Royal Academy G6\Royal Academy G6\obj\Debug\Royal Academy G6.dll
 C:\Users\Naza\Documents\Repositorios GitHub\RoyalAcademy\Royal Academy G6\Royal Academy G6\obj\Debug\Royal Academy G6.pdb
+>>>>>>> 1afeb1d30010bb045a8124f7aed73277dda17e6c
