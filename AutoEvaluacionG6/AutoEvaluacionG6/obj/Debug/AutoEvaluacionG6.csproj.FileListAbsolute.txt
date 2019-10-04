@@ -1,0 +1,9 @@
+C:\Users\User\source\repos\AutoEvaluacionG6\AutoEvaluacionG6\bin\AutoEvaluacionG6.dll.config
+C:\Users\User\source\repos\AutoEvaluacionG6\AutoEvaluacionG6\bin\AutoEvaluacionG6.dll
+C:\Users\User\source\repos\AutoEvaluacionG6\AutoEvaluacionG6\bin\AutoEvaluacionG6.pdb
+C:\Users\User\source\repos\AutoEvaluacionG6\AutoEvaluacionG6\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\User\source\repos\AutoEvaluacionG6\AutoEvaluacionG6\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\User\source\repos\AutoEvaluacionG6\AutoEvaluacionG6\obj\Debug\AutoEvaluacionG6.csprojResolveAssemblyReference.cache
+C:\Users\User\source\repos\AutoEvaluacionG6\AutoEvaluacionG6\obj\Debug\AutoEvaluacionG6.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\AutoEvaluacionG6\AutoEvaluacionG6\obj\Debug\AutoEvaluacionG6.dll
+C:\Users\User\source\repos\AutoEvaluacionG6\AutoEvaluacionG6\obj\Debug\AutoEvaluacionG6.pdb
