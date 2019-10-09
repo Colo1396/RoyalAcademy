@@ -1,7 +1,7 @@
 ﻿using AutoEvaluacionG6.conexion;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
@@ -24,15 +24,15 @@ namespace AutoEvaluacionG6.ws
         {
             String sql = "select idUsuario, clave from usuario where  idUsuario = '" + usuario + "' and clave = '" + clave + "'";
 
-            SqlConnection connection = null;
-            SqlDataReader lector = null;
+            MySqlConnection connection = null;
+            MySqlDataReader lector = null;
 
       
 
             String retorno = "false";
             try
             {
-                SqlCommand cmd = new SqlCommand();
+                MySqlCommand cmd = new MySqlCommand();
                 connection = Conexion.getConexion();
                 cmd.Connection = connection;
                 cmd.CommandType = System.Data.CommandType.Text;
