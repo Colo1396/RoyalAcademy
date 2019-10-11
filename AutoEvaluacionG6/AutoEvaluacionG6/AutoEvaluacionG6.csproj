@@ -103,9 +103,11 @@
     <Content Include="web\scripts\login.js" />
     <Content Include="web\menu.html" />
     <Content Include="web\scripts\menu.js" />
+    <Content Include="web\scripts\ABMpreguntas.js" />
     <Content Include="ws\Login.asmx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clases\Preguntas.cs" />
     <Compile Include="conexion\Conexion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ws\Login.asmx.cs">
@@ -113,7 +115,9 @@
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
