@@ -1,0 +1,31 @@
+﻿{
+  "titulo": "Lista de Preguntas",
+  "sql": "select idPregunta, consigna, nombreTipo from pregunta P inner join tipopregunta T on T.idTipoPregunta = P.idTipoPregunta",
+  "acciones": {
+    "alta": false,
+    "editar": true,
+    "baja": true
+  },
+  "columnas": [
+    {
+      "titulo": "ID",
+      "nomBD": "idPregunta",
+      "clave": true,
+      "tamaño": 100
+    },
+    {
+      "titulo": "Consigna",
+      "nomBD": "consigna",
+      "clave": false,
+      "tamaño": 250
+    },
+    {
+      "titulo": "Tipo",
+      "nomBD": "nombreTipo",
+      "clave": false,
+      "tamaño": 120
+    }
+  ],
+  "redireccion": "web/formularios/preguntas/preguntasABM",
+  "claves": ""
+}
