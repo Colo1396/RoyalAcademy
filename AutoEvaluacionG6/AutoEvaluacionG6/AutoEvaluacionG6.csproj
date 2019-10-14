@@ -103,7 +103,7 @@
     <Content Include="web\scripts\login.js" />
     <Content Include="web\menu.html" />
     <Content Include="web\scripts\menu.js" />
-    <Content Include="web\scripts\ABMpreguntas.js" />
+    <Content Include="web\scripts\altaPreguntas.js" />
     <Content Include="ws\Login.asmx" />
   </ItemGroup>
   <ItemGroup>
