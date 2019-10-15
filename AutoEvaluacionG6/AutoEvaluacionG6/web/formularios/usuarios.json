@@ -1,0 +1,31 @@
+{
+  "titulo": "Lista de usuarios",
+  "sql": "select idUsuario, clave,estado from usuario",
+  "acciones": {
+    "alta": false,
+    "editar": true,
+    "baja": false
+  },
+  "columnas": [
+    {
+      "titulo": "ID",
+      "nomBD": "idUsuario",
+      "clave": true,
+      "tamaño": 100
+    },
+    {
+      "titulo": "Clave",
+      "nomBD": "clave",
+      "clave": false,
+      "tamaño": 20
+    },
+    {
+      "titulo": "Estado",
+      "nomBD": "estado",
+      "clave": false,
+      "tamaño": 120
+    }
+  ],
+  "redireccion": "web/formularios/preguntas/preguntasABM",
+  "claves": ""
+}

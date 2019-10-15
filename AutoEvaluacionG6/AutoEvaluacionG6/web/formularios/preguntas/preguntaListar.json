@@ -17,7 +17,7 @@
       "titulo": "Consigna",
       "nomBD": "consigna",
       "clave": false,
-      "tamaño": 250
+      "tamaño": 20
     },
     {
       "titulo": "Tipo",
@@ -26,6 +26,5 @@
       "tamaño": 120
     }
   ],
-  "redireccion": "web/formularios/preguntas/preguntasABM",
-  "claves": ""
+  "redireccion": "web/formularios/preguntas/preguntasABM"
 }
