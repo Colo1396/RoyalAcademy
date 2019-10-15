@@ -1,5 +1,4 @@
-﻿using AutoEvaluacionG6.clases;
-using AutoEvaluacionG6.conexion;
+﻿using AutoEvaluacionG6.conexion;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
