@@ -67,6 +67,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ws\altaPreguntas.asmx" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -122,6 +123,10 @@
     </Compile>
     <Compile Include="ws\Login.asmx.cs">
       <DependentUpon>Login.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ws\altaPreguntas.asmx.cs">
+      <DependentUpon>altaPreguntas.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>

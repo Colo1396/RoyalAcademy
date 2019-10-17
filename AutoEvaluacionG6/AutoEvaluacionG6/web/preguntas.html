@@ -5,7 +5,7 @@
     <title>Preguntas</title>
     <link type="text/css" href="/web/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <script src="/web/scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
-    <script src="/web/scripts/altaPreguntas.js" type="text/javascript"></script>
+    
     <script src="/web/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 </head>
 <body>
@@ -14,17 +14,17 @@
         <br />
         <p>
             Id:
-            <input type="text" name="idPregunta" id="idPregunta" value="Id Pregunta" />
+            <input type="text" class="pregunta" id="idPregunta" value="Id Pregunta" />
             <br />
             Tipo de Pregunta:
             <select>
-                <option id="idTipoPregunta" value="1">Multiple Choice</option>
-                <option id="idTipoPregunta" value="2">Verdadero o Falso</option>
+                <option class="pregunta" id="idTipoPregunta" value="MC">Multiple Choice</option>
+                <option class="pregunta" id="idTipoPregunta" value="VF">Verdadero o Falso</option>
             </select>
 
             <br />
             Consigna:
-            <input class="pregunta" type="text" name="consigna" id="consigna" value="Consigna" />
+            <input class="pregunta" type="text" id="consigna" value="Consigna" />
         </p>
 
         <br />
@@ -35,23 +35,23 @@
             <ol>
                 Consigna:
                 <li>
-                    <input id="respuesta" type="checkbox" name="r1" value="r1" />
-                    <input type="text" name="respuesta" value="respuesta1" />
+                    <input type="checkbox" class="respuesta" id="correcta" />
+                    <input type="text" class="respuesta" id="respuesta" value="respuesta1" />
                 </li>
                 <li>
-                    <input id="respuesta" type="checkbox" name="r2" value="r2" />
-                    <input type="text" name="respuesta" value="respuesta2" />
+                    <input type="checkbox" class="respuesta" id="correcta" />
+                    <input type="text" class="respuesta" id="respuesta" value="respuesta2" />
                 </li>
                 <li>
-                    <input id="respuesta" type="checkbox" name="r3" value="r3" />
-                    <input type="text" name="respuesta" value="respuesta3" />
+                    <input type="checkbox" class="respuesta" id="correcta" />
+                    <input type="text" class="respuesta" id="respuesta" value="respuesta3" />
                 </li>
                 <li>
-                    <input id="respuesta" type="checkbox" name="r4" value="r4" />
-                    <input type="text" name="respuesta" value="respuesta4" />
+                    <input type="checkbox" class="respuesta" id="correcta" />
+                    <input type="text" class="respuesta" id="respuesta" value="respuesta4" />
                 </li>
             </ol>
-            <input type="button" name="agregar" value="+Rta" />
+            <input type="button" name="agregar" id="btnAddRtaMC" value="+Rta" />
         </p>
 
         <p>
@@ -61,25 +61,27 @@
             <ol>
                 Consigna:
                 <li>
-                    <input id="respuesta" type="text" name="r1" value="r1" />
-                    <input type="text" name="respuesta" value="respuesta1" />
+                    <input type="text" class="respuesta" id="correcta" />
+                    <input type="text" class="respuesta" id="respuesta" value="respuesta1" />
                 </li>
                 <li>
-                    <input id="respuesta" type="text" name="r2" value="r2" />
-                    <input type="text" name="respuesta" value="respuesta2" />
+                    <input type="text" class="respuesta" id="correcta" />
+                    <input type="text" class="respuesta" id="respuesta" value="respuesta2" />
                 </li>
                 <li>
-                    <input id="respuesta" type="text" name="r3" value="r3" />
-                    <input type="text" name="respuesta" value="respuesta3" />
+                    <input type="text" class="respuesta" id="correcta" />
+                    <input type="text" class="respuesta" id="respuesta" value="respuesta3" />
                 </li>
                 <li>
-                    <input id="respuesta" type="text" name="r4" value="r4" />
-                    <input type="text" name="respuesta" value="respuesta4" />
+                    <input type="text" class="respuesta" id="correcta" />
+                    <input type="text" class="respuesta" id="respuesta" value="respuesta4" />
                 </li>
             </ol>
-            <input type="button" name="agregar" value="+RtaV/F  " />
+            <input type="button" name="agregar" id="btnAddRtaVF" value="+RtaV/F  " />
         </p>
 
+
+        <input type="button"  id="btn_Alta_preg" value="Enviar Alta" />
         <!--
        <div>
           Id:
@@ -96,6 +98,6 @@
     -->
 
     </div>
-    
+    <script src="/web/scripts/altaPreguntas.js" type="text/javascript"></script>
 </body>
 </html>
