@@ -12,23 +12,88 @@
     <div class="jumbotron container">
         <h1>Alta de Preguntas:</h1>
         <br />
-        <p>Id: 
-        
+        <p>
+            Id:
+            <input type="text" name="idPregunta" id="idPregunta" value="Id Pregunta" />
+            <br />
+            Tipo de Pregunta:
+            <select>
+                <option id="idTipoPregunta" value="1">Multiple Choice</option>
+                <option id="idTipoPregunta" value="2">Verdadero o Falso</option>
+            </select>
+
+            <br />
+            Consigna:
+            <input class="pregunta" type="text" name="consigna" id="consigna" value="Consigna" />
         </p>
-        <!-- 
-            <div>
-               Id:
-             <input type="text" id="idPregunta">
-             Tipo:
-             <select id="tipoPregunta" name="tipoPregunta">
-                 <option>Multiple Choice</option>
-                 <option>Verdadero/Falso</option>
-             </select>
-             <button id="btnTipoPregunta">btnTipoPreg</button>
-             Pregunta:
-             <input type="text" id="consigna">
-          </div>
-         -->
+
+        <br />
+        <p>
+            Preguntas Multiple Choise:
+
+            <br />
+            <ol>
+                Consigna:
+                <li>
+                    <input id="respuesta" type="checkbox" name="r1" value="r1" />
+                    <input type="text" name="respuesta" value="respuesta1" />
+                </li>
+                <li>
+                    <input id="respuesta" type="checkbox" name="r2" value="r2" />
+                    <input type="text" name="respuesta" value="respuesta2" />
+                </li>
+                <li>
+                    <input id="respuesta" type="checkbox" name="r3" value="r3" />
+                    <input type="text" name="respuesta" value="respuesta3" />
+                </li>
+                <li>
+                    <input id="respuesta" type="checkbox" name="r4" value="r4" />
+                    <input type="text" name="respuesta" value="respuesta4" />
+                </li>
+            </ol>
+            <input type="button" name="agregar" value="+Rta" />
+        </p>
+
+        <p>
+            Preguntas Verdadero/Falso:
+
+            <br />
+            <ol>
+                Consigna:
+                <li>
+                    <input id="respuesta" type="text" name="r1" value="r1" />
+                    <input type="text" name="respuesta" value="respuesta1" />
+                </li>
+                <li>
+                    <input id="respuesta" type="text" name="r2" value="r2" />
+                    <input type="text" name="respuesta" value="respuesta2" />
+                </li>
+                <li>
+                    <input id="respuesta" type="text" name="r3" value="r3" />
+                    <input type="text" name="respuesta" value="respuesta3" />
+                </li>
+                <li>
+                    <input id="respuesta" type="text" name="r4" value="r4" />
+                    <input type="text" name="respuesta" value="respuesta4" />
+                </li>
+            </ol>
+            <input type="button" name="agregar" value="+RtaV/F" />
+        </p>
+
+        <!--
+       <div>
+          Id:
+        <input type="text" id="idPregunta">
+        Tipo:
+        <select id="tipoPregunta" name="tipoPregunta">
+            <option>Multiple Choice</option>
+            <option>Verdadero/Falso</option>
+        </select>
+        <button id="btnTipoPregunta">btnTipoPreg</button>
+        Pregunta:
+        <input type="text" id="consigna">
+     </div>
+    -->
 
     </div>
     
