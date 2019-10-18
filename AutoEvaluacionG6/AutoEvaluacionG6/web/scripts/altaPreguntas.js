@@ -6,27 +6,27 @@
 });
 */
 
-alert("entre al js");
 
-$(document).ready(function myfunction() {
+
+/*$(document).ready(function myfunction() {
     $("#btn_Alta_preg").click(function () {
         alert("se clikeo el boton");
         validadAltaPregunta()
     });
 
-});
+});*/
 
-/*windows.onload = function () {
+window.onload = function () {
 
     var btn_enviarAlta = $("#btn_Alta_preg");
 
      btn_enviarAlta.on("click", function () {
-        alert("se clikeo el boton");
-        validadAltaPregunta()
+         
+        validaAltaPregunta()
         
     });
    
-}*/
+}
 
 /**
  * Metodo Ajax para las llamadas a WS, estructura basica.
@@ -53,10 +53,13 @@ function llamarWS(paramJSON, urlWS, asincrono) {
 
 }
 
-function validadAltaPregunta() {
+function validaAltaPregunta() {
     var idPregunta = $("#idPregunta").val();
     var idTipoPregunta = $("#idTipoPregunta").val();
     var consigna = $("#consigna").val();
+    console.log(idPregunta);
+    console.log(idTipoPregunta);
+    console.log(consigna);
 
     var urlCompletaAltaPregunta = "/ws/altaPreguntas.asmx/AltaPregunta"
 

@@ -15,7 +15,7 @@ namespace AutoEvaluacionG6.ws
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // Para permitir que se llame a este servicio web desde un script, usando ASP.NET AJAX, quite la marca de comentario de la línea siguiente. 
-    // [System.Web.Script.Services.ScriptService]
+     [System.Web.Script.Services.ScriptService]
     public class WebService1 : System.Web.Services.WebService
     {
 
@@ -23,9 +23,9 @@ namespace AutoEvaluacionG6.ws
         public string AltaPregunta(int idPregunta,int idTipoPregunta,String consigna)
         {
             //String sql = "insert into pregunta (idPregunta,idTipoPregunta,consigna) values ('" + idPregunta + "','" + idTipoPregunta + "','" + consigna + "')";
-            String sql = "INSERT INTO user(`idPregunta`, `idTipoPregunta`, `consigna`) VALUES (NULL, '" + idPregunta + "', '" + idTipoPregunta + "', '" + consigna + "')";
+            String sql = "INSERT INTO pregunta( `idTipoPregunta`, `consigna`) VALUES ( " + idTipoPregunta + ", '" + consigna + "')";
             MySqlConnection connection = null;
-            MySqlDataReader lector = null;
+            //MySqlDataReader lector = null;
 
             String retorno = "false";
             try
@@ -38,27 +38,22 @@ namespace AutoEvaluacionG6.ws
                 cmd.CommandTimeout = 240;
                 connection.Open();
 
-                lector = cmd.ExecuteReader();
-                /*if (lector.HasRows)
-                {
-                    while (lector.Read())
-                    {
-                    }
-                    retorno = "true";
-                }*/
+                cmd.ExecuteNonQuery();
 
-                if (lector != null) lector.Close();
-                if (connection != null) connection.Close();
+                retorno = "true";
+
+
+
             }
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine("Error durante el inicio de sesión!" + ex.Message);
             }
-           /* finally
+            finally
             {
-                if (lector != null) lector.Close();
+       
                 if (connection != null) connection.Close();
-            }*/
+            }
             return retorno;
 
         }
