@@ -17,7 +17,7 @@
 });*/
 
 window.onload = function () {
-
+    // Se captura el boton de "enviar alta " 
     var btn_enviarAlta = $("#btn_Alta_preg");
 
      btn_enviarAlta.on("click", function () {
@@ -41,7 +41,7 @@ function llamarWS(paramJSON, urlWS, asincrono) {
     $.ajax({
         type: "POST",
         url: urlWS,
-        data: JSON.stringify(paramJSON),
+        data: JSON.stringify(paramJSON),//se convierte el json en cadena para enviar al ws
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         async: asincrono,
