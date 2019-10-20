@@ -1,21 +1,4 @@
 ﻿
-/*$(document).ready(function () {
-    $("#btnTipoPregunta").click(function () {
-        console.log('se clikeo boton');
-    });
-});
-*/
-
-
-
-/*$(document).ready(function myfunction() {
-    $("#btn_Alta_preg").click(function () {
-        alert("se clikeo el boton");
-        validadAltaPregunta()
-    });
-
-});*/
-
 window.onload = function () {
     // Se captura el boton de "enviar alta " 
     var btn_enviarAlta = $("#btn_Alta_preg");
@@ -54,12 +37,14 @@ function llamarWS(paramJSON, urlWS, asincrono) {
 }
 
 function validaAltaPregunta() {
+    //pregunta
     var idPregunta = $("#idPregunta").val();
     var idTipoPregunta = $("#idTipoPregunta").val();
     var consigna = $("#consigna").val();
     console.log(idPregunta);
     console.log(idTipoPregunta);
     console.log(consigna);
+
 
     var urlCompletaAltaPregunta = "/ws/altaPreguntas.asmx/AltaPregunta"
 

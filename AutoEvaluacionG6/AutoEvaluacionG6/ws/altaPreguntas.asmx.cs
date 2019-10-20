@@ -42,8 +42,6 @@ namespace AutoEvaluacionG6.ws
 
                 retorno = "true";
 
-
-
             }
             catch (Exception ex)
             {
