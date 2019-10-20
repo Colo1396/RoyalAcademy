@@ -14,88 +14,86 @@
         <br />
         <p>
             Id:
-            <input type="text" name="idPregunta" id="idPregunta" value="Id Pregunta" />
+            <input type="text" class="pregunta" id="idPregunta" value="" />
             <br />
             Tipo de Pregunta:
-            <select>
-                <option id="idTipoPregunta" value="1">Multiple Choice</option>
-                <option id="idTipoPregunta" value="2">Verdadero o Falso</option>
+            <select id="idTipoPregunta">
+                <option value="1">Multiple Choice</option>
+                <option value="2">Verdadero o Falso</option>
             </select>
 
             <br />
             Consigna:
-            <input class="pregunta" type="text" name="consigna" id="consigna" value="Consigna" />
+            <input type="text" id="consigna" value="" />
         </p>
 
         <br />
-        <p>
-            Preguntas Multiple Choise:
+        <div id="RtaMultipleChoice">
+            <p>
+                Preguntas Multiple Choise:
 
-            <br />
-            <ol>
-                Consigna:
-                <li>
-                    <input id="respuesta" type="checkbox" name="r1" value="r1" />
-                    <input type="text" name="respuesta" value="respuesta1" />
-                </li>
-                <li>
-                    <input id="respuesta" type="checkbox" name="r2" value="r2" />
-                    <input type="text" name="respuesta" value="respuesta2" />
-                </li>
-                <li>
-                    <input id="respuesta" type="checkbox" name="r3" value="r3" />
-                    <input type="text" name="respuesta" value="respuesta3" />
-                </li>
-                <li>
-                    <input id="respuesta" type="checkbox" name="r4" value="r4" />
-                    <input type="text" name="respuesta" value="respuesta4" />
-                </li>
-            </ol>
-            <input type="button" name="agregar" value="+Rta" />
-        </p>
+                <br />
+                <ol>
+                    <li>
+                        <input type="checkbox" id="correctaMC" />
+                        <input type="text" id="respuestaMC" value="respuesta1" />
+                    </li>
+                    <!-- <li>
+                         <input type="checkbox"  id="correcta" />
+                         <input type="text"  id="respuesta" value="respuesta2" />
+                         </li>
+                         <li>
+                             <input type="checkbox"  id="correcta" />
+                             <input type="text"  id="respuesta" value="respuesta3" />
+                         </li>
+                         <li>
+                             <input type="checkbox"  id="correcta" />
+                             <input type="text"  id="respuesta" value="respuesta4" />
+                         </li>
+                     -->
+                </ol>
+                <input type="button" name="agregar" id="btnAddRtaMC" value="+Rta" />
+            </p>
+        </div>
 
-        <p>
-            Preguntas Verdadero/Falso:
+        <div id="RtaVoF">
+            <p>
+                Preguntas Verdadero/Falso:
 
-            <br />
-            <ol>
-                Consigna:
-                <li>
-                    <input id="respuesta" type="text" name="r1" value="r1" />
-                    <input type="text" name="respuesta" value="respuesta1" />
-                </li>
-                <li>
-                    <input id="respuesta" type="text" name="r2" value="r2" />
-                    <input type="text" name="respuesta" value="respuesta2" />
-                </li>
-                <li>
-                    <input id="respuesta" type="text" name="r3" value="r3" />
-                    <input type="text" name="respuesta" value="respuesta3" />
-                </li>
-                <li>
-                    <input id="respuesta" type="text" name="r4" value="r4" />
-                    <input type="text" name="respuesta" value="respuesta4" />
-                </li>
-            </ol>
-            <input type="button" name="agregar" value="+RtaV/F  " />
-        </p>
+                <br />
+                <ol>
+              
 
-        <!--
-       <div>
-          Id:
-        <input type="text" id="idPregunta">
-        Tipo:
-        <select id="tipoPregunta" name="tipoPregunta">
-            <option>Multiple Choice</option>
-            <option>Verdadero/Falso</option>
-        </select>
-        <button id="btnTipoPregunta">btnTipoPreg</button>
-        Pregunta:
-        <input type="text" id="consigna">
-     </div>
-    -->
+                    <li>
+                        <input type="checkbox"  id="correcta" />
+                        <input type="text"  id="respuesta" value="V" />
+                    </li>
+                    <li>
+                        <input type="checkbox"  id="correcta" />
+                        <input type="text"  id="respuesta" value="F" />
+                    </li>
+                    
+                </ol>
+            </p>
+        </div>
 
-    </div>
-    
+            <input type="button" id="btn_Alta_preg" value="Enviar Alta" />
+            <!--
+           <div>
+              Id:
+            <input type="text" id="idPregunta">
+            Tipo:
+            <select id="tipoPregunta" name="tipoPregunta">
+                <option>Multiple Choice</option>
+                <option>Verdadero/Falso</option>
+            </select>
+            <button id="btnTipoPregunta">btnTipoPreg</button>
+            Pregunta:
+            <input type="text" id="consigna">
+         </div>
+        -->
+
+        </div>
+
 </body>
 </html>
