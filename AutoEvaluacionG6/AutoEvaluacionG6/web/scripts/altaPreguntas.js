@@ -5,8 +5,8 @@ window.onload = function () {
 
      btn_enviarAlta.on("click", function () {
          
-        validaAltaPregunta()
-        
+         validaAltaPregunta()
+         validaAltaRta()
     });
    
 }
@@ -35,7 +35,7 @@ function llamarWS(paramJSON, urlWS, asincrono) {
     return retorno;
 
 }
-
+//-----------------------------------------------------------------------------------------
 function validaAltaPregunta() {
     //pregunta
     var idPregunta = $("#idPregunta").val();
@@ -61,5 +61,41 @@ function validaAltaPregunta() {
         location.href = "menu.html";
     } else {
         alert("No se pudo enviar alta de pregunta");
+    }
+}
+
+//-----------------------------------------------------------------------------------------
+function validaAltaRta() {
+    //pregunta
+    var idPregunta = $("#idPregunta").val();
+    //var correcta = $("#correctaMC").val();
+    if ($("#correctaMC").val() == 'on') {
+        var correcta = 1;
+    }
+    else {
+        var correcta = 0;
+    }
+
+    var respuesta = $("#respuestaMC").val();
+    console.log(idPregunta);
+    console.log(correcta);
+    console.log(respuesta);
+
+
+    var urlCompletaAltaPregunta = "/ws/altaRtaPreg.asmx/AltaRta"
+
+    var parametros = {
+        "idPregunta": idPregunta,
+        "correcta": correcta,
+        "respuesta": respuesta
+    }
+
+    var retorno = llamarWS(parametros, urlCompletaAltaPregunta, false);
+
+    if (retorno == "true") {
+        // redireccion al menu
+        location.href = "menu.html";
+    } else {
+        alert("No se pudo enviar alta de respuesta");
     }
 }
