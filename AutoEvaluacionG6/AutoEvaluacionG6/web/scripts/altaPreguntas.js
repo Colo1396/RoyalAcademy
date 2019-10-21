@@ -1,14 +1,37 @@
 ﻿
 window.onload = function () {
+
+ 
+    $("#idTipoPregunta").change(function () {
+        alert("cambio el combo");
+        if ($("#idTipoPregunta").val() == 2) {
+            alert("se eligio multiple choise");
+            $("#RtaPreg").empty();
+            $("#RtaPreg").append("<div id=\"RtaMultipleChoice\"><p>Preguntas Multiple Choise:<br /><ol id=\"listaMC\"></ol><input type=\"button\" name=\"agregar\" id=\"btn_AddRtaMC\" value=\"+Rta\" /></p></div>");
+            var btn_AddRtaMC = $("#btn_AddRtaMC");
+            btn_AddRtaMC.on("click", function () {
+                agregarPregMC()
+            });
+        }
+        else {
+            alert("se eligio VoF");
+            $("#RtaPreg").empty();
+            $("#RtaPreg").append(" <div id=\"RtaVoF\"><p>Preguntas Verdadero/Falso:<br /><ol><li><input type=\"checkbox\" id=\"correcta\" /><input type=\"text\" id=\"respuesta\" value=\"V\" /></li><li><input type=\"checkbox\" id=\"correcta\" /><input type=\"text\" id=\"respuesta\" value=\"F\" /></li></ol></p></div>");
+        }
+    });
+
+
+
     // Se captura el boton de "enviar alta " 
     var btn_enviarAlta = $("#btn_Alta_preg");
-
      btn_enviarAlta.on("click", function () {
          
          validaAltaPregunta()
          validaAltaRta()
     });
-   
+
+  
+
 }
 
 /**
@@ -62,21 +85,36 @@ function validaAltaPregunta() {
     } else {
         alert("No se pudo enviar alta de pregunta");
     }
+
+
+ 
 }
 
 //-----------------------------------------------------------------------------------------
 function validaAltaRta() {
     //pregunta
-    var idPregunta = $("#idPregunta").val();
-    //var correcta = $("#correctaMC").val();
-    if ($("#correctaMC").val() == 'on') {
+    /*var idPregunta = $("#idPregunta").val();
+    console.log($("#correctaMC").prop('checked'));
+    if ($("#correctaMC").prop('checked') == true) {
         var correcta = 1;
     }
     else {
         var correcta = 0;
     }
-
     var respuesta = $("#respuestaMC").val();
+    console.log(idPregunta);
+    console.log(correcta);
+    console.log(respuesta);*/
+
+    var idPregunta = $("#idPregunta").val();
+    console.log($("#correcta").prop('checked'));
+    if ($("#correcta").prop('checked') == true) {
+        var correcta = 1;
+    }
+    else {
+        var correcta = 0;
+    }
+    var respuesta = $("#respuesta").val();
     console.log(idPregunta);
     console.log(correcta);
     console.log(respuesta);
@@ -98,4 +136,13 @@ function validaAltaRta() {
     } else {
         alert("No se pudo enviar alta de respuesta");
     }
+}
+
+//-------------------------------------------------------------------------
+
+function agregarPregMC() {
+
+    //$("#listaMC").append("<li>  <input type=\"checkbox\" id=\"correctaMC\" />  <input type=\"text\" id=\"respuestaMC\" value=\"respuesta1\" /></li>");
+    $("#listaMC").append("<li>  <input type=\"checkbox\" id=\"correcta\" />  <input type=\"text\" id=\"respuesta\" value=\"respuesta1\" /></li>");
+  
 }
