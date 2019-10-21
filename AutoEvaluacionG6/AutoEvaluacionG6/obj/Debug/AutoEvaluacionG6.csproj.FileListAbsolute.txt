@@ -21,14 +21,6 @@ C:\Users\Naza\source\repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacion
 C:\Users\Naza\source\repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacionG6\bin\Renci.SshNet.dll
 C:\Users\Naza\source\repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacionG6\bin\BouncyCastle.Crypto.dll
 C:\Users\Naza\source\repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacionG6\bin\MySql.Data.xml
-C:\Users\User\Source\Repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacionG6\bin\AutoEvaluacionG6.dll.config
-C:\Users\User\Source\Repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacionG6\bin\AutoEvaluacionG6.dll
-C:\Users\User\Source\Repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacionG6\bin\AutoEvaluacionG6.pdb
-C:\Users\User\Source\Repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacionG6\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Users\User\Source\Repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacionG6\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\User\Source\Repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacionG6\obj\Debug\AutoEvaluacionG6.csproj.CoreCompileInputs.cache
-C:\Users\User\Source\Repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacionG6\obj\Debug\AutoEvaluacionG6.dll
-C:\Users\User\Source\Repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacionG6\obj\Debug\AutoEvaluacionG6.pdb
 C:\Users\ritar\Source\Repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacionG6\bin\AutoEvaluacionG6.dll.config
 C:\Users\ritar\Source\Repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacionG6\bin\AutoEvaluacionG6.dll
 C:\Users\ritar\Source\Repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacionG6\bin\AutoEvaluacionG6.pdb
@@ -41,3 +33,12 @@ C:\Users\ritar\Source\Repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacio
 C:\Users\ritar\Source\Repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacionG6\obj\Debug\AutoEvaluacionG6.csproj.CopyComplete
 C:\Users\ritar\Source\Repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacionG6\obj\Debug\AutoEvaluacionG6.dll
 C:\Users\ritar\Source\Repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacionG6\obj\Debug\AutoEvaluacionG6.pdb
+C:\Users\User\Source\Repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacionG6\bin\AutoEvaluacionG6.dll.config
+C:\Users\User\Source\Repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacionG6\bin\AutoEvaluacionG6.dll
+C:\Users\User\Source\Repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacionG6\bin\AutoEvaluacionG6.pdb
+C:\Users\User\Source\Repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacionG6\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\User\Source\Repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacionG6\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\User\Source\Repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacionG6\obj\Debug\AutoEvaluacionG6.csproj.CoreCompileInputs.cache
+C:\Users\User\Source\Repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacionG6\obj\Debug\AutoEvaluacionG6.dll
+C:\Users\User\Source\Repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacionG6\obj\Debug\AutoEvaluacionG6.pdb
+C:\Users\User\Source\Repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacionG6\obj\Debug\AutoEvaluacionG6.csprojResolveAssemblyReference.cache
