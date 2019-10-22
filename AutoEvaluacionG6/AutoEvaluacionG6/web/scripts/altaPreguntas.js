@@ -3,9 +3,9 @@ window.onload = function () {
 
  
     $("#idTipoPregunta").change(function () {
-        alert("cambio el combo");
+       // alert("cambio el combo");
         if ($("#idTipoPregunta").val() == 2) {
-            alert("se eligio multiple choise");
+            //alert("se eligio multiple choise");
             $("#RtaPreg").empty();
             $("#RtaPreg").append("<div id=\"RtaMultipleChoice\"><p>Preguntas Multiple Choise:<br /><ol id=\"listaMC\"></ol><input type=\"button\" name=\"agregar\" id=\"btn_AddRtaMC\" value=\"+Rta\" /></p></div>");
             var btn_AddRtaMC = $("#btn_AddRtaMC");
@@ -14,9 +14,9 @@ window.onload = function () {
             });
         }
         else {
-            alert("se eligio VoF");
+            //alert("se eligio VoF");
             $("#RtaPreg").empty();
-            $("#RtaPreg").append(" <div id=\"RtaVoF\"><p>Preguntas Verdadero/Falso:<br /><ol><li><input type=\"checkbox\" id=\"correcta\" /><input type=\"text\" id=\"respuesta\" value=\"V\" /></li><li><input type=\"checkbox\" id=\"correcta\" /><input type=\"text\" id=\"respuesta\" value=\"F\" /></li></ol></p></div>");
+            $("#RtaPreg").append(" <div id=\"RtaVoF\"><p>Preguntas Verdadero/Falso:<br /><ol> <li><input type=\"checkbox\" id=\"correcta\" /><input type=\"text\" id=\"respuesta\" value=\"V\" /></li> <li><input type=\"checkbox\" id=\"correcta\" /><input type=\"text\" id=\"respuesta\" value=\"F\" /></li></ol ></p ></div > ");
         }
     });
 
@@ -27,7 +27,7 @@ window.onload = function () {
      btn_enviarAlta.on("click", function () {
          
          validaAltaPregunta()
-         validaAltaRta()
+        // validaAltaRta()
     });
 
   
@@ -69,15 +69,48 @@ function validaAltaPregunta() {
     console.log(consigna);
 
 
+
     var urlCompletaAltaPregunta = "/ws/altaPreguntas.asmx/AltaPregunta"
 
     var parametros = {
         "idPregunta": idPregunta,
         "idTipoPregunta": idTipoPregunta,
-        "consigna": consigna
+        "consigna": consigna,
+        "rtas": []//declare una clave de una lista vacia
     }
 
-    var retorno = llamarWS(parametros, urlCompletaAltaPregunta, false);
+
+    var idRtaVoF = $("#RtaVoF");
+
+    var liRtaVoF = idRtaVoF.find("li");
+
+    console.log(liRtaVoF);
+
+    for (var i = 0; i < liRtaVoF.length; i++) {
+        var item = $(liRtaVoF[i]);
+        var correcta = -1;
+        if (item.find("#correcta").prop('checked') == true) {// el find reemplaza el $
+             correcta = 1;
+        }
+        else {
+             correcta = 0;
+        }
+        //armo json
+        var respuesta = {
+            "correcta": correcta,
+            "respuesta": item.find("#respuesta").val()
+        }
+        //con el push meto la respuesta en el json Wx|
+        parametros.rtas.push(respuesta);
+        //console.log(parametros.rtas.length);
+    }
+  console.log(parametros);
+
+    var ObjetoPregunta = {
+        "pregunta": parametros
+    }
+
+    var retorno = llamarWS(ObjetoPregunta, urlCompletaAltaPregunta, false);
 
     if (retorno == "true") {
         // redireccion al menu

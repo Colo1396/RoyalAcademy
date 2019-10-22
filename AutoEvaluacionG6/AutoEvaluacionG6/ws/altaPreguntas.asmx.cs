@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Services;
 using MySql.Data.MySqlClient;
 using AutoEvaluacionG6.conexion;
+using AutoEvaluacionG6.clases.preguntas;
 
 namespace AutoEvaluacionG6.ws
 {
@@ -20,14 +21,17 @@ namespace AutoEvaluacionG6.ws
     {
 
         [WebMethod]
-        public string AltaPregunta(int idPregunta,int idTipoPregunta,String consigna)
+        public string AltaPregunta(Preguntas pregunta)
         {
+
             //String sql = "insert into pregunta (idPregunta,idTipoPregunta,consigna) values ('" + idPregunta + "','" + idTipoPregunta + "','" + consigna + "')";
-            String sql = "INSERT INTO pregunta( `idTipoPregunta`, `consigna`) VALUES ( " + idTipoPregunta + ", '" + consigna + "')";
+            String sql = "INSERT INTO pregunta( `idTipoPregunta`, `consigna`) VALUES ( " + pregunta.idTipoPregunta + ", '" + pregunta.consigna + "')";
             MySqlConnection connection = null;
             //MySqlDataReader lector = null;
 
             String retorno = "false";
+            MySqlDataReader lector = null;
+            int idMaxPreg = 0;
             try
             {
                 MySqlCommand cmd = new MySqlCommand();
@@ -40,6 +44,28 @@ namespace AutoEvaluacionG6.ws
 
                 cmd.ExecuteNonQuery();
 
+                cmd.CommandText = "select max(idPregunta) as idpregunta from pregunta";
+                lector = cmd.ExecuteReader();
+                if (lector.HasRows)
+                {
+                    while (lector.Read())
+                    {
+                        idMaxPreg = (int)lector.GetValue(0);//capturo la columna 0 del sql que tengo en el lector y lo guardo en el id casteado como int
+                        //idMaxPreg = (int)lector.GetValue(lector.GetOrdinal("idPregunta"));//traeme la posicion donde tengo la columna "idPregunta"
+                    }
+                    retorno = "true";
+                }
+
+                if (lector != null) lector.Close();
+
+
+                for (int i = 0; i < pregunta.rtas.Count; i++)
+                {
+                    sql = "INSERT INTO rtapregunta(`idPregunta`, `respuesta`, `correcta`) VALUES (" + idMaxPreg + ",'" + pregunta.rtas[i].respuesta + "'," + pregunta.rtas[i].correcta + ")";
+                    cmd.CommandText = sql;
+                    cmd.ExecuteNonQuery();
+                }
+
                 retorno = "true";
 
             }
@@ -49,7 +75,7 @@ namespace AutoEvaluacionG6.ws
             }
             finally
             {
-       
+                if (lector != null) lector.Close();
                 if (connection != null) connection.Close();
             }
             return retorno;
