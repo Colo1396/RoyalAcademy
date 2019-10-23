@@ -121,6 +121,8 @@
   <ItemGroup>
     <Compile Include="clases\ejemplo\DetalleEjemplo.cs" />
     <Compile Include="clases\ejemplo\Ejemplo.cs" />
+    <Compile Include="clases\preguntas\Preguntas.cs" />
+    <Compile Include="clases\preguntas\Rtas.cs" />
     <Compile Include="conexion\Conexion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ws\altaRtaPreg.asmx.cs">
