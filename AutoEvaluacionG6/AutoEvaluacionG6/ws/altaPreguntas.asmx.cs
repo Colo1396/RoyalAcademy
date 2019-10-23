@@ -38,15 +38,15 @@ namespace AutoEvaluacionG6.ws
                 connection = Conexion.getConexion();
                 cmd.Connection = connection;
                 cmd.CommandType = System.Data.CommandType.Text;
-                cmd.CommandText = sql;
+                cmd.CommandText = sql;//con el cmd.CommandText yo seteo el sql a ejecutar
                 cmd.CommandTimeout = 240;
                 connection.Open();
 
-                cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();//cone sta funcion ejecuto el sql
 
-                cmd.CommandText = "select max(idPregunta) as idpregunta from pregunta";
-                lector = cmd.ExecuteReader();
-                if (lector.HasRows)
+                cmd.CommandText = "select max(idPregunta) as idpregunta from pregunta";//cargo el sql en el commandText
+                lector = cmd.ExecuteReader();// lo ejecuto para traerme el maximo id de pregunta y lo guardo en un lector
+                if (lector.HasRows)//reviso si el lector tiene registros
                 {
                     while (lector.Read())
                     {
@@ -56,14 +56,15 @@ namespace AutoEvaluacionG6.ws
                     retorno = "true";
                 }
 
-                if (lector != null) lector.Close();
+                if (lector != null) lector.Close();// cierro el lector si no queda dando vueltas y te puede tirar un error
 
-
+                //recorro la pregunta que recibi por parametro y por cada iteracion inserto los valores que recibi
                 for (int i = 0; i < pregunta.rtas.Count; i++)
                 {
                     sql = "INSERT INTO rtapregunta(`idPregunta`, `respuesta`, `correcta`) VALUES (" + idMaxPreg + ",'" + pregunta.rtas[i].respuesta + "'," + pregunta.rtas[i].correcta + ")";
-                    cmd.CommandText = sql;
-                    cmd.ExecuteNonQuery();
+                    cmd.CommandText = sql;//cargo el sql
+                    cmd.ExecuteNonQuery();// ejecuto la consulta
+                    //y listo ya inserte en la BD las respuesta correspondientes a la pregunta.
                 }
 
                 retorno = "true";
