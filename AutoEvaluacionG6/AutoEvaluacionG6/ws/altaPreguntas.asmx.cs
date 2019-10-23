@@ -32,6 +32,10 @@ namespace AutoEvaluacionG6.ws
             String retorno = "false";
             MySqlDataReader lector = null;
             int idMaxPreg = 0;
+
+            //creo la instancia para abrir una transaccion y poder hacer rollback o comitear
+            //se crea fuera del try como null para poder agarrarla en el cartch, pero se abri adentro del try
+            MySqlTransaction trans = null;
             try
             {
                 MySqlCommand cmd = new MySqlCommand();
@@ -41,6 +45,9 @@ namespace AutoEvaluacionG6.ws
                 cmd.CommandText = sql;//con el cmd.CommandText yo seteo el sql a ejecutar
                 cmd.CommandTimeout = 240;
                 connection.Open();
+
+                trans = connection.BeginTransaction();
+                cmd.Transaction = trans;
 
                 cmd.ExecuteNonQuery();//cone sta funcion ejecuto el sql
 
@@ -68,10 +75,14 @@ namespace AutoEvaluacionG6.ws
                 }
 
                 retorno = "true";
+                //comitea la transaccion sino quedara trabada la tabla a insertar
+                if (trans != null) trans.Commit();
 
             }
             catch (Exception ex)
             {
+                //rollback si algo salio mal
+                if (trans != null) trans.Rollback();
                 System.Diagnostics.Debug.WriteLine("Error durante el inicio de sesión!" + ex.Message);
             }
             finally
