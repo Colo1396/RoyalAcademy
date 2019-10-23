@@ -21,7 +21,6 @@ namespace AutoEvaluacionG6.ws
     {
 
         [WebMethod]
-        [ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json)]
         public Ejemplo ejemploParametroClase(Ejemplo ejemplo)
         {
 
