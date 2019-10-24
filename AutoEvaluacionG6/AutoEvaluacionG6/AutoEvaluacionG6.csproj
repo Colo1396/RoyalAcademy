@@ -69,7 +69,10 @@
   <ItemGroup>
     <Content Include="clases\ejemplo\ejemplo.html" />
     <Content Include="clases\ejemplo\ejemplo.js" />
+    <Content Include="web\probandoMaxId.html" />
+    <Content Include="web\scripts\probandoMaxId.js" />
     <Content Include="ws\altaPreguntas.asmx" />
+    <Content Include="ws\traerMaxId.asmx" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -143,6 +146,10 @@
     </Compile>
     <Compile Include="ws\altaPreguntas.asmx.cs">
       <DependentUpon>altaPreguntas.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ws\traerMaxId.asmx.cs">
+      <DependentUpon>traerMaxId.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>

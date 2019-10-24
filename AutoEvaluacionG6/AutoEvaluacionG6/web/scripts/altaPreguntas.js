@@ -1,57 +1,93 @@
 ﻿
 window.onload = function () {
+    var accion = obtenerClaveUrl("accion");
+    var clave = obtenerClaveUrl("clave");
+    switch (accion) {
+        case "editar":
+            {//CODIGO PARA EL MOD DE PREGUNTA
+                console.log(accion);
+                console.log(clave);
+                var sql = { "sql": "select max(idPregunta) as idMax from pregunta" }
+                var idMaxDevuelto = llamarWS(sql, "/ws/traerMaxId.asmx/TraerMaxId", false);
+                $("#idPregunta").val(idMaxDevuelto);
 
- 
-    $("#idTipoPregunta").change(function () {//reviso si el combo box cambia de tipo de pregunta
-       // alert("cambio el combo");
-        if ($("#idTipoPregunta").val() == 2) { // capturo el id del combo y me fijo: si es 2  habblamos  de preguntas MC si es 1 hablamos  de preguntas VoF
-            //alert("se eligio multiple choise");
-            $("#RtaPreg").empty();// vacio el div (nodo del DOM)
-            //ahora aca agrego en el div RtaPReg  el html que me arma  el formulario de una pregunta MC
-            $("#RtaPreg").append("<div id=\"RtaMultipleChoice\">" +
-                                    "<p>Preguntas Multiple Choise:" +
-                                     "<br /> " +
-                                             "<ol id=\"listaMC\">" +
-                                            "</ol >"+
-                                         "<input type =\"button\" name=\"agregar\" id=\"btn_AddRtaMC\" value=\"+Rta\"/>" +
-                                     "</p >"+
-                                 "</div > ");
-            //genero una variable donde guardo el boton de agregar mas respuetas MC
-            var btn_AddRtaMC = $("#btn_AddRtaMC");
-            //reviso si el boton se activo
-            btn_AddRtaMC.on("click", function () {
-                // si se activa llamo a la funcion que agrega un html donde se ingresara mas respuestas MC
-                agregarPregMC()
+                
+                break;
+            }
+        case "baja":
+            {//CODIGO PARA EL BAJA DE PREGUNTA
+                console.log(accion);
+                console.log(clave);
+                var sql = { "sql": "select max(idPregunta) as idMax from pregunta" }
+                var idMaxDevuelto = llamarWS(sql, "/ws/traerMaxId.asmx/TraerMaxId", false);
+                $("#idPregunta").val(idMaxDevuelto);
+          
+                break;
+            }
+        default: {
+            //CODIGO PARA EL ALTA DE PREGUNTA
+            var sql = { "sql": "select max(idPregunta) as idMax from pregunta" }
+            var idMaxDevuelto = llamarWS(sql, "/ws/traerMaxId.asmx/TraerMaxId", false);
+            $("#idPregunta").val(idMaxDevuelto);
+
+            $("#idTipoPregunta").change(function () {//reviso si el combo box cambia de tipo de pregunta
+                // alert("cambio el combo");
+                if ($("#idTipoPregunta").val() == 2) { // capturo el id del combo y me fijo: si es 2  habblamos  de preguntas MC si es 1 hablamos  de preguntas VoF
+                    //alert("se eligio multiple choise");
+                    $("#RtaPreg").empty();// vacio el div (nodo del DOM)
+                    //ahora aca agrego en el div RtaPReg  el html que me arma  el formulario de una pregunta MC
+                    $("#RtaPreg").append("<div id=\"RtaMultipleChoice\">" +
+                        "<p>Preguntas Multiple Choise:" +
+                        "<br /> " +
+                        "<ol id=\"listaMC\">" +
+                        "</ol >" +
+                        "<input type =\"button\" name=\"agregar\" id=\"btn_AddRtaMC\" value=\"+Rta\"/>" +
+                        "</p >" +
+                        "</div > ");
+                    //genero una variable donde guardo el boton de agregar mas respuetas MC
+                    var btn_AddRtaMC = $("#btn_AddRtaMC");
+                    //reviso si el boton se activo
+                    btn_AddRtaMC.on("click", function () {
+                        // si se activa llamo a la funcion que agrega un html donde se ingresara mas respuestas MC
+                        agregarPregMC()
+                    });
+                }
+                else {
+                    //alert("se eligio VoF");
+                    // si se elije tipo de pregunta 1 entramos  en el formulario de Vof
+                    $("#RtaPreg").empty();// vacia el div RtaPreg
+                    // cargo el div con el formulario de Vof
+                    $("#RtaPreg").append(" <div id=\"RtaVoF\">" +
+                        "<p>Preguntas Verdadero/Falso:<br />" +
+                        "<ol> <li>" +
+                        "<input type=\"checkbox\" id=\"correcta\" />" +
+                        "<input type=\"text\" id=\"respuesta\" value=\"V\" />" +
+                        "</li > " +
+                        "<li><input type=\"checkbox\" id=\"correcta\" />" +
+                        "<input type=\"text\" id=\"respuesta\" value=\"F\" />" +
+                        "</li ></ol ></p ></div > ");
+                }
             });
+
+            // Se captura el boton de "enviar alta " 
+            var btn_enviarAlta = $("#btn_Alta_preg");
+            btn_enviarAlta.on("click", function () {
+                //llamo a la funcion que va a llamar al WS para persistir la pregunta con sus respuestas
+                validaAltaPregunta()
+                // validaAltaRta()
+            });
+
         }
-        else {
-            //alert("se eligio VoF");
-            // si se elije tipo de pregunta 1 entramos  en el formulario de Vof
-            $("#RtaPreg").empty();// vacia el div RtaPreg
-            // cargo el div con el formulario de Vof
-            $("#RtaPreg").append(" <div id=\"RtaVoF\">" +
-                                        "<p>Preguntas Verdadero/Falso:<br />" +
-                                        "<ol> <li>" +
-                                             "<input type=\"checkbox\" id=\"correcta\" />" +
-                                             "<input type=\"text\" id=\"respuesta\" value=\"V\" />" +
-                                        "</li > " +
-                                            "<li><input type=\"checkbox\" id=\"correcta\" />" +
-                                                "<input type=\"text\" id=\"respuesta\" value=\"F\" />" +
-                                        "</li ></ol ></p ></div > ");
-        }
-    });
+
+
+    }
+     
 
 
 
-    // Se captura el boton de "enviar alta " 
-    var btn_enviarAlta = $("#btn_Alta_preg");
-     btn_enviarAlta.on("click", function () {
-         //llamo a la funcion que va a llamar al WS para persistir la pregunta con sus respuestas
-         validaAltaPregunta()
-        // validaAltaRta()
-    });
 
-  
+
+
 
 }
 
@@ -62,7 +98,7 @@ window.onload = function () {
  * @param {any} asincrono  : indica si la llamada es asincronica, generalmente es false (llamada sincronica, espera retorno)
  */
 
-
+//Funcion para llamar al ws
 function llamarWS(paramJSON, urlWS, asincrono) {
     var retorno = null;
     $.ajax({
@@ -79,7 +115,7 @@ function llamarWS(paramJSON, urlWS, asincrono) {
     return retorno;
 
 }
-//-----------------------------------------------------------------------------------------
+//------------FUNCION PARA VALIDAR LA PREGUNTA-----------------------------------------------------------------------------
 function validaAltaPregunta() {
     //capturo del html los campos de la pregunta
     var idPregunta = $("#idPregunta").val();
@@ -185,6 +221,22 @@ function validaAltaPregunta() {
  
 }
 
+
+function agregarPregMC() {
+    // con esta funcion lo que se espera es cargar mas respuestas a una pregunta MC
+    $("#listaMC").append("<li>  <input type=\"checkbox\" id=\"correcta\" />  <input type=\"text\" id=\"respuesta\" value=\"respuesta1\" /></li>");
+
+}
+
+
+
+
+
+
+
+
+
+
 //-----------------------------------------------------------------------------------------
 /*function validaAltaRta() {
 
@@ -223,8 +275,3 @@ function validaAltaPregunta() {
 */
 //-------------------------------------------------------------------------
 
-function agregarPregMC() {
-    // con esta funcion lo que se espera es cargar mas respuestas a una pregunta MC
-    $("#listaMC").append("<li>  <input type=\"checkbox\" id=\"correcta\" />  <input type=\"text\" id=\"respuesta\" value=\"respuesta1\" /></li>");
-  
-}
