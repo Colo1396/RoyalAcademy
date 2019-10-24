@@ -26,5 +26,9 @@
       "tamaño": 120
     }
   ],
-  "redireccion": "web/formularios/preguntas/preguntasABM"
+
+  "redireccion": "web/preguntas"
+
 }
+
+
