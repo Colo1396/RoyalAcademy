@@ -69,7 +69,10 @@
   <ItemGroup>
     <Content Include="clases\ejemplo\ejemplo.html" />
     <Content Include="clases\ejemplo\ejemplo.js" />
+    <Content Include="web\formularios\resolucionExamen\resolucionExamen.html" />
+    <Content Include="web\master\nav.html" />
     <Content Include="ws\altaPreguntas.asmx" />
+    <Content Include="ws\ResolucionExamen.asmx" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -89,6 +92,7 @@
     <Content Include="web\bootstrap\js\bootstrap.min.js.map" />
     <Content Include="web\formularios\preguntas\preguntaListar.json" />
     <Content Include="web\formularios\usuarios.json" />
+    <Content Include="web\formularios\resolucionExamen\resolucionExamen.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
@@ -123,6 +127,9 @@
     <Compile Include="clases\ejemplo\Ejemplo.cs" />
     <Compile Include="clases\preguntas\Preguntas.cs" />
     <Compile Include="clases\preguntas\Rtas.cs" />
+    <Compile Include="clases\resolucionExamen\InstExamen.cs" />
+    <Compile Include="clases\resolucionExamen\PreguntaInst.cs" />
+    <Compile Include="clases\resolucionExamen\RespuestaInst.cs" />
     <Compile Include="conexion\Conexion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ws\altaRtaPreg.asmx.cs">
@@ -143,6 +150,10 @@
     </Compile>
     <Compile Include="ws\altaPreguntas.asmx.cs">
       <DependentUpon>altaPreguntas.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ws\ResolucionExamen.asmx.cs">
+      <DependentUpon>ResolucionExamen.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>

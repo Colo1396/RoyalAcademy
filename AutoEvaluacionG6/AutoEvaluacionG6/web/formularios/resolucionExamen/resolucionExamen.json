@@ -1,0 +1,30 @@
+﻿{
+  "titulo": "Lista de Examenes",
+  "sql": "select idExamen, idInstanciaExamen,DATE_FORMAT(fecha, '%d/%m/%Y')  as fecha from Examen where idAlumno = '{usuario}' ",
+  "acciones": {
+    "alta": false,
+    "editar": true,
+    "baja": false
+  },
+  "columnas": [
+    {
+      "titulo": "ID",
+      "nomBD": "idExamen",
+      "clave": true,
+      "tamaño": 50
+    },
+    {
+      "titulo": "Instancia",
+      "nomBD": "Instancia Examen",
+      "clave": false,
+      "tamaño": 100
+    },
+    {
+      "titulo": "Fecha",
+      "nomBD": "fecha",
+      "clave": false,
+      "tamaño": 100
+    }
+  ],
+  "redireccion": "web/formularios/resolucionExamen/resolucionExamen"
+}

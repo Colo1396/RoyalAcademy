@@ -92,10 +92,12 @@ function validarLogin() {
         // llamamos al metodo y le pasamos los parametros, la URL, y con el false al final  le decimos que no es asincronico
         // al no ser asincronico se va a quedar a esperar la vuelta del WS.
         var retorno = llamarWS(parametros, urlCompletaLogeo, false);
-   
+        var registro = JSON.parse(retorno);
+    
         // chekeamos el resultado. Checkeo un string porque retorne un string en el WS.
-        if (retorno == "true") {
+        if (registro.estado == "true") {
             // redireccion al menu
+            cargarSesion(registro.usuario); 
             location.href = "menu.html";
         } else {
             alert("Tu usuario es incorrecto");
@@ -106,3 +108,10 @@ function validarLogin() {
         alert("complete los campos para iniciar sesion")
     }
 } 
+
+function cargarSesion(datosUsuario) {
+    localStorage.setItem("idUsuario", datosUsuario.idUsuario);
+    localStorage.setItem("nombre", datosUsuario.nombre);
+    localStorage.setItem("apellido", datosUsuario.apellido);
+    localStorage.setItem("idPerfil", datosUsuario.idPerfil);
+}

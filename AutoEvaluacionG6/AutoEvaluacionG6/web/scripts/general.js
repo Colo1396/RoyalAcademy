@@ -43,4 +43,30 @@ function llamarWS(paramJSON, urlWS, asincrono) {
     return retorno;
 }
 
+/**
+ * Busca las variables singulares y las reemplaza por las colocadas en el localStorage
+ * @param {any} cadena     cadena  de texto a la cual se desea buscar estas variables.
+ */
+function ReemplazarVariableSingular(cadena) {
+
+    var cadena = cadena.replace(/{usuario}/gi, localStorage.getItem("idUsuario"));
+
+    return cadena;
+}
+
+function cargarNavMenu() {
+    var url = "/web/master/nav.html";
+    $.ajax({
+        type: "GET",
+        url: url,
+        contentType: "application/json; charset=utf-8",
+        dataType: "html",
+        async: true,
+        success: function (respuesta) {
+            
+            $("body").prepend(respuesta);
+
+        }
+    });
+}
 
