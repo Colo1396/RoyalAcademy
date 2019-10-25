@@ -1,5 +1,6 @@
 ﻿
 window.onload = function () {
+    cargarNavMenu();
     var accion = obtenerClaveUrl("accion");
     var clave = obtenerClaveUrl("clave");
     switch (accion) {
@@ -33,7 +34,7 @@ window.onload = function () {
                         $("#RtaPreg").empty();// vacio el div (nodo del DOM)
                         //ahora aca agrego en el div RtaPReg  el html que me arma  el formulario de una pregunta MC
                         $("#RtaPreg").append("<div id=\"RtaMultipleChoice\">" +
-                            "<p>Preguntas Multiple Choise:" +
+                            "<p>Preguntas Multiple Choice:" +
                             "<br /> " +
                             "<ol id=\"listaMC\">" +
                             "</ol >" +
@@ -121,7 +122,7 @@ window.onload = function () {
                         $("#RtaPreg").empty();// vacio el div (nodo del DOM)
                         //ahora aca agrego en el div RtaPReg  el html que me arma  el formulario de una pregunta MC
                         $("#RtaPreg").append("<div id=\"RtaMultipleChoice\">" +
-                            "<p>Preguntas Multiple Choise:" +
+                            "<p>Preguntas Multiple Choice:" +
                             "<br /> " +
                             "<ol id=\"listaMC\">" +
                             "</ol >" +
@@ -161,7 +162,7 @@ window.onload = function () {
                 var btn_enviarAlta = $("#btn_Alta_preg");
                 btn_enviarAlta.on("click", function () {
                     //llamo a la funcion que va a llamar al WS para persistir la pregunta con sus respuestas
-                    //validaEditarPregunta()
+                    validaEditarPregunta()
                     // validaAltaRta()
                 });
 
@@ -199,7 +200,7 @@ window.onload = function () {
                         $("#RtaPreg").empty();// vacio el div (nodo del DOM)
                         //ahora aca agrego en el div RtaPReg  el html que me arma  el formulario de una pregunta MC
                         $("#RtaPreg").append("<div id=\"RtaMultipleChoice\">" +
-                            "<p>Preguntas Multiple Choise:" +
+                            "<p>Preguntas Multiple Choice:" +
                             "<br /> " +
                             "<ol id=\"listaMC\">" +
                             "</ol >" +
@@ -313,7 +314,7 @@ window.onload = function () {
                     $("#RtaPreg").empty();// vacio el div (nodo del DOM)
                     //ahora aca agrego en el div RtaPReg  el html que me arma  el formulario de una pregunta MC
                     $("#RtaPreg").append("<div id=\"RtaMultipleChoice\">" +
-                        "<p>Preguntas Multiple Choise:" +
+                        "<p>Preguntas Multiple Choice:" +
                         "<br /> " +
                         "<ol id=\"listaMC\">" +
                         "</ol >" +
