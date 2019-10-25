@@ -76,6 +76,7 @@
     <Content Include="web\formularios\resolucionExamen\resolucionExamen.html" />
     <Content Include="web\master\nav.html" />
     <Content Include="ws\altaPreguntas.asmx" />
+    <Content Include="ws\ExamenWS.asmx" />
     <Content Include="ws\ResolucionExamen.asmx" />
     <Content Include="ws\traerMaxId.asmx" />
     <None Include="packages.config" />
@@ -138,13 +139,16 @@
     <Compile Include="clases\resolucionExamen\RespuestaInst.cs" />
     <Compile Include="conexion\Conexion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ws\altaExamen.asmx.cs" />
     <Compile Include="ws\altaRtaPreg.asmx.cs">
       <DependentUpon>altaRtaPreg.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ws\EjemploWS.asmx.cs">
       <DependentUpon>EjemploWS.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ws\ExamenWS.asmx.cs">
+      <DependentUpon>ExamenWS.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ws\ListarWS.asmx.cs">

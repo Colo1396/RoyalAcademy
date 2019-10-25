@@ -13,8 +13,8 @@
     <div class="jumbotron container">
         <h1>Alta de Preguntas:</h1>
         <br />
-        <input type="text" class="examen" id="idExamen" readonly="readonly" />
-        <label for="idExamen">Id modelo de examen</label>
+        <input type="text" class="examen" id="idModeloExamen" readonly="readonly" />
+        <label for="idModeloExamen">Id modelo de examen</label>
         <br />
         <select id="idCarrera">
             <option value="1">Lic. Administración de empresas</option>
@@ -22,7 +22,21 @@
             <option value="3">Ing. Mecatrónica</option>
         </select>
         <label for="idCarrera">Carrera</label>
-    </div>
         <input type="button" value="Generar examen automáticamente" id="btn_Alta_Examen_Auto">
+
+        <input type="button" value="Guardar" id="btn_Guardar">
+
+
+        <div id="listaPreguntasExamen">
+
+            <table class="table table-responsive table-hover table-condensed table-bordered" id="table_form"></table>
+
+        </div>
+
+
+    </div>
+
+    
+
 </body>
 </html>

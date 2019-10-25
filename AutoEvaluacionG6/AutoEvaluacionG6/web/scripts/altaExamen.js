@@ -5,7 +5,7 @@
         default: {
             //ALTA EXAMEN
 
-            var sql = { "sql": "select max(idModeloExamen) as idMax from modeloexamen" }
+            var sql = {"sql": "select ifnull(max(idModeloExamen), 0)+1 as idMax from modeloexamen" }
             var idMaxDevuelto = llamarWS(sql, "/ws/traerMaxId.asmx/TraerMaxId", false);
             console.log(idMaxDevuelto)
             $("#idModeloExamen").val(idMaxDevuelto);
@@ -20,6 +20,10 @@
                 // validaAltaRta()
             });
 
+            var btn_Guardar = $("#btn_Guardar"); 
+            btn_Guardar.on("click", function () {
+                guardarExamen();
+            })
         }
     }
 }
@@ -50,33 +54,92 @@ function llamarWS(paramJSON, urlWS, asincrono) {
 
 }
 
+var modelo = {}; // es un json vacio
+
+
 function generarExamenAuto() {
     //capturo del html los campos del examen
-    var idExamen = $("#idExamen").val();
+    var idExamen = $("#idModeloExamen").val();
     var idCarrera = $("#idCarrera").val();
     console.log(idExamen);
     console.log(idCarrera);
 
     //url donde va a ir a buscar el ws
-    var urlCompletaAltaPregunta = "/ws/altaExamen.asmx/AltaExamen"
+    var url = "/ws/ExamenWS.asmx/ObtenerPreguntas"; //esta es una 
+    modelo = llamarWS({}, url, false); //ME VA DEVOLVER UN MODELOExamen que puse en el WS, POR ESO RETORNA EL OBJETO MODELO DEL METODO OBTENER PREGUNTAS 
+    //como queremos que haga la consulta y la espere, asincrono es false.
+    console.log(modelo);
 
-    //genero un json con los atributos de la CLASE PREGUNTA
-    var parametros = {
-        "idModeloExamen": idModeloExamen,
-        "idCarrera": idCarrera,
-        "lstPreguntas": []//declare una clave de una lista vacia
-    }
-
-    var consulta = "select * where idCarrera =" + idCarrera + "from modeloexamen";
-    var sql = { "sql": consulta }
-
-    console.log(sql)
-
-    for
+    armarColumnasTitulos();
+    insertarRegistrosFilas();
+    
 
 }
 
+function armarColumnasTitulos() {
+    var htmtColumnas = "<thead> <tr>";
 
+    htmtColumnas += "<th style=\"min-width: 100px\"> idPregunta </th> ";
+    htmtColumnas += "<th style=\"min-width: 100px\">idTipo</th> ";
+    htmtColumnas += "<th style=\"min-width: 150px\">Consigna</th> ";
+
+    htmtColumnas += "</tr></thead>";
+
+    $("#table_form").empty(); //para vaciar
+    $("#table_form").append(htmtColumnas);
+}
+
+
+function insertarRegistrosFilas() {
+
+    var htmlAgregar = "<tbody>";
+
+
+    for (var i = 0; i < modelo.lstPreguntas.length ; i++) {
+        htmlAgregar += "<tr>";
+        var registro = modelo.lstPreguntas[i];
+
+        htmlAgregar += "<td>" + registro.idPregunta + "</td> ";
+        htmlAgregar += "<td>" + registro.idTipoPregunta + "</td> ";
+        htmlAgregar += "<td>" + registro.consigna + "</td> ";
+         
+        htmlAgregar += "</tr>";
+    }
+
+
+    htmlAgregar += "</tbody>";
+
+
+    $("#table_form").append(htmlAgregar);
+}
+
+function guardarExamen() {
+    if (JSON.stringify(modelo) != "{}") { //para saber si un json esta vacio o lleno
+        // alert("ESTA LLENO");
+        modelo.idModeloExamen = $("#idModeloExamen").val();
+        modelo.idCarrera = $("#idCarrera").val();
+
+        console.log(modelo);
+
+        var modeloJson = { //Es lo que después manda al WS en llamarWS
+            //empaqueta nuestro json en entro json porque el WS te pido solo un parametro, entonces vos le tenes que mandar un JSON con una sola clave
+            //tiene que tener el mismo formato que el tipo que te pide, en este caso una clase. 
+            //Tiene que ser el mismo tipo que el que esta ingresando en el metodo que lo voy a utilizar
+            "modelo": modelo }
+
+        var url = "/ws/ExamenWS.asmx/guardarModeloExamen";  
+        var resultado = llamarWS(modeloJson, url, false); 
+
+        if (resultado == "true") {
+            location.href = "/web/menu.html";
+        } else {
+            alert("ERROR! No se pudo persistir");
+        }
+
+    } else {
+        alert("Primero presion el boton 'Generar examen automatico' y después guarde.");
+    }
+}
 
 
 

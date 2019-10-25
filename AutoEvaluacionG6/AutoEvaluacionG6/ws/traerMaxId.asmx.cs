@@ -45,30 +45,26 @@ namespace AutoEvaluacionG6.ws
                 cmd.CommandTimeout = 240;
                 connection.Open();
 
-                trans = connection.BeginTransaction();
-                cmd.Transaction = trans;
-
                 cmd.CommandText = sql;
                 lector = cmd.ExecuteReader();// lo ejecuto para traerme el maximo id de pregunta y lo guardo en un lector
                 if (lector.HasRows)//reviso si el lector tiene registros
                 {
                     while (lector.Read())
                     {
-                        idMax = (int)lector.GetValue(0);//capturo la columna 0 del sql que tengo en el lector y lo guardo en el id casteado como int
+                        idMax = lector.GetInt32(0);
+                            //capturo la columna 0 del sql que tengo en el lector y lo guardo en el id casteado como int
                         //idMaxPreg = (int)lector.GetValue(lector.GetOrdinal("idPregunta"));//traeme la posicion donde tengo la columna "idPregunta"
                     }
-                    retorno = "true";
                 }
 
                 if (lector != null) lector.Close();// cierro el lector si no queda dando vueltas y te puede tirar un error
-                retorno = "true";
-                if (trans != null) trans.Commit();
 
             }
             catch (Exception ex)
             {
                 //rollback si algo salio mal
-                if (trans != null) trans.Rollback();
+                if (lector != null) lector.Close();
+            
                 System.Diagnostics.Debug.WriteLine("Error durante el inicio de sesión!" + ex.Message);
             }
             finally
