@@ -33,7 +33,7 @@ namespace AutoEvaluacionG6.ws
 
             //creo la instancia para abrir una transaccion y poder hacer rollback o comitear
             //se crea fuera del try como null para poder agarrarla en el cartch, pero se abri adentro del try
-            MySqlTransaction trans = null;
+           // MySqlTransaction trans = null;
 
             Debug.WriteLine("Sql:" + sql);
             try
@@ -45,8 +45,8 @@ namespace AutoEvaluacionG6.ws
                 cmd.CommandTimeout = 240;
                 connection.Open();
 
-                trans = connection.BeginTransaction();
-                cmd.Transaction = trans;
+                //trans = connection.BeginTransaction();
+               // cmd.Transaction = trans;
 
                 cmd.CommandText = sql;
                 lector = cmd.ExecuteReader();// lo ejecuto para traerme el maximo id de pregunta y lo guardo en un lector
@@ -62,13 +62,13 @@ namespace AutoEvaluacionG6.ws
 
                 if (lector != null) lector.Close();// cierro el lector si no queda dando vueltas y te puede tirar un error
                 retorno = "true";
-                if (trans != null) trans.Commit();
+               // if (trans != null) trans.Commit();
 
             }
             catch (Exception ex)
             {
                 //rollback si algo salio mal
-                if (trans != null) trans.Rollback();
+              //  if (trans != null) trans.Rollback();
                 System.Diagnostics.Debug.WriteLine("Error durante el inicio de sesión!" + ex.Message);
             }
             finally
