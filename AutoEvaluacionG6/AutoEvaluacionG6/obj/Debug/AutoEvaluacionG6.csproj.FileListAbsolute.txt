@@ -42,3 +42,6 @@ C:\Users\User\Source\Repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacion
 C:\Users\User\Source\Repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacionG6\obj\Debug\AutoEvaluacionG6.dll
 C:\Users\User\Source\Repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacionG6\obj\Debug\AutoEvaluacionG6.pdb
 C:\Users\User\Source\Repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacionG6\obj\Debug\AutoEvaluacionG6.csprojResolveAssemblyReference.cache
+C:\Users\User\Source\Repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacionG6\bin\Google.Protobuf.dll
+C:\Users\User\Source\Repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacionG6\bin\Renci.SshNet.dll
+C:\Users\User\Source\Repos\Colo1396\RoyalAcademy\AutoEvaluacionG6\AutoEvaluacionG6\bin\BouncyCastle.Crypto.dll

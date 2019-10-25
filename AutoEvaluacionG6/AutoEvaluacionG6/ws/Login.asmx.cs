@@ -23,14 +23,13 @@ namespace AutoEvaluacionG6.ws
         [WebMethod]
         public string Logear(String usuario, String clave)
         {
-            String sql = "select idUsuario, clave from usuario where  idUsuario = '" + usuario + "' and clave = '" + clave + "'";
+            String sql = "select idUsuario, nombre, apellido,idPerfil from usuario U inner join Persona P on P.idPersona = U.idUsuario where  U.idUsuario = '" + usuario + "' and clave = '" + clave + "'";
 
             MySqlConnection connection = null;
             MySqlDataReader lector = null;
 
-      
 
-            String retorno = "false";
+            string retorno = "";
             try
             {
                 MySqlCommand cmd = new MySqlCommand();
@@ -42,16 +41,24 @@ namespace AutoEvaluacionG6.ws
                 connection.Open();
 
                 lector = cmd.ExecuteReader();
+
                 if (lector.HasRows)
                 {
                     while (lector.Read())
                     {
+                        retorno += "{\"idUsuario\":\"" + lector.GetValue(0).ToString() + "\",\"nombre\":\"" + lector.GetValue(1).ToString() + "\",\"apellido\":\"" + lector.GetValue(2).ToString() + "\", \"idPerfil\":\"" + lector.GetValue(3).ToString() + "\"}";
                     }
-                    retorno = "true";
                 }
+                lector.Close();
+                string estado = "false";
+                if (retorno != "") { estado = "true"; }
+                else { retorno = "{}"; }
+                retorno = "{\"estado\":\"" + estado + "\",\"usuario\":" + retorno + "}";
+
             }
             catch (Exception ex)
             {
+                retorno = "{\"estado\":\"false\",\"datos\":{}}";
                 System.Diagnostics.Debug.WriteLine("Error durante el inicio de sesión!" + ex.Message);
             }
             finally
