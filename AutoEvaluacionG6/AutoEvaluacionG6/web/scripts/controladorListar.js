@@ -45,25 +45,26 @@ function obtenerDefinicionDeListar(url_def_form) {
 
 
 window.onload = function () {
-
+    cargarNavMenu();
     var nombreFormulario = obtenerClaveUrl("formulario");
     var url_def_form = "/web/formularios/" + nombreFormulario + ".json";
 
     var defForm = obtenerDefinicionDeListar(url_def_form);
 
+    // filtro de variables singulares
+    var sql = ReemplazarVariableSingular(defForm.sql);
+
     var obj = {
-        "sql": defForm.sql
+        "sql": sql
     }
     var registros = llamarWS(obj, "/ws/ListarWS.asmx/ObtenerRegistros", false);
     armarFormularioListar(defForm, registros, defForm.redireccion);
-
-
 }
 
 
 function armarFormularioListar(defForm, registros) {
 
-    $("#titulo_form").val(defForm.titulo);
+    $("#titulo_form").text(defForm.titulo);
 
     armarColumnasTitulos(defForm.columnas);
     insertarRegistrosFilas(defForm, registros);
@@ -74,10 +75,10 @@ function armarColumnasTitulos(columnas) {
 
     for (var i = 0; i < columnas.length; i++){
 
-        htmtColumnas += "<th style=\"width:" + columnas[i].tamaño + "px\">" + columnas[i].titulo + "</th> ";
+        htmtColumnas += "<th style=\"min-width:" + columnas[i].tamaño + "px\">" + columnas[i].titulo + "</th> ";
     }
  
-    htmtColumnas += "<th>Acciones</th>";
+    htmtColumnas += "<th style=\"min-width:50px\">Acciones</th>";
     htmtColumnas += "</tr></thead>";
 
     $("#table_form").append(htmtColumnas);
@@ -110,7 +111,7 @@ function insertarRegistrosFilas( defForm, registros) {
 
             }
 
-            htmlAgregar += "<td> <div class=\"btn- group btn- group - justified\">";
+            htmlAgregar += "<td> <div class=\"btn-group btn-group-justified\">";
             if (acciones.alta == true) {
 
             }
