@@ -48,9 +48,7 @@ window.onload = function () {
     cargarNavMenu();
     var nombreFormulario = obtenerClaveUrl("formulario");
     var url_def_form = "/web/formularios/" + nombreFormulario + ".json";
-
     var defForm = obtenerDefinicionDeListar(url_def_form);
-
     // filtro de variables singulares
     var sql = ReemplazarVariableSingular(defForm.sql);
 
@@ -75,7 +73,7 @@ function armarColumnasTitulos(columnas) {
 
     for (var i = 0; i < columnas.length; i++){
 
-        htmtColumnas += "<th style=\"min-width:" + columnas[i].tamaño + "px\">" + columnas[i].titulo + "</th> ";
+        htmtColumnas += "<th style=\"min-width:" + columnas[i].tamanio + "px\">" + columnas[i].titulo + "</th> ";
     }
  
     htmtColumnas += "<th style=\"min-width:50px\">Acciones</th>";
@@ -115,7 +113,7 @@ function insertarRegistrosFilas( defForm, registros) {
             if (acciones.alta == true) {
 
             }
-            if (acciones.editar = true) {
+            if (acciones.editar == true) {
                 htmlAgregar += "<a href=\"/"+ redireccion + ".html?accion=editar&clave=" + claveAux +"\" class=\"btn btn-link\" style=\"padding-top:0px\">Editar</a>";
             }
             if (acciones.baja == true) {

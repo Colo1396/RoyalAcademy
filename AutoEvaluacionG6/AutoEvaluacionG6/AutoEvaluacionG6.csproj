@@ -99,6 +99,7 @@
     <Content Include="web\formularios\preguntas\preguntaListar.json" />
     <Content Include="web\formularios\usuarios.json" />
     <Content Include="web\formularios\resolucionExamen\resolucionExamen.json" />
+    <Content Include="web\formularios\examen\examen.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
