@@ -161,7 +161,7 @@ window.onload = function () {
                 var btn_enviarAlta = $("#btn_Alta_preg");
                 btn_enviarAlta.on("click", function () {
                     //llamo a la funcion que va a llamar al WS para persistir la pregunta con sus respuestas
-                    validaEditarPregunta()
+                    //validaEditarPregunta()
                     // validaAltaRta()
                 });
 
@@ -176,9 +176,126 @@ window.onload = function () {
                 console.log(accion);
                 console.log(clave);
 
+                var claveArray = clave.split("-");
+                var ultimaPosicion = claveArray.length
+                //console.log(claveArray[ultimaPosicion - 1]);
+
+                var idPregAEditar = {
+                    "idPregABuscar": claveArray[ultimaPosicion - 1]
+                }
+
+                var pregRetorno = llamarWS(idPregAEditar, "/ws/altaPreguntas.asmx/BajaPregunta", false);
 
 
-          
+                //############### EN BASE A LA PREGUNTA RETORNADA CARGO EL HTML   ###########################
+                $("#idPregunta").val(pregRetorno.idPregunta);
+                $("#idTipoPregunta").val(pregRetorno.idTipoPregunta);
+                $("#consigna").val(pregRetorno.consigna);
+                //si la IdTipoPRegunta de la pregunta es igual al que esta en el HTML  me carga el div para llenarlo con la respuesta
+                if ($("#idTipoPregunta").val() == pregRetorno.idTipoPregunta) {
+
+                    if ($("#idTipoPregunta").val() == 2) { // capturo el id del combo y me fijo: si es 2  habblamos  de preguntas MC si es 1 hablamos  de preguntas VoF
+                        //alert("se eligio multiple choise");
+                        $("#RtaPreg").empty();// vacio el div (nodo del DOM)
+                        //ahora aca agrego en el div RtaPReg  el html que me arma  el formulario de una pregunta MC
+                        $("#RtaPreg").append("<div id=\"RtaMultipleChoice\">" +
+                            "<p>Preguntas Multiple Choise:" +
+                            "<br /> " +
+                            "<ol id=\"listaMC\">" +
+                            "</ol >" +
+                            "<input type =\"button\" name=\"agregar\" id=\"btn_AddRtaMC\" value=\"+Rta\"/>" +
+                            "</p >" +
+                            "</div > ");
+
+                        //le pongo el valor del a respuesta que obtuve al html
+                        // ----------------------------MULTIPLE CHOICE-----------------------------                     
+                        for (var i = 0; i < pregRetorno.rtas.length; i++) {
+                            agregarPregMC()
+                        }
+
+                        var idRtaMC = $("#RtaMultipleChoice");
+                        var liRtaMC = idRtaMC.find("li");
+                        for (var i = 0; i < pregRetorno.rtas.length; i++) {
+                            //capturo el imtem seleccionaro en la posision de i
+                            var item = $(liRtaMC[i]);
+                            item.find("#respuesta").val(pregRetorno.rtas[i].respuesta)
+                            if (pregRetorno.rtas[i].correcta == 1) {
+                                item.find("#correcta").attr("checked", true);
+                            }
+                            else {
+                                item.find("#correcta").attr("checked", false);
+                            }
+                        }
+                        // ------------------------------------------------------------------------
+                        //genero una variable donde guardo el boton de agregar mas respuetas MC
+                        var btn_AddRtaMC = $("#btn_AddRtaMC");
+                        //reviso si el boton se activo
+                        btn_AddRtaMC.on("click", function () {
+                            // si se activa llamo a la funcion que agrega un html donde se ingresara mas respuestas MC
+                            agregarPregMC()
+                        });
+                    }
+                    else {
+                        //alert("se eligio VoF");
+                        // si se elije tipo de pregunta 1 entramos  en el formulario de Vof
+                        $("#RtaPreg").empty();// vacia el div RtaPreg
+                        // cargo el div con el formulario de Vof
+                        $("#RtaPreg").append(" <div id=\"RtaVoF\">" +
+                            "<p>Preguntas Verdadero/Falso:<br />" +
+                            "<ol> <li>" +
+                            "<input type=\"checkbox\" id=\"correcta\" />" +
+                            "<input type=\"text\" id=\"respuesta\" value=\"V\" />" +
+                            "</li > " +
+                            "<li><input type=\"checkbox\" id=\"correcta\" />" +
+                            "<input type=\"text\" id=\"respuesta\" value=\"F\" />" +
+                            "</li ></ol ></p ></div > ");
+
+                        // ----------------------------VERDADERO O FALSO-----------------------------                   
+                        // reviso si se cargo el div RtaVof
+                        var idRtaVoF = $("#RtaVoF");
+                        //busco si tiene un tag de tipo "li", si lo tiene econtre una lista
+                        var liRtaVoF = idRtaVoF.find("li");
+                        // console.log("cantidad respuestas " + pregRetorno.rtas.length);//probando como traer los datos
+                        // recorro la lista contenida en el campo liRtaVof
+                        for (var i = 0; i < pregRetorno.rtas.length; i++) {
+                            //capturo el imtem seleccionaro en la posision de i
+                            var item = $(liRtaVoF[i]);
+                            //console.log(item.find("#respuesta").val()); //probando como traer los datos
+                            //console.log(pregRetorno.rtas[i].respuesta); //probando como traer los datos
+                            item.find("#respuesta").val(pregRetorno.rtas[i].respuesta)
+                            //console.log(item.find("#correcta").prop("checked"));//probando como traer los datos
+                            //item.find("#correcta").attr("checked",true);//probando como traer los datos
+                            //console.log(item.find("#correcta").prop("checked"));//probando como traer los datos
+                            if (pregRetorno.rtas[i].correcta == 1) {
+                                item.find("#correcta").attr("checked", true);
+                            }
+                            else {
+                                item.find("#correcta").attr("checked", false);
+                            }
+                        }
+                        // ------------------------------------------------------------------------
+                    }
+                }
+
+                // Se captura el boton de "enviar Baja  " (Proximamente boton edicion) 
+                var btn_enviarAlta = $("#btn_Alta_preg");
+                btn_enviarAlta.on("click", function () {
+                    //llamo a la funcion que va a llamar al WS para persistir la pregunta con sus respuestas
+                    //llamo al ws el cual persiste la pregunta
+                    var retorno = llamarWS(idPregAEditar, "/ws/altaPreguntas.asmx/PersistirBaja", false);
+
+                    if (retorno == "true") {
+                        // redireccion al menu
+                        location.href = "menu.html";
+                    } else {
+                        alert("No se pudo enviar baja de pregunta");
+                    }
+                    // validaAltaRta()
+                });
+
+                //**************************************************************************************
+
+                                         
                 break;
             }
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@q
