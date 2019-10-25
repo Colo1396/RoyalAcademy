@@ -24,7 +24,8 @@ namespace AutoEvaluacionG6.conexion
     {
         public static MySqlConnection getConexion()
         {
-            string cn = "datasource=localhost;port=3306;username=root;password='';database=autoevaluaciong6;"; 
+            string cn = "datasource=localhost;port=3306;username=root;password='root';database=autoevaluaciong6;"; 
+            //cambiado por Ro!
             return new MySqlConnection(cn);
         }
     }
