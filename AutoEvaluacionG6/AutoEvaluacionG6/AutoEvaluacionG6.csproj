@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="clases\ejemplo\ejemplo.html" />
     <Content Include="clases\ejemplo\ejemplo.js" />
+    <Content Include="web\corrector.html" />
     <Content Include="web\examen.html" />
     <Content Include="web\probandoMaxId.html" />
     <Content Include="web\scripts\altaExamen.js" />
