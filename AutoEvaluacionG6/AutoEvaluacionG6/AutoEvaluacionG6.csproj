@@ -73,6 +73,7 @@
     <Content Include="web\examen.html" />
     <Content Include="web\probandoMaxId.html" />
     <Content Include="web\scripts\altaExamen.js" />
+    <Content Include="web\scripts\corrector.js" />
     <Content Include="web\scripts\probandoMaxId.js" />
     <Content Include="web\formularios\resolucionExamen\resolucionExamen.html" />
     <Content Include="web\master\nav.html" />
