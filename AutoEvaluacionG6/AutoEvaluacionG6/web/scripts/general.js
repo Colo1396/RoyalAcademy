@@ -49,6 +49,7 @@ function llamarWS(paramJSON, urlWS, asincrono) {
  */
 function ReemplazarVariableSingular(cadena) {
 
+    
     var cadena = cadena.replace(/{usuario}/gi, localStorage.getItem("idUsuario"));
 
     return cadena;

@@ -7,6 +7,7 @@ namespace AutoEvaluacionG6.clases.preguntas
 {
     public class Rtas
     {
+        public virtual int idRespuesta { get; set; }
         public virtual int correcta { get; set; }
         public virtual string respuesta { get; set; }
     }

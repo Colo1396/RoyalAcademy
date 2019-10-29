@@ -69,9 +69,11 @@
   <ItemGroup>
     <Content Include="clases\ejemplo\ejemplo.html" />
     <Content Include="clases\ejemplo\ejemplo.js" />
+    <Content Include="web\corrector.html" />
     <Content Include="web\examen.html" />
     <Content Include="web\probandoMaxId.html" />
     <Content Include="web\scripts\altaExamen.js" />
+    <Content Include="web\scripts\corrector.js" />
     <Content Include="web\scripts\probandoMaxId.js" />
     <Content Include="web\formularios\resolucionExamen\resolucionExamen.html" />
     <Content Include="web\master\nav.html" />
@@ -99,6 +101,7 @@
     <Content Include="web\formularios\preguntas\preguntaListar.json" />
     <Content Include="web\formularios\usuarios.json" />
     <Content Include="web\formularios\resolucionExamen\resolucionExamen.json" />
+    <Content Include="web\formularios\examen\examen.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />

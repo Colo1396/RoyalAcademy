@@ -1,4 +1,5 @@
 ﻿window.onload = function () {
+    cargarNavMenu();
     var accion = obtenerClaveUrl("accion");
     var clave = obtenerClaveUrl("clave");
     switch (accion) {
@@ -7,7 +8,7 @@
 
             var sql = {"sql": "select ifnull(max(idModeloExamen), 0)+1 as idMax from modeloexamen" }
             var idMaxDevuelto = llamarWS(sql, "/ws/traerMaxId.asmx/TraerMaxId", false);
-            console.log(idMaxDevuelto)
+            console.log(idMaxDevuelto);
             $("#idModeloExamen").val(idMaxDevuelto);
             
             //CON EL ID DE LA CARRERA NO HAGO NADA AUN

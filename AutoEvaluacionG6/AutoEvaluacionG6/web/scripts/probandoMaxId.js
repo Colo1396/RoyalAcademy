@@ -3,7 +3,7 @@ window.onload = function () {
 
     var sql = {
 
-        "sql": "select max(idPregunta) as idMax from pregunta"
+        "sql": "select isnull(max(idPregunta),1) as idMax from pregunta"
 
     }
 
@@ -28,7 +28,7 @@ window.onload = function () {
  * @param {any} asincrono  : indica si la llamada es asincronica, generalmente es false (llamada sincronica, espera retorno)
  */
 
-
+/*
 function llamarWS(paramJSON, urlWS, asincrono) {
     var retorno = null;
     $.ajax({
@@ -45,3 +45,4 @@ function llamarWS(paramJSON, urlWS, asincrono) {
     return retorno;
 
 }
+*/
