@@ -16,6 +16,5 @@ namespace AutoEvaluacionG6.clases.resolucionExamen
         {
             this.respuestas = new List<RespuestaInst>();
         }
-
     }
 }
