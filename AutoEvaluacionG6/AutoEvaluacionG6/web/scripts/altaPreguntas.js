@@ -26,6 +26,33 @@ window.onload = function () {
                 $("#idPregunta").val(pregRetorno.idPregunta);
                 $("#idTipoPregunta").val(pregRetorno.idTipoPregunta);
                 $("#consigna").val(pregRetorno.consigna);
+                console.log(pregRetorno.idCarrera);
+
+                //***********se inicializa carrera*****************************************************************************
+
+  
+                var sql = { "sql": "select idCarrera,nombre from carrera" }
+                var registros = llamarWS(sql, "/ws/altaPreguntas.asmx/TraerListCarreras", false);
+                console.log(registros);
+               
+                var carreraabuscar = {
+                    "idCarreraABuscar": pregRetorno.idCarrera
+                }
+                var carreraRetorno = llamarWS(carreraabuscar, "/ws/altaPreguntas.asmx/TraerCarrera", false);
+
+                $("#comboCarreras").append("<option value=\"" + carreraRetorno.idCarrera + "\">" + carreraRetorno.nombre + "</option>");
+
+                //imprimo el resto de las carreras
+                for (var i = 0; i < registros.length; i++) {
+
+                    if (registros[i].idCarrera != carreraRetorno.idCarrera) {
+                         $("#comboCarreras").append("<option value=\"" + registros[i].idCarrera + "\">" + registros[i].nombre + "</option>");
+                    }
+
+                }
+                //**************************************************************************************************************
+
+
                 //si la IdTipoPRegunta de la pregunta es igual al que esta en el HTML  me carga el div para llenarlo con la respuesta
                 if ($("#idTipoPregunta").val() == pregRetorno.idTipoPregunta) {
 
@@ -192,6 +219,18 @@ window.onload = function () {
                 $("#idPregunta").val(pregRetorno.idPregunta);
                 $("#idTipoPregunta").val(pregRetorno.idTipoPregunta);
                 $("#consigna").val(pregRetorno.consigna);
+
+                //***********se inicializa carrera*****************************************************************************
+  
+                var carreraabuscar = {
+                    "idCarreraABuscar": pregRetorno.idCarrera
+                }
+                var carreraRetorno = llamarWS(carreraabuscar, "/ws/altaPreguntas.asmx/TraerCarrera", false);
+
+                $("#comboCarreras").append("<option value=\"" + carreraRetorno.idCarrera + "\">" + carreraRetorno.nombre + "</option>");
+
+
+                //**************************************************************************************************************
                 //si la IdTipoPRegunta de la pregunta es igual al que esta en el HTML  me carga el div para llenarlo con la respuesta
                 if ($("#idTipoPregunta").val() == pregRetorno.idTipoPregunta) {
 
@@ -305,7 +344,18 @@ window.onload = function () {
             $("#tituloHtml").append("Alta de Preguntas:");
             var sql = { "sql": "select max(idPregunta) as idMax from pregunta" }
             var idMaxDevuelto = llamarWS(sql, "/ws/traerMaxId.asmx/TraerMaxId", false);
-            $("#idPregunta").val(idMaxDevuelto+1);
+            $("#idPregunta").val(idMaxDevuelto + 1);
+
+            //--------Carrera----------------------------------------------------
+            var sql = { "sql": "select idCarrera,nombre from carrera" }
+            var registros = llamarWS(sql, "/ws/altaPreguntas.asmx/TraerListCarreras", false);
+            console.log(registros);
+            $("#comboCarreras").append("<option value=\"0\">Seleccionar Carrera</option>");
+            for (var i = 0; i < registros.length; i++) {
+                $("#comboCarreras").append("<option value=\"" + registros[i].idCarrera + "\">" + registros[i].nombre+"</option>");
+            }
+
+            //------------------------------------------------------------
 
             $("#idTipoPregunta").change(function () {//reviso si el combo box cambia de tipo de pregunta
                 // alert("cambio el combo");
@@ -367,10 +417,11 @@ function validaAltaPregunta() {
     var idPregunta = $("#idPregunta").val();
     var idTipoPregunta = $("#idTipoPregunta").val();
     var consigna = $("#consigna").val();
+    var idCarrera = $("#comboCarreras").val();
     console.log(idPregunta);
     console.log(idTipoPregunta);
     console.log(consigna);
-
+    console.log(idCarrera);
 
     //url donde va a ir a buscar el ws
     var urlCompletaAltaPregunta = "/ws/altaPreguntas.asmx/AltaPregunta"
@@ -380,6 +431,7 @@ function validaAltaPregunta() {
         "idPregunta": idPregunta,
         "idTipoPregunta": idTipoPregunta,
         "consigna": consigna,
+        "idCarrera": idCarrera,
         "rtas": []//declare una clave de una lista vacia
     }
 
@@ -396,7 +448,7 @@ function validaAltaPregunta() {
     for (var i = 0; i < liRtaVoF.length; i++) {
         //capturo el imtem seleccionaro en la posision de i
         var item = $(liRtaVoF[i]);
-        var correcta = -1;
+        var correcta = -1;  
         //reviso el id del input donde donde se carga si es correctaq o no (checkbox),
         // la funcion prop me dice si el checkbox fue activado o no , devuelve true o false y con eso comparo con el if seteo la variable correcta con 1 o 0
         if (item.find("#correcta").prop('checked') == true) {// el find reemplaza el $
@@ -479,6 +531,7 @@ function validaEditarPregunta() {
     var idPregunta = $("#idPregunta").val();
     var idTipoPregunta = $("#idTipoPregunta").val();
     var consigna = $("#consigna").val();
+    var idCarrera = $("#comboCarreras").val();
     console.log(idPregunta);
     console.log(idTipoPregunta);
     console.log(consigna);
@@ -492,6 +545,7 @@ function validaEditarPregunta() {
         "idPregunta": idPregunta,
         "idTipoPregunta": idTipoPregunta,
         "consigna": consigna,
+        "idCarrera": idCarrera,
         "rtas": []//declare una clave de una lista vacia
     }
 

@@ -11,6 +11,7 @@ namespace AutoEvaluacionG6.clases.preguntas
         public virtual int idPregunta { get; set; }
         public virtual int idTipoPregunta { get; set; }
         public virtual string consigna { get; set; }
+        public virtual int idCarrera { get; set; }
         public virtual List<Rtas> rtas { get; set; }
 
         public Preguntas()
