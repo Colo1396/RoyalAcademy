@@ -20,6 +20,20 @@ window.onload = function () {
         validarLogin() 
     });
 
+    btn_logear.keypress(function (e) {
+        if (e.charCode == 13 || e.keyCode == 13) {//ENTER
+            validarLogin() 
+        }
+    });
+
+    $("#clave").keypress(function (e) {
+        if (e.charCode == 13 || e.keyCode == 13) {//ENTER
+            validarLogin() 
+        }
+    });
+
+  
+
     // NOTA TAMBIEN Se podia haber hecho sin guardar el boton en la variable de la siguiente manera.
     /*
     $("#btn_logear").on("click", function () {//al hacer click validamos el login
