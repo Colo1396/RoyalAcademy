@@ -71,14 +71,17 @@
     <Content Include="clases\ejemplo\ejemplo.js" />
     <Content Include="web\corrector.html" />
     <Content Include="web\examen.html" />
+    <Content Include="web\formularios\abmAlumnos\ABMAlumnos.html" />
     <Content Include="web\formularios\resolucionExamen\radio_button.css" />
     <Content Include="web\probandoMaxId.html" />
+    <Content Include="web\scripts\abmAlumnos.js" />
     <Content Include="web\scripts\altaExamen.js" />
     <Content Include="web\scripts\corrector.js" />
     <Content Include="web\scripts\probandoMaxId.js" />
     <Content Include="web\formularios\resolucionExamen\resolucionExamen.html" />
     <Content Include="web\master\nav.html" />
     <Content Include="web\scripts\resExamen.js" />
+    <Content Include="ws\abmAlumnos.asmx" />
     <Content Include="ws\altaPreguntas.asmx" />
     <Content Include="ws\ExamenWS.asmx" />
     <Content Include="ws\ResolucionExamen.asmx" />
@@ -147,6 +150,10 @@
     <Compile Include="conexion\Conexion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="util\Funciones.cs" />
+    <Compile Include="ws\abmAlumnos.asmx.cs">
+      <DependentUpon>abmAlumnos.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ws\altaRtaPreg.asmx.cs">
       <DependentUpon>altaRtaPreg.asmx</DependentUpon>
       <SubType>Component</SubType>
