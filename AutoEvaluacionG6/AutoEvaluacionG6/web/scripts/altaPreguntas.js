@@ -183,11 +183,11 @@ window.onload = function () {
 
 
 
-
+                $("#divButton").append(" <input type=\"button\" id=\"btn_Mod_preg\" value=\"Enviar Edicion\" />");
 
                 // Se captura el boton de "enviar Edicion  " (Proximamente boton edicion) 
-                var btn_enviarAlta = $("#btn_Alta_preg");
-                btn_enviarAlta.on("click", function () {
+                var btn_enviarMod = $("#btn_Mod_preg");
+                btn_enviarMod.on("click", function () {
                     //llamo a la funcion que va a llamar al WS para persistir la pregunta con sus respuestas
                     validaEditarPregunta()
                     // validaAltaRta()
@@ -317,9 +317,14 @@ window.onload = function () {
                     }
                 }
 
+
+
+                $("#divButton").append(" <input type=\"button\" id=\"btn_Baja_preg\" value=\"Enviar Baja\" />");
+
+
                 // Se captura el boton de "enviar Baja  " (Proximamente boton edicion) 
-                var btn_enviarAlta = $("#btn_Alta_preg");
-                btn_enviarAlta.on("click", function () {
+                var btn_enviarBaja = $("#btn_Baja_preg");
+                btn_enviarBaja.on("click", function () {
                     //llamo a la funcion que va a llamar al WS para persistir la pregunta con sus respuestas
                     //llamo al ws el cual persiste la pregunta
                     var retorno = llamarWS(idPregAEditar, "/ws/altaPreguntas.asmx/PersistirBaja", false);
@@ -395,6 +400,9 @@ window.onload = function () {
                         "</li ></ol ></p ></div > ");
                 }
             });
+
+
+            $("#divButton").append(" <input type=\"button\" id=\"btn_Alta_preg\" value=\"Enviar Alta\" />");
 
             // Se captura el boton de "enviar alta " 
             var btn_enviarAlta = $("#btn_Alta_preg");
