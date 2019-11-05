@@ -19,13 +19,13 @@ window.onload = function () {
     btn_logear.on("click", function () {//al hacer click validamos el login
         validarLogin() 
     });
-
+        /*
     btn_logear.keypress(function (e) {
         if (e.charCode == 13 || e.keyCode == 13) {//ENTER
             validarLogin() 
         }
     });
-
+      */
     $("#clave").keypress(function (e) {
         if (e.charCode == 13 || e.keyCode == 13) {//ENTER
             validarLogin() 

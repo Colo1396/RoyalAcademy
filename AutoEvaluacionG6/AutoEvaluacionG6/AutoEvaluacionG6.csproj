@@ -72,6 +72,7 @@
     <Content Include="web\corrector.html" />
     <Content Include="web\examen.html" />
     <Content Include="web\formularios\resolucionExamen\radio_button.css" />
+    <Content Include="web\master\navAlumno.html" />
     <Content Include="web\probandoMaxId.html" />
     <Content Include="web\scripts\altaExamen.js" />
     <Content Include="web\scripts\corrector.js" />
