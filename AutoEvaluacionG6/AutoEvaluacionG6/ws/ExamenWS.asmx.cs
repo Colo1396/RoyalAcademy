@@ -22,9 +22,9 @@ namespace AutoEvaluacionG6.ws
     {
 
         [WebMethod]
-        public ModeloExamen obtenerPreguntas() //traer preguntas aleatoriamente
+        public ModeloExamen obtenerPreguntas(int idCarrera) //traer preguntas aleatoriamente
         {
-            String sql = "SELECT * FROM pregunta ORDER BY RAND() LIMIT 5";
+            String sql = "SELECT * FROM pregunta where idCarrera='"+idCarrera+"' ORDER BY RAND() LIMIT 5";
   
             MySqlConnection connection = null;
             MySqlDataReader lector = null;

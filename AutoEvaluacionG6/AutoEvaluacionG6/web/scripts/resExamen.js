@@ -5,6 +5,7 @@ const preguntasXPagina = 4;
 
 window.onload = function () {
     cargarNavMenu();
+    
     var accion = obtenerClaveUrl("accion");
     var clave = obtenerClaveUrl("clave");
 
@@ -146,6 +147,7 @@ function armarObjResultado() {
     }
     if (msjAlerta != "") {
         alert("Hay preguntas sin completar: \n" + msjAlerta);
+        closeWindow();
     } else {
         objResultado.estado = true;
     }

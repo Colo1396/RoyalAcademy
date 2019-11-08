@@ -10,7 +10,17 @@
             var idMaxDevuelto = llamarWS(sql, "/ws/traerMaxId.asmx/TraerMaxId", false);
             console.log(idMaxDevuelto);
             $("#idModeloExamen").val(idMaxDevuelto);
-            
+
+            //--------Carrera----------------------------------------------------
+            sql = { "sql": "select idCarrera,nombre from carrera" }
+            var registros = llamarWS(sql, "/ws/altaPreguntas.asmx/TraerListCarreras", false);
+            console.log(registros);
+            $("#idCarrera").append("<option value=\"0\">Seleccionar Carrera</option>");
+            for (var i = 0; i < registros.length; i++) {
+                $("#idCarrera").append("<option value=\"" + registros[i].idCarrera + "\">" + registros[i].nombre + "</option>");
+            }
+
+            //------------------------------------------------------------
             //CON EL ID DE LA CARRERA NO HAGO NADA AUN
 
             // Se captura el boton de "enviar alta " 
@@ -67,7 +77,7 @@ function generarExamenAuto() {
 
     //url donde va a ir a buscar el ws
     var url = "/ws/ExamenWS.asmx/ObtenerPreguntas"; //esta es una 
-    modelo = llamarWS({}, url, false); //ME VA DEVOLVER UN MODELOExamen que puse en el WS, POR ESO RETORNA EL OBJETO MODELO DEL METODO OBTENER PREGUNTAS 
+    modelo = llamarWS({"idCarrera":idCarrera}, url, false); //ME VA DEVOLVER UN MODELOExamen que puse en el WS, POR ESO RETORNA EL OBJETO MODELO DEL METODO OBTENER PREGUNTAS 
     //como queremos que haga la consulta y la espere, asincrono es false.
     console.log(modelo);
 
@@ -80,9 +90,9 @@ function generarExamenAuto() {
 function armarColumnasTitulos() {
     var htmtColumnas = "<thead> <tr>";
 
-    htmtColumnas += "<th style=\"min-width: 100px\"> idPregunta </th> ";
-    htmtColumnas += "<th style=\"min-width: 100px\">idTipo</th> ";
-    htmtColumnas += "<th style=\"min-width: 150px\">Consigna</th> ";
+    htmtColumnas += "<th class=\"columnas\"  style=\"width: 270px\"> idPregunta </th> ";
+    htmtColumnas += "<th class=\"columnas\"  style=\"width: 270px\">idTipo</th> ";
+    htmtColumnas += "<th class=\"columnas\"  style=\"width: 650px\">Consigna</th> ";
 
     htmtColumnas += "</tr></thead>";
 

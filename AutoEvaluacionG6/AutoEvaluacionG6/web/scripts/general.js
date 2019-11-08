@@ -1,4 +1,5 @@
-﻿
+﻿comprobarSesion();
+
 /**
  * obtiene las claves que se pasan por ULR, a partir del nombre de la clave
  * @param {any} name nombre de la clave
@@ -51,23 +52,50 @@ function ReemplazarVariableSingular(cadena) {
 
     
     var cadena = cadena.replace(/{usuario}/gi, localStorage.getItem("idUsuario"));
-
     return cadena;
 }
 
 function cargarNavMenu() {
-    var url = "/web/master/nav.html";
-    $.ajax({
-        type: "GET",
-        url: url,
-        contentType: "application/json; charset=utf-8",
-        dataType: "html",
-        async: true,
-        success: function (respuesta) {
-            
-            $("body").prepend(respuesta);
+    var idPerfil = localStorage.getItem("idPerfil");
 
+    if (idPerfil != null) {
+        var url = "";
+        switch (idPerfil) {
+            case "1":
+                url = "/web/master/nav.html";
+                break;
+            case "2":
+                url = "/web/master/navAlumno.html";
+                break;
+              
         }
-    });
+
+        $.ajax({
+            type: "GET",
+            url: url,
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            async: true,
+            success: function (respuesta) {
+
+                $(".wrapper2").prepend(respuesta);
+                $("#btn_cerrarSesion").on("click", cerrarSesion);
+
+                window.onfocus = comprobarSesion;
+            }
+        });
+    }
+   
 }
 
+
+function cerrarSesion() {
+    localStorage.clear();
+    location.reload();
+}
+
+function comprobarSesion() {
+    if (localStorage.getItem("idUsuario") == null) {
+        location.href = "/web/index.html";
+    } 
+}

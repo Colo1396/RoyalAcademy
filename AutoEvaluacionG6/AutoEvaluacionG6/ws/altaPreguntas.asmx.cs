@@ -26,7 +26,7 @@ namespace AutoEvaluacionG6.ws
         {
 
             //String sql = "insert into pregunta (idPregunta,idTipoPregunta,consigna) values ('" + idPregunta + "','" + idTipoPregunta + "','" + consigna + "')";
-            String sql = "INSERT INTO pregunta( `idTipoPregunta`, `consigna`) VALUES ( " + pregunta.idTipoPregunta + ", '" + pregunta.consigna + "')";
+            String sql = "INSERT INTO pregunta( `idTipoPregunta`, `consigna`,`idCarrera`) VALUES ( " + pregunta.idTipoPregunta + ", '" + pregunta.consigna + "',"+pregunta.idCarrera+")";
             MySqlConnection connection = null;
             //MySqlDataReader lector = null;
 
@@ -122,7 +122,7 @@ namespace AutoEvaluacionG6.ws
                 // cmd.Transaction = trans;
 
                 //TRAIGO LA PREGUNTA
-                cmd.CommandText = "select preg.idTipoPregunta,preg.consigna from pregunta preg where preg.idPregunta='"+ idPregABuscar + "'";//cargo el sql en el commandText
+                cmd.CommandText = "select preg.idTipoPregunta,preg.consigna,preg.idCarrera from pregunta preg where preg.idPregunta='"+ idPregABuscar + "'";//cargo el sql en el commandText
                 lector = cmd.ExecuteReader();// lo ejecuto para traerme el maximo id de pregunta y lo guardo en un lector
                 if (lector.HasRows)//reviso si el lector tiene registros
                 {
@@ -133,10 +133,12 @@ namespace AutoEvaluacionG6.ws
                         pregunta.idPregunta = idPregABuscar;
                         pregunta.idTipoPregunta = (int)lector.GetValue(0);
                         pregunta.consigna = (string)lector.GetValue(1);
+                        pregunta.idCarrera = (int)lector.GetValue(2);
 
                         Debug.WriteLine("idPregunta: " + pregunta.idPregunta);
                         Debug.WriteLine("idTipoPregunta: " + pregunta.idTipoPregunta);
                         Debug.WriteLine("consigna: " + pregunta.consigna);
+                        Debug.WriteLine("idCarrera: " + pregunta.idCarrera);
 
                     }
                    // retorno = "true";
@@ -195,7 +197,7 @@ namespace AutoEvaluacionG6.ws
 
             //String sql = "insert into pregunta (idPregunta,idTipoPregunta,consigna) values ('" + idPregunta + "','" + idTipoPregunta + "','" + consigna + "')";
             //String sql = "INSERT INTO pregunta( `idTipoPregunta`, `consigna`) VALUES ( " + pregunta.idTipoPregunta + ", '" + pregunta.consigna + "')";
-            String sql = "UPDATE pregunta SET idTipoPregunta = '"+ pregunta.idTipoPregunta + "',consigna= '"+ pregunta.consigna + "' WHERE idPregunta = '"+ pregunta.idPregunta + "'";
+            String sql = "UPDATE pregunta SET idTipoPregunta = '"+ pregunta.idTipoPregunta + "',consigna= '"+ pregunta.consigna + "',idCarrera='"+pregunta.idCarrera+"' WHERE idPregunta = '"+ pregunta.idPregunta + "'";
                 
             
             MySqlConnection connection = null;
@@ -255,6 +257,58 @@ namespace AutoEvaluacionG6.ws
 
         }
 
+
+
+        [WebMethod]
+        public Carrera TraerCarrera(int idCarreraABuscar)
+        {
+            MySqlConnection connection = null;
+            MySqlDataReader lector = null;
+            String retorno = "false";
+            Carrera carrera = new Carrera();
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                connection = Conexion.getConexion();
+                cmd.Connection = connection;
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandTimeout = 240;
+                connection.Open();
+
+                //TRAIGO LA Carrera
+                cmd.CommandText = "select nombre from carrera  where idCarrera='" + idCarreraABuscar + "'";//cargo el sql en el commandText
+                lector = cmd.ExecuteReader();// lo ejecuto para traerme el maximo id de pregunta y lo guardo en un lector
+                if (lector.HasRows)//reviso si el lector tiene registros
+                {
+                    while (lector.Read())
+                    {
+                        //idMaxPreg = (int)lector.GetValue(0);//capturo la columna 0 del sql que tengo en el lector y lo guardo en el id casteado como int
+                        //idMaxPreg = (int)lector.GetValue(lector.GetOrdinal("idPregunta"));//traeme la posicion donde tengo la columna "idPregunta"
+                        carrera.idCarrera = idCarreraABuscar;
+                        carrera.nombre = (String)lector.GetValue(0);
+                        Debug.WriteLine("idCarrera: " + carrera.idCarrera);
+                        Debug.WriteLine("nombre: " + carrera.nombre);
+                    }
+                }
+                if (lector != null) lector.Close();// cierro el lector si no queda dando vueltas y te puede tirar un error
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Error durante el inicio de sesión!" + ex.Message);
+            }
+            finally
+            {
+                if (lector != null) lector.Close();
+                if (connection != null) connection.Close();
+            }
+            return carrera;
+
+        }
+
+
+
+
+
         //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@--BAJAR (MELI)--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@q
         [WebMethod]
         public Preguntas BajaPregunta(int idPregABuscar)
@@ -282,7 +336,7 @@ namespace AutoEvaluacionG6.ws
                 // cmd.Transaction = trans;
 
                 //TRAIGO LA PREGUNTA
-                cmd.CommandText = "select preg.idTipoPregunta,preg.consigna from pregunta preg where preg.idPregunta='" + idPregABuscar + "'";//cargo el sql en el commandText
+                cmd.CommandText = "select preg.idTipoPregunta,preg.consigna,preg.idCarrera from pregunta preg where preg.idPregunta='" + idPregABuscar + "'";//cargo el sql en el commandText
                 lector = cmd.ExecuteReader();// lo ejecuto para traerme el maximo id de pregunta y lo guardo en un lector
                 if (lector.HasRows)//reviso si el lector tiene registros
                 {
@@ -293,10 +347,12 @@ namespace AutoEvaluacionG6.ws
                         pregunta.idPregunta = idPregABuscar;
                         pregunta.idTipoPregunta = (int)lector.GetValue(0);
                         pregunta.consigna = (string)lector.GetValue(1);
+                        pregunta.idCarrera = (int)lector.GetValue(2);
 
                         Debug.WriteLine("idPregunta: " + pregunta.idPregunta);
                         Debug.WriteLine("idTipoPregunta: " + pregunta.idTipoPregunta);
                         Debug.WriteLine("consigna: " + pregunta.consigna);
+                        Debug.WriteLine("idCarrera: " + pregunta.idCarrera);
 
                     }
                     // retorno = "true";
@@ -404,8 +460,70 @@ namespace AutoEvaluacionG6.ws
             return retorno;
 
         }
+        //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        [WebMethod]
+        public List<Carrera> TraerListCarreras(String sql)
+        {
+            MySqlConnection connection = null;
+            MySqlDataReader lector = null;
+            String retorno = "false";
+         
+            MySqlTransaction trans = null;
+          
+            List<Carrera> listaCarreras = new List<Carrera>();
+            
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                connection = Conexion.getConexion();
+                cmd.Connection = connection;
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandTimeout = 240;
+                connection.Open();
+
+              //  trans = connection.BeginTransaction();
+              //  cmd.Transaction = trans;
+
+                //TRAIGO LA CARRERA
+                cmd.CommandText = sql;//cargo el sql en el commandText
+                lector = cmd.ExecuteReader();// lo ejecuto para traerme el maximo id de pregunta y lo guardo en un lector
+                if (lector.HasRows)//reviso si el lector tiene registros
+                {
+                    Carrera carrera = null;
+                    while (lector.Read())
+                    {
 
 
+
+                        //Debug.WriteLine(lector.GetValue(0));
+                        //Debug.WriteLine(lector.GetValue(1));
+                        carrera = new Carrera();
+                            carrera.idCarrera =(int)lector.GetValue(0);
+                            carrera.nombre = (String)lector.GetValue(1);
+                            listaCarreras.Add(carrera);
+                            
+                        
+
+                    }
+                    // retorno = "true";
+                }
+                if (lector != null) lector.Close();// cierro el lector si no queda dando vueltas y te puede tirar un error
+
+            }
+            catch (Exception ex)
+            {
+                //rollback si algo salio mal
+              //  if (trans != null) trans.Rollback();
+                System.Diagnostics.Debug.WriteLine("Error durante el inicio de sesión!" + ex.Message);
+            }
+            finally
+            {
+                if (lector != null) lector.Close();
+                if (connection != null) connection.Close();
+            }
+            return listaCarreras;
+
+        }
 
     }
 }

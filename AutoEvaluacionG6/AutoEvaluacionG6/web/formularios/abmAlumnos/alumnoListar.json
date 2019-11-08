@@ -1,0 +1,48 @@
+{
+  "titulo": "Lista de Alumnos",
+  "sql": "select idAlumno, nombre, apellido,cuil,nroLegajo from persona P inner join alumno A on A.idAlumno = P.idPersona",
+  "acciones": {
+    "alta": false,
+    "editar": true,
+    "baja": true
+  },
+  "columnas": [
+    {
+      "titulo": "ID",
+      "nomBD": "idPersona",
+      "clave": true,
+      "tamanio": 50
+    },
+    {
+      "titulo": "Nombre",
+      "nomBD": "nombre",
+      "clave": false,
+      "tamanio": 250
+    },
+    {
+      "titulo": "Apellido",
+      "nomBD": "apellido",
+      "clave": false,
+      "tamanio": 120
+    },
+    {
+      "titulo": "Cuil",
+      "nomBD": "cuil",
+      "clave": false,
+      "tamanio": 120
+    },
+    {
+      "titulo": "NroLegajo",
+      "nomBD": "nroLegajo",
+      "clave": false,
+      "tamanio": 120
+    }
+  ],
+
+  "redireccion": "web/formularios/abmAlumnos/ABMAlumnos"
+
+}
+
+
+
+
