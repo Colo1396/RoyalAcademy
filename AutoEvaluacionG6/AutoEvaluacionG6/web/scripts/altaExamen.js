@@ -12,7 +12,7 @@
             $("#idModeloExamen").val(idMaxDevuelto);
 
             //--------Carrera----------------------------------------------------
-            var sql = { "sql": "select idCarrera,nombre from carrera" }
+            sql = { "sql": "select idCarrera,nombre from carrera" }
             var registros = llamarWS(sql, "/ws/altaPreguntas.asmx/TraerListCarreras", false);
             console.log(registros);
             $("#idCarrera").append("<option value=\"0\">Seleccionar Carrera</option>");
