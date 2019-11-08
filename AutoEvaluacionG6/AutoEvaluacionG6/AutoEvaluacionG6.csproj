@@ -110,6 +110,8 @@
     <Content Include="web\formularios\usuarios.json" />
     <Content Include="web\formularios\resolucionExamen\resolucionExamen.json" />
     <Content Include="web\formularios\examen\examen.json" />
+    <Content Include="web\formularios\abmAlumnos\alumnoListar.json" />
+    <Content Include="web\formularios\abmAlumnos\adminListar.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
