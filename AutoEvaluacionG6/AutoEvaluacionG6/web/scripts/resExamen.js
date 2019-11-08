@@ -5,11 +5,11 @@ const preguntasXPagina = 4;
 
 window.onload = function () {
     cargarNavMenu();
-    
+
     var accion = obtenerClaveUrl("accion");
     var clave = obtenerClaveUrl("clave");
 
-    if (accion == "editar") {
+    if (accion == "realizar") {
         var claveArray = clave.split("-");
         var objBuscar = {
             "idExamen": claveArray[1]
@@ -21,8 +21,8 @@ window.onload = function () {
             dibujarBtnPaginado();
             dibujarPaginas();
             dibujarExamen();
-        } 
- 
+        }
+
     }
 }
 
@@ -33,11 +33,11 @@ function dibujarPaginas() {
     var paginas = "";
     var ocultar = "";
     var cantPreguntas = modeloExamen.preguntas.length;
-    var cantPaginas = Math.ceil(cantPreguntas/preguntasXPagina);
+    var cantPaginas = Math.ceil(cantPreguntas / preguntasXPagina);
 
-    for (var i = 0; i < cantPaginas;i++){
+    for (var i = 0; i < cantPaginas; i++) {
         paginas += "<div class=\"pagina\" " + ocultar + " data-nro=\"" + (i + 1) + "\"> </div>";
-        ocultar = "style=\"display:none;\""; 
+        ocultar = "style=\"display:none;\"";
     }
     $(".miContainer").prepend(paginas);
 
@@ -60,9 +60,8 @@ function dibujarBtnPaginado() {
         claseActiva = "page-item";
     }
 
-    paginado += "<li class=\"\" ><a  class=\"page-link\">" + "-" +"</a></li>";
-    paginado += "<li class=\"btn_guardar pointer\" ><a  class=\"page-link\" style=\"background-color:#007bff;\">Guardar</a></li>";
-
+    paginado += " <div align=\"center\"><li class=\"\" ><a  class=\"page-link\">" + "-" + "</a></li>  </div>";
+    paginado += " <div><li class=\"btn_guardar pointer\" ><a  class=\"page-link\" style=\"background-color:#007bff;\">Guardar</a></li> </div>";
 
     paginado += "</ul>";
     var nodoPAginado = $(paginado);
@@ -74,7 +73,7 @@ function dibujarBtnPaginado() {
         var btn = $(this);
         $(".page-item").removeClass("active");
         btn.addClass("active");
-        controlPaginaVisibles(btn.data("nro")); 
+        controlPaginaVisibles(btn.data("nro"));
     });
 
     nodoPAginado.find(".btn_guardar").on("click", function () {
@@ -89,7 +88,7 @@ function guardarRespuestas() {
 
     var objResultado = armarObjResultado();
 
-    if (objResultado.estado == true){
+    if (objResultado.estado == true) {
         var obj = {
             "respuestas": objResultado.respuestas
         }
@@ -102,7 +101,7 @@ function guardarRespuestas() {
             alert("ERROR! No se pudo persistir");
         }
     }
-    
+
 }
 /**
  * Si todas las preguntas estan contestadas envio el examen.
@@ -115,7 +114,7 @@ function armarObjResultado() {
     var rtaAlumnoBase = {
         "nroPregunta": 0,
         "nroRespuesta": 0,
-        "idExamen":0
+        "idExamen": 0
     }
 
     var objResultado = {
@@ -124,12 +123,12 @@ function armarObjResultado() {
     }
 
     var preguntas = $(".pregunta");
-    for (var i = 0; i < preguntas.length;i++){
+    for (var i = 0; i < preguntas.length; i++) {
         var preg = $(preguntas[i]);
         var dataPregunta = preg.data("pregunta");
         var indice = dataPregunta.indice;
         var idPregunta = dataPregunta.id;
-         
+
         var nodoSeleccionado = $("input[name='" + idPregunta + "']:checked");
         if (nodoSeleccionado.length > 0) {
             // creo una copia del JSON 
@@ -160,7 +159,7 @@ function armarObjResultado() {
 function controlPaginaVisibles(nroPagina) {
     $(".pagina").hide();
     var nodoPagina = buscarNodoPaginaXNro(nroPagina);
-    nodoPagina.show();  
+    nodoPagina.show();
 }
 
 /**
@@ -170,7 +169,7 @@ function controlPaginaVisibles(nroPagina) {
 function buscarNodoPaginaXNro(nroPagina) {
     var nodoPagina = null;
     var paginas = $(".pagina");
-    for (var i = 0; i < paginas.length; i++){
+    for (var i = 0; i < paginas.length; i++) {
         var nodoPagina = $(paginas[i]);
         if (nodoPagina.data("nro") == nroPagina) {
             i = paginas.length;
@@ -183,11 +182,11 @@ function buscarNodoPaginaXNro(nroPagina) {
  * REcorre las preguntas para armar y pegar en cada pagina
  */
 function dibujarExamen() {
-    for (var i = 0; i < modeloExamen.preguntas.length;i++){
+    for (var i = 0; i < modeloExamen.preguntas.length; i++) {
         var pregunta = modeloExamen.preguntas[i];
-        
-        var preguntaHtml = armarHTMLPregunta(pregunta,i);
-        var nroPAginaBuscada = Math.ceil((i+1) / preguntasXPagina);
+
+        var preguntaHtml = armarHTMLPregunta(pregunta, i);
+        var nroPAginaBuscada = Math.ceil((i + 1) / preguntasXPagina);
         var nodoPAgina = buscarNodoPaginaXNro(nroPAginaBuscada);
         nodoPAgina.append(preguntaHtml);
     }
@@ -200,19 +199,19 @@ function dibujarExamen() {
  */
 function armarHTMLPregunta(pregunta, indice) {
     indice = indice + 1;
-   // var htmlPregunta = "<div class=\"pregunta\" data-nro=\"1\">";
+    // var htmlPregunta = "<div class=\"pregunta\" data-nro=\"1\">";
     var htmlPregunta = '<div class="pregunta" data-pregunta={"id":"' + pregunta.idPregunta + '","indice":' + indice + '}>';
-        htmlPregunta += '<div class="container" >';
-        htmlPregunta += '<h2>' + indice +" ) " + pregunta.consigna + '</h2>';
-        for (var i = 0; i < pregunta.respuestas.length; i++){
-            var resp = pregunta.respuestas[i];
-            htmlPregunta += '<label class="container">';
-            htmlPregunta +=  resp.respuesta;
-            htmlPregunta += '<input data-respuesta={"id":"' + resp.idRespuesta + '"} type="radio" name="' + pregunta.idPregunta+'"><span class="checkmark"></span>';
-            htmlPregunta += '</label>';
-        }
-        htmlPregunta += '</div>';
-        htmlPregunta += '</div>';
+    htmlPregunta += '<div class="container" >';
+    htmlPregunta += '<h2 class="consigna">' + indice + " ) " + pregunta.consigna + '</h2>';
+    for (var i = 0; i < pregunta.respuestas.length; i++) {
+        var resp = pregunta.respuestas[i];
+        htmlPregunta += '<label class="container">';
+        htmlPregunta += resp.respuesta;
+        htmlPregunta += '<input  data-respuesta={"id":"' + resp.idRespuesta + '"} type="radio" name="' + pregunta.idPregunta + '"><span class="checkmark"></span>';
+        htmlPregunta += '</label>';
+    }
+    htmlPregunta += '</div>';
+    htmlPregunta += '</div>';
 
     return htmlPregunta;
 }

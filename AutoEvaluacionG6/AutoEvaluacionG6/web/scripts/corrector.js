@@ -1,4 +1,8 @@
-﻿function filtroCarrera(carrera) {
+﻿window.onload = function () {
+    cargarNavMenu();
+}
+
+function filtroCarrera(carrera) {
     var idCarrera = $("#idCarrera").val();
     console.log(idCarrera)//solo para corroboar
 

@@ -3,8 +3,9 @@
   "sql": "select idExamen, idInstanciaExamen,DATE_FORMAT(fecha, '%d/%m/%Y')  as fecha from Examen where idAlumno = '{usuario}' ",
   "acciones": {
     "alta": false,
-    "editar": true,
-    "baja": false
+    "editar": false,
+    "baja": false,
+    "realizar": true
   },
   "columnas": [
     {

@@ -3,26 +3,61 @@
 <head>
     <meta charset="utf-8" />
     <title>Preguntas</title>
+    <!--ICONOS-->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"> -->
+    <link rel="stylesheet" href="/web/font-awesome/css/font-awesome.min.css">
+
+    <!-- TIPO DE LETRA  -->
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Open+Sans+Condensed:300&display=swap"
+          rel="stylesheet">
+
+    <!--BOOTSTRAP-->
+
     <link type="text/css" href="/web/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!--SCRIPTS-->
     <script src="/web/scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
     <script src="/web/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="/web/scripts/general.js" type="text/javascript"></script>
     <script src="/web/scripts/resExamen.js" type="text/javascript"></script>
+
     <style>
+
         /* The container */
+
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background: #e1ecf2;
+            background: url(/web/img/2.jpg);
+        }
+
+        /*.container{
+
+            margin: 10px;
+        }*/
+
+
         .container {
             display: block;
             position: relative;
-            padding-left: 35px;
-            margin-bottom:2%;
-            font-size: 22px;
+            /*padding-left: 5px;*/
+            /*margin-bottom: 2%;*/
+            /*font-size: 15px;*/
         }
 
-        /* style="align-items:center"*/
+            /* style="align-items:center"*/
 
-        .container label {
-            cursor: pointer;
-        }
+            .container label {
+                cursor: pointer;
+            }
 
         .pointer {
             cursor: pointer;
@@ -33,19 +68,30 @@
             position: absolute;
             opacity: 0;
             cursor: pointer;
-            margin-left:2%;
+            margin-left: 2%;
         }
 
         /* Create a custom radio button */
         .checkmark {
             position: absolute;
             top: 0;
-            left: 0;
-            height: 25px;
-            width: 25px;
+            left: -.5em;
+            margin-top: 5px;
+            height: 15px;
+            width: 15px;
             background-color: #eee;
             border-radius: 50%;
         }
+
+        /*.container #paginador {
+            margin-left: 300px;
+        }*/
+
+            .container #paginador div {
+                margin-right: 200px;
+                text-decoration:none;
+                color: rgba(0,0,150,.9);
+            }
 
         /* On mouse-over, add a grey background color */
         .container:hover input ~ .checkmark {
@@ -71,8 +117,8 @@
 
         /* Style the indicator (dot/circle) */
         .container .checkmark:after {
-            top: 9px;
-            left: 9px;
+            top: 4px;
+            left: 4px;
             width: 8px;
             height: 8px;
             border-radius: 50%;
@@ -84,31 +130,110 @@
         }
 
         .miContainer {
+            background: white;
+            width: 100%;
+            /*max-width: 900px;*/
+            margin-top: 5px; /*para centrarlo*/
+            padding: 5px 5px;
+            /*margin-top: 30px;*/
+            padding-bottom: 30px;
+            border-radius: 3px;
             height: calc(100vh - 100px);
             overflow-y: scroll;
         }
 
-        .footer {
-            position: fixed;
-            left: 0;
-            bottom: -15px;
-            width: 100%;
-            background-color: darkgrey;
+        h1 {
+            font-family: 'Alegreya Sans SC', sans-serif; /* font-family: sans-serif; */
+            font-size: 35px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            /*color: rgb(4, 181, 194);*/
+            color: #a2c0ff;
+            /*color: #ff851b;*/
             text-align: center;
+            padding: 10px 0;
         }
 
+        #logo {
+            color: white;
+            font-size: 25px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            font-family: 'Alegreya Sans SC', sans-serif;
+        }
+
+
+
+        .footer {
+            position: fixed;
+            bottom: 0px;
+            left: 0px;
+            width: 100%;
+opacity:inherit;         
+background: rgba(0,0,0,.6);
+text-align: center;
+        }
+
+        .nav {
+            margin-bottom: 10px;
+            height: 40px;
+            position: fixed;
+            top: 10px;
+            border-radius: 10px;
+        }
+
+        .consigna {
+            font-size: 20px;
+        }
+
+        .form-input {
+            border: none;
+            outline: none;
+            border-bottom: 2px solid rgb(4, 181, 194);
+            /*border-bottom: 2px solid rgb(85, 12, 114);*/
+            width: 100%;
+            padding: 5px;
+            /*margin-bottom: 5px;*/
+            /*border-radius: 2px;*/
+            font-size: 14px;
+            /*color:#FFF;*/
+            color: rgba(78, 41, 41, 0.678);
+            font-family: Roboto;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
-    <div class="miContainer">
+    <div class="container">
 
-    </div>
-   
-    <div class="footer text-center">
-        <div class="container" id="paginador">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <div class="row">
+                <div class="col" align="left">
+                    <a class="navbar-brand" id="logo" href="#">
+                        <img src="/web/img/3.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+                        Royal Academy
+                    </a>
+                </div>
+            </div>
+            <div class="col" align="right">
+                <h1>Examen</h1>
+            </div>
+            <div class="col" align="right">
+            </div>
+        </nav>
+
+        <div class="miContainer">
+
+        </div>
+
+        <div class="footer text-center">
+
+            <div class="container" id="paginador">
+            </div>
+
+
         </div>
     </div>
 
-   
 </body>
 </html>

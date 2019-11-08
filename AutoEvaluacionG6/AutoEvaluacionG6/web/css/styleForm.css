@@ -51,7 +51,7 @@ body {
         /*color: rgb(18, 70, 168);*/
         font-size: 15px;
         font-family: Roboto;
-        position: relative;
+        /*position: relative;*/
         margin-bottom:0;
     }
 
@@ -91,6 +91,27 @@ body {
     /*color: rgba(78, 41, 41, 0.678);*/
     font-family: Roboto;
 }
+
+/* INPUT CHIQUITO DE LA CORRECCION*/
+.form-input3 {
+    border-radius: 10px;
+    /*background: rgba(0,0,0,.7);*/
+    /*background: rgba(144, 228, 253, 0.7);*/
+    border: none;
+    outline: none;
+    border-bottom: 2px solid rgb(4, 181, 194);
+    /*border-bottom: 2px solid rgb(85, 12, 114);*/
+    width: 100px;
+    /*min-width: 85%;*/
+    padding: 5px;
+    margin-top:5px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #FFF;
+    /*color: rgba(78, 41, 41, 0.678);*/
+    font-family: Roboto;
+}
+
 
 .main_container .form .form-input:focus, .form-selector:focus {
     border-bottom: 2px solid rgb(241, 174, 28);
@@ -141,13 +162,31 @@ footer {
     font-size: 20px;
 }
 
-/* BOTONES PREGUNTAS */
+/* "de 50" archivo corrector.html*/
+.title3 {
+    margin-top: 10px;
+    color: white;
+    font-size: 20px;
+}
+/**/
 
-#btn_Alta_preg , #btn_cancelar {
+.main_container .form .form-header .title3 {
+    font-family: 'Alegreya Sans SC', sans-serif; /* font-family: sans-serif; */
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    /*color: rgb(4, 181, 194);*/
+    color: white;
+    /*color: #ff851b;*/
+    text-align: center;
+    padding: 10px 0;
+}
+/* BOTONES PREGUNTAS */
+#btn_Alta_preg, #btn_cancelar {
     margin-top: 5px;
     width: 100%;
-    margin-bottom:0;
-    padding:5px;
+    margin-bottom: 0;
+    padding: 5px;
 }
 /*FIN BOTONES PREGUNTAS*/
 
@@ -181,3 +220,16 @@ td {
 /*FIN TABLA*/
 
 /**/
+
+.main_container .form2 {
+    /* background: rgba(180, 191, 243, 0.6); COLOR DEL FORMULARIO */
+    /*background: #f2f4f8;*/
+    background: rgba(255, 255, 255, 0.6);
+    width: 100%;
+    /*max-width: 900px;*/
+    margin: auto; /*para centrarlo*/
+    padding: 5px 35px;
+    /*margin-top: 30px;*/
+    padding-bottom: 30px;
+    border-radius: 3px;
+}
