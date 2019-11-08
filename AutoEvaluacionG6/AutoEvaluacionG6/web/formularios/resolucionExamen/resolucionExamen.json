@@ -11,19 +11,19 @@
       "titulo": "ID",
       "nomBD": "idExamen",
       "clave": true,
-      "tamanio": 50
+      "tamanio": 80
     },
     {
       "titulo": "Instancia",
       "nomBD": "Instancia Examen",
       "clave": false,
-      "tamanio": 100
+      "tamanio": 420
     },
     {
       "titulo": "Fecha",
       "nomBD": "fecha",
       "clave": false,
-      "tamanio": 100
+      "tamanio": 300
     }
   ],
   "redireccion": "web/formularios/resolucionExamen/resolucionExamen"

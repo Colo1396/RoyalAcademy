@@ -78,8 +78,9 @@ function cargarNavMenu() {
             async: true,
             success: function (respuesta) {
 
-                $("body").prepend(respuesta);
+                $(".wrapper2").prepend(respuesta);
                 $("#btn_cerrarSesion").on("click", cerrarSesion);
+
                 window.onfocus = comprobarSesion;
             }
         });
