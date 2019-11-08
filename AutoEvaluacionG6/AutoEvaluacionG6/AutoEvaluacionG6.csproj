@@ -79,6 +79,8 @@
     <Content Include="web\font-awesome\css\font-awesome.min.css" />
     <Content Include="web\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="web\font-awesome\HELP-US-OUT.txt" />
+    <Content Include="web\formularios\reporte\repGen.html" />
+    <Content Include="web\formularios\abmAlumnos\ABMAlumnos.html" />
     <Content Include="web\formularios\resolucionExamen\radio_button.css" />
     <Content Include="web\img\3.jpg" />
     <Content Include="web\img\3.png" />
@@ -87,13 +89,18 @@
     <Content Include="web\master\contenidoSidebar.html" />
     <Content Include="web\master\navAlumno.html" />
     <Content Include="web\probandoMaxId.html" />
+    <Content Include="web\scripts\abmAlumnos.js" />
     <Content Include="web\scripts\altaExamen.js" />
     <Content Include="web\scripts\corrector.js" />
     <Content Include="web\scripts\probandoMaxId.js" />
     <Content Include="web\formularios\resolucionExamen\resolucionExamen.html" />
     <Content Include="web\master\nav.html" />
+    <Content Include="web\scripts\repGen.js" />
     <Content Include="web\scripts\resExamen.js" />
+
     <Content Include="web\scripts\sidebar.js" />
+
+    <Content Include="ws\abmAlumnos.asmx" />
     <Content Include="ws\altaPreguntas.asmx" />
     <Content Include="ws\ExamenWS.asmx" />
     <Content Include="ws\ResolucionExamen.asmx" />
@@ -152,6 +159,8 @@
     <Content Include="web\font-awesome\scss\_screen-reader.scss" />
     <Content Include="web\font-awesome\scss\_stacked.scss" />
     <Content Include="web\font-awesome\scss\_variables.scss" />
+    <Content Include="web\formularios\abmAlumnos\alumnoListar.json" />
+    <Content Include="web\formularios\abmAlumnos\adminListar.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
@@ -185,9 +194,13 @@
     <Compile Include="clases\ejemplo\DetalleEjemplo.cs" />
     <Compile Include="clases\ejemplo\Ejemplo.cs" />
     <Compile Include="clases\examen\ModeloExamen.cs" />
+    <Compile Include="clases\persona\Admin.cs" />
+    <Compile Include="clases\persona\Alumno.cs" />
+    <Compile Include="clases\persona\Persona.cs" />
     <Compile Include="clases\preguntas\Carrera.cs" />
     <Compile Include="clases\preguntas\Preguntas.cs" />
     <Compile Include="clases\preguntas\Rtas.cs" />
+    <Compile Include="clases\persona\Usuario.cs" />
     <Compile Include="clases\resolucionExamen\InstExamen.cs" />
     <Compile Include="clases\resolucionExamen\PreguntaInst.cs" />
     <Compile Include="clases\resolucionExamen\RespuestaInst.cs" />
@@ -195,6 +208,10 @@
     <Compile Include="conexion\Conexion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="util\Funciones.cs" />
+    <Compile Include="ws\abmAlumnos.asmx.cs">
+      <DependentUpon>abmAlumnos.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ws\altaRtaPreg.asmx.cs">
       <DependentUpon>altaRtaPreg.asmx</DependentUpon>
       <SubType>Component</SubType>
