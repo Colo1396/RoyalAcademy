@@ -140,9 +140,13 @@
     <Compile Include="clases\ejemplo\DetalleEjemplo.cs" />
     <Compile Include="clases\ejemplo\Ejemplo.cs" />
     <Compile Include="clases\examen\ModeloExamen.cs" />
+    <Compile Include="clases\persona\Admin.cs" />
+    <Compile Include="clases\persona\Alumno.cs" />
+    <Compile Include="clases\persona\Persona.cs" />
     <Compile Include="clases\preguntas\Carrera.cs" />
     <Compile Include="clases\preguntas\Preguntas.cs" />
     <Compile Include="clases\preguntas\Rtas.cs" />
+    <Compile Include="clases\persona\Usuario.cs" />
     <Compile Include="clases\resolucionExamen\InstExamen.cs" />
     <Compile Include="clases\resolucionExamen\PreguntaInst.cs" />
     <Compile Include="clases\resolucionExamen\RespuestaInst.cs" />

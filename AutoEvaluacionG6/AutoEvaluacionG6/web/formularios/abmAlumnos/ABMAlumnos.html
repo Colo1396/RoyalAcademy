@@ -14,33 +14,52 @@
     <div class="jumbotron container">
         <h1 id="tituloHtml"></h1>
         <br />
-        <p>
-            Id:
-            <input type="text" class="pregunta" id="idPregunta" readonly="readonly" />
+        <div id="persona">
+            Persona:<br />
+            Id Persona: <input type="text" id="idPersona" value="" readonly="readonly" /><br />
+            Ingrese Nombre: <input type="text" id="nombre" value="" /><br />
+            Ingrese Apellido: <input type="text" id="apellido" value="" /><br />
+            Ingrese Cuil: <input type="text" id="cuil" value="" /><br />
+            
+
             <br />
-            Tipo de Pregunta:
-            <select id="idTipoPregunta">
-                <option value="0">Seleccionar Tipo</option>
-                <option value="1">Verdadero o Falso</option>
-                <option value="2">Multiple Choice</option>
+            Perfil:<br />
+                   
+                       Seleccione Perfil:
+
+                       <select id="idPerfil">
+                           <option value="0">Seleccione Perfil</option>
+                           <option value="1">Administrador</option>
+                           <option value="2">Alumno</option>
+                       </select>
+                       <br />
+
+            <br />
+
+            <div id="tipoPerfil">
+
+
+
+            </div>
+
+
+            <br />
+            Usuario:<br />
+            Id Usuario: <input type="text" id="idUsuario" value="" readonly="readonly"/><br />
+            Id Perfil: <input type="text" id="idPerfilUsuario" value="" readonly="readonly"/><br />
+            Clave: <input type="password" id="clave" value="" /><br />
+            Mail: <input type="text" id="mail" value="" /><br />
+            Estado:
+            <select id="estado">
+                <option value="0">Desactivado</option>
+                <option value="1">Activados</option>
             </select>
-
             <br />
-            Carrera:
-            <select id="comboCarreras">
 
-            </select>
-
-            <br />
-            Consigna:
-            <input type="text" id="consigna" value="" />
-        </p>
-
-        <br />
-
-        <div id="RtaPreg">
 
         </div>
+
+        
 
         <div id="divButton">
 
