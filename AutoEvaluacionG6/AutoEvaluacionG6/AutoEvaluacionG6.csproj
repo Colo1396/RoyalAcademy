@@ -71,6 +71,7 @@
     <Content Include="clases\ejemplo\ejemplo.js" />
     <Content Include="web\corrector.html" />
     <Content Include="web\examen.html" />
+    <Content Include="web\formularios\reporte\repGen.html" />
     <Content Include="web\formularios\abmAlumnos\ABMAlumnos.html" />
     <Content Include="web\formularios\resolucionExamen\radio_button.css" />
     <Content Include="web\master\navAlumno.html" />
@@ -81,6 +82,7 @@
     <Content Include="web\scripts\probandoMaxId.js" />
     <Content Include="web\formularios\resolucionExamen\resolucionExamen.html" />
     <Content Include="web\master\nav.html" />
+    <Content Include="web\scripts\repGen.js" />
     <Content Include="web\scripts\resExamen.js" />
     <Content Include="ws\abmAlumnos.asmx" />
     <Content Include="ws\altaPreguntas.asmx" />
