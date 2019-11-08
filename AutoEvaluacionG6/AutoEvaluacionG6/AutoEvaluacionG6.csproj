@@ -102,6 +102,7 @@
 
     <Content Include="ws\abmAlumnos.asmx" />
     <Content Include="ws\altaPreguntas.asmx" />
+    <Content Include="ws\Corrector.asmx" />
     <Content Include="ws\ExamenWS.asmx" />
     <Content Include="ws\ResolucionExamen.asmx" />
     <Content Include="ws\traerMaxId.asmx" />
@@ -191,9 +192,11 @@
     <Content Include="ws\Login.asmx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clases\carreras\Carrera.cs" />
     <Compile Include="clases\ejemplo\DetalleEjemplo.cs" />
     <Compile Include="clases\ejemplo\Ejemplo.cs" />
     <Compile Include="clases\examen\ModeloExamen.cs" />
+    <Compile Include="clases\GestorListas\GestorCarreras.cs" />
     <Compile Include="clases\persona\Admin.cs" />
     <Compile Include="clases\persona\Alumno.cs" />
     <Compile Include="clases\persona\Persona.cs" />
@@ -214,6 +217,10 @@
     </Compile>
     <Compile Include="ws\altaRtaPreg.asmx.cs">
       <DependentUpon>altaRtaPreg.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ws\Corrector.asmx.cs">
+      <DependentUpon>Corrector.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ws\EjemploWS.asmx.cs">
@@ -264,7 +271,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50539</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50539/</IISUrl>
+          <IISUrl>http://localhost:3005/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
