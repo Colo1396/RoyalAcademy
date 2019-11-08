@@ -1,4 +1,6 @@
-﻿@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap');
+﻿
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap');
 
 * {
     margin: 0;
@@ -11,7 +13,7 @@
 
 body {
     background: #e1ecf2;
-    background: url(../img/2.jpg);
+    background: url(/web/img/bg.jpg) no-repeat center center fixed;
 }
 
 .wrapper2 {
@@ -89,13 +91,13 @@ body {
                         }
 
     .wrapper2 .sidebar {
-        overflow:scroll;
+        overflow: scroll;
         position: fixed;
         top: 70px;
         left: 10px;
         background: #2e4ead;
-         /*width: 200px;*/ 
-         width:auto;
+        /*width: 200px;*/
+        width: auto;
         height: calc(100% - 80px);
         border-bottom-left-radius: 20px;
         transition: all 0.3s ease;
@@ -336,4 +338,3 @@ a{
         font-size: 14px;
         line-height: 22px;
     }
-

@@ -118,7 +118,11 @@ function insertarRegistrosFilas( defForm, registros) {
             }
             if (acciones.baja == true) {
                 htmlAgregar += "<a href=\"/" + redireccion + ".html?accion=baja&clave=" + claveAux + "\" class=\"btn btn-danger\" style=\"padding-top:0px\"><i class=\"fa fa-trash-o\" aria-hidden=\"true\"></i>Eliminar</a>";
-            }
+        }
+        if (acciones.realizar == true) {
+            htmlAgregar += "<a href=\"/" + redireccion + ".html?accion=realizar&clave=" + claveAux + "\" class=\"btn btn-success\" style=\"padding-top:0px; margin-right:5px;\"><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i>Realizar</a>";
+        }
+
      
             htmlAgregar += "</div></td>";
         htmlAgregar += "</tr>";

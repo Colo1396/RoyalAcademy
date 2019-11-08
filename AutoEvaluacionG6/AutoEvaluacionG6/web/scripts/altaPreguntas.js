@@ -62,10 +62,8 @@ window.onload = function () {
                         //ahora aca agrego en el div RtaPReg  el html que me arma  el formulario de una pregunta MC
                         $("#RtaPreg").append("<div id=\"RtaMultipleChoice\">" +
                             " <div class=\"row\">" +
-                            "<h2 class=\"title\">Preguntas Multiple Choise</h1>" +
-
+                            "<p class=\"title2\">Preguntas Multiple Choise</p>" +
                             " <div class=\"col-sm-10\">" +
-                            "<label for=\"listaMC\" class=\"form-label\" " +
                             "<ol id=\"listaMC\">" +
                             "<li>" +
                             "<input type=\"checkbox\" id=\"correctaMC\" />" +
@@ -77,8 +75,8 @@ window.onload = function () {
 
                             " <button type=\"button\" name=\"agregar\" id=\"btn_AddRtaMC\" class=\"btn-submit\"><i class='fa fa-plus' aria-hidden='true'></i> Rta</button>" +
                             "</div>" +
+                            "</div>" +
                             "</div>");
-
 
 
 
@@ -115,16 +113,21 @@ window.onload = function () {
                         // si se elije tipo de pregunta 1 entramos  en el formulario de Vof
                         $("#RtaPreg").empty();// vacia el div RtaPreg
                         // cargo el div con el formulario de Vof
-                        $("#RtaPreg").append("<h2 class=\"title\">Preguntas Verdadero / Falso</h1>" +
-                            "<label class=\"form-label\">Respuestas:</label>" +
+                        $("#RtaPreg").append("<p class=\"title2\">Preguntas Verdadero / Falso</p>" +
+                            "<ol>" +
+                            "<li>" +
                             "<div class=\"form-check\">" +
-                            "<input class=\"form-check-input\" type=\"radio\" id=\"correcta\" name=\"exampleRadios\" checked />" +
-                            "<input type=\"text\" id=\"respuesta\" value=\"V\" class=\"form-input\" />" +
+                            "<input class=\"form-check-input\" type=\"radio\" id=\"correcta\" name=\"exampleRadios\" />" +
+                            "<input type=\"text\" id=\"respuesta\" value=\"V\" class=\"form-input2\" />" +
                             "</div>" +
+                            "</li>" +
+                            "<li>" +
                             "<div class=\"form-check\">" +
                             "<input class=\"form-check-input\" type=\"radio\" id=\"correcta\" name=\"exampleRadios\">" +
-                            "<input type=\"text\" id=\"respuesta\" value=\"F\" class=\"form-input\" />" +
-                            "</div> ");
+                            "<input type=\"text\" id=\"respuesta\" value=\"F\" class=\"form-input2\" />" +
+                            "</div> " +
+                            "</li>" +
+                            "</ol>");
 
                         // ----------------------------VERDADERO O FALSO-----------------------------                   
                         // reviso si se cargo el div RtaVof
@@ -164,10 +167,8 @@ window.onload = function () {
                         //ahora aca agrego en el div RtaPReg  el html que me arma  el formulario de una pregunta MC
                         $("#RtaPreg").append("<div id=\"RtaMultipleChoice\">" +
                             " <div class=\"row\">" +
-                            "<h2 class=\"title\">Preguntas Multiple Choise</h1>" +
-
+                            "<p class=\"title2\">Preguntas Multiple Choise</p>" +
                             " <div class=\"col-sm-10\">" +
-                            "<label for=\"listaMC\" class=\"form-label\" " +
                             "<ol id=\"listaMC\">" +
                             "<li>" +
                             "<input type=\"checkbox\" id=\"correctaMC\" />" +
@@ -178,6 +179,7 @@ window.onload = function () {
                             "<div class=\"col-sm-2\">" +
 
                             " <button type=\"button\" name=\"agregar\" id=\"btn_AddRtaMC\" class=\"btn-submit\"><i class='fa fa-plus' aria-hidden='true'></i> Rta</button>" +
+                            "</div>" +
                             "</div>" +
                             "</div>");
                         //genero una variable donde guardo el boton de agregar mas respuetas MC
@@ -209,6 +211,8 @@ window.onload = function () {
                 $("#divButton").append("<div class=\"row\"><div class=\"col-sm-6\">" +
                     "<input type=\"button\" id=\"btn_Mod_preg\" class=\"btn btn-success btn-lg btn-block\"" +
                     "value=\"Enviar modificación\" />" +
+                    " <a type=\"button\" id=\"btn_cancelar\" class=\"btn btn-danger\" " +
+                    "href=\"/web/menu.html \">Cancelar</a>"+
                     "</div >" +
                     " </div >");
 
@@ -269,10 +273,8 @@ window.onload = function () {
                         //ahora aca agrego en el div RtaPReg  el html que me arma  el formulario de una pregunta MC
                         $("#RtaPreg").append("<div id=\"RtaMultipleChoice\">" +
                             " <div class=\"row\">" +
-                            "<h2 class=\"title\">Preguntas Multiple Choise</h1>" +
-
+                            "<p class=\"title2\">Preguntas Multiple Choise</p>" +
                             " <div class=\"col-sm-10\">" +
-                            "<label for=\"listaMC\" class=\"form-label\" " +
                             "<ol id=\"listaMC\">" +
                             "<li>" +
                             "<input type=\"checkbox\" id=\"correctaMC\" />" +
@@ -283,6 +285,7 @@ window.onload = function () {
                             "<div class=\"col-sm-2\">" +
 
                             " <button type=\"button\" name=\"agregar\" id=\"btn_AddRtaMC\" class=\"btn-submit\"><i class='fa fa-plus' aria-hidden='true'></i> Rta</button>" +
+                            "</div>" +
                             "</div>" +
                             "</div>");
 
@@ -319,16 +322,21 @@ window.onload = function () {
                         // si se elije tipo de pregunta 1 entramos  en el formulario de Vof
                         $("#RtaPreg").empty();// vacia el div RtaPreg
                         // cargo el div con el formulario de Vof
-                        $("#RtaPreg").append("<h2 class=\"title\">Preguntas Verdadero / Falso</h1>" +
-                            "<label class=\"form-label\">Respuestas:</label>" +
+                        $("#RtaPreg").append("<p class=\"title2\">Preguntas Verdadero / Falso</p>" +
+                            "<ol>" +
+                            "<li>" +
                             "<div class=\"form-check\">" +
-                            "<input class=\"form-check-input\" type=\"radio\" id=\"correcta\" name=\"exampleRadios\" checked />" +
-                            "<input type=\"text\" id=\"respuesta\" value=\"V\" class=\"form-input\" />" +
+                            "<input class=\"form-check-input\" type=\"radio\" id=\"correcta\" name=\"exampleRadios\" />" +
+                            "<input type=\"text\" id=\"respuesta\" value=\"V\" class=\"form-input2\" />" +
                             "</div>" +
+                            "</li>" +
+                            "<li>" +
                             "<div class=\"form-check\">" +
                             "<input class=\"form-check-input\" type=\"radio\" id=\"correcta\" name=\"exampleRadios\">" +
-                            "<input type=\"text\" id=\"respuesta\" value=\"F\" class=\"form-input\" />" +
-                            "</div> ");
+                            "<input type=\"text\" id=\"respuesta\" value=\"F\" class=\"form-input2\" />" +
+                            "</div> " +
+                            "</li>" +
+                            "</ol>");
 
                         // ----------------------------VERDADERO O FALSO-----------------------------                   
                         // reviso si se cargo el div RtaVof
@@ -361,6 +369,8 @@ window.onload = function () {
                 $("#divButton").append("<div class=\"row\"><div class=\"col-sm-6\">" +
                     "<input type=\"button\" id=\"btn_Baja_preg\" class=\"btn btn-success btn-lg btn-block\"" +
                     "value=\"Enviar baja\" />" +
+                    " <a type=\"button\" id=\"btn_cancelar\" class=\"btn btn-danger\" " +
+                    "href=\"/web/menu.html \">Cancelar</a>"+
                     "</div >" +
                     " </div >");
 
@@ -427,6 +437,7 @@ window.onload = function () {
                         "<div class=\"col-sm-2\">" +
 
                         " <button type=\"button\" name=\"agregar\" id=\"btn_AddRtaMC\" class=\"btn-submit\"><i class='fa fa-plus' aria-hidden='true'></i> Rta</button>" +
+
                         "</div>" +
                         "</div>" +
                         "</div>");
@@ -465,8 +476,8 @@ window.onload = function () {
             $("#divButton").append("<div class=\"row\"><div class=\"col-sm-6\"><input type=\"button\" id=\"btn_Alta_preg\" class=\"btn btn-success\"" +
                 "value=\"Enviar alta\"/></div>" +
                 "<div class=\"col-sm-6\">"+
-                   " <input type=\"button\" id=\"btn_cancelar\" class=\"btn btn-danger\" "+
-                        "value=\"Cancelar\" />"+
+                   " <a type=\"button\" id=\"btn_cancelar\" class=\"btn btn-danger\" " +
+                         "href=\"/web/menu.html \">Cancelar</a>"+
                 "</div>"+
                " </div > ");
 
