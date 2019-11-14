@@ -90,9 +90,9 @@ function generarExamenAuto() {
 function armarColumnasTitulos() {
     var htmtColumnas = "<thead> <tr>";
 
-    htmtColumnas += "<th style=\"min-width: 100px\"> idPregunta </th> ";
-    htmtColumnas += "<th style=\"min-width: 100px\">idTipo</th> ";
-    htmtColumnas += "<th style=\"min-width: 150px\">Consigna</th> ";
+    htmtColumnas += "<th class=\"columnas\"  style=\"width: 270px\"> idPregunta </th> ";
+    htmtColumnas += "<th class=\"columnas\"  style=\"width: 270px\">idTipo</th> ";
+    htmtColumnas += "<th class=\"columnas\"  style=\"width: 650px\">Consigna</th> ";
 
     htmtColumnas += "</tr></thead>";
 

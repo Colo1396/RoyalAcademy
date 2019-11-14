@@ -70,10 +70,23 @@
     <Content Include="clases\ejemplo\ejemplo.html" />
     <Content Include="clases\ejemplo\ejemplo.js" />
     <Content Include="web\corrector.html" />
+    <Content Include="web\css\login.css" />
+    <Content Include="web\css\style.css" />
+    <Content Include="web\css\styleForm.css" />
     <Content Include="web\examen.html" />
+    <Content Include="web\examenManual.html" />
+    <Content Include="web\font-awesome\css\font-awesome.css" />
+    <Content Include="web\font-awesome\css\font-awesome.min.css" />
+    <Content Include="web\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="web\font-awesome\HELP-US-OUT.txt" />
     <Content Include="web\formularios\reporte\repGen.html" />
     <Content Include="web\formularios\abmAlumnos\ABMAlumnos.html" />
     <Content Include="web\formularios\resolucionExamen\radio_button.css" />
+    <Content Include="web\img\3.jpg" />
+    <Content Include="web\img\3.png" />
+    <Content Include="web\img\a.png" />
+    <Content Include="web\img\user01.png" />
+    <Content Include="web\master\contenidoSidebar.html" />
     <Content Include="web\master\navAlumno.html" />
     <Content Include="web\probandoMaxId.html" />
     <Content Include="web\scripts\abmAlumnos.js" />
@@ -84,8 +97,12 @@
     <Content Include="web\master\nav.html" />
     <Content Include="web\scripts\repGen.js" />
     <Content Include="web\scripts\resExamen.js" />
+
+    <Content Include="web\scripts\sidebar.js" />
+
     <Content Include="ws\abmAlumnos.asmx" />
     <Content Include="ws\altaPreguntas.asmx" />
+    <Content Include="ws\Corrector.asmx" />
     <Content Include="ws\ExamenWS.asmx" />
     <Content Include="ws\ResolucionExamen.asmx" />
     <Content Include="ws\traerMaxId.asmx" />
@@ -110,6 +127,39 @@
     <Content Include="web\formularios\usuarios.json" />
     <Content Include="web\formularios\resolucionExamen\resolucionExamen.json" />
     <Content Include="web\formularios\examen\examen.json" />
+    <Content Include="web\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="web\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="web\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="web\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="web\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="web\font-awesome\less\animated.less" />
+    <Content Include="web\font-awesome\less\bordered-pulled.less" />
+    <Content Include="web\font-awesome\less\core.less" />
+    <Content Include="web\font-awesome\less\fixed-width.less" />
+    <Content Include="web\font-awesome\less\font-awesome.less" />
+    <Content Include="web\font-awesome\less\icons.less" />
+    <Content Include="web\font-awesome\less\larger.less" />
+    <Content Include="web\font-awesome\less\list.less" />
+    <Content Include="web\font-awesome\less\mixins.less" />
+    <Content Include="web\font-awesome\less\path.less" />
+    <Content Include="web\font-awesome\less\rotated-flipped.less" />
+    <Content Include="web\font-awesome\less\screen-reader.less" />
+    <Content Include="web\font-awesome\less\stacked.less" />
+    <Content Include="web\font-awesome\less\variables.less" />
+    <Content Include="web\font-awesome\scss\font-awesome.scss" />
+    <Content Include="web\font-awesome\scss\_animated.scss" />
+    <Content Include="web\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="web\font-awesome\scss\_core.scss" />
+    <Content Include="web\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="web\font-awesome\scss\_icons.scss" />
+    <Content Include="web\font-awesome\scss\_larger.scss" />
+    <Content Include="web\font-awesome\scss\_list.scss" />
+    <Content Include="web\font-awesome\scss\_mixins.scss" />
+    <Content Include="web\font-awesome\scss\_path.scss" />
+    <Content Include="web\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="web\font-awesome\scss\_screen-reader.scss" />
+    <Content Include="web\font-awesome\scss\_stacked.scss" />
+    <Content Include="web\font-awesome\scss\_variables.scss" />
     <Content Include="web\formularios\abmAlumnos\alumnoListar.json" />
     <Content Include="web\formularios\abmAlumnos\adminListar.json" />
   </ItemGroup>
@@ -142,9 +192,11 @@
     <Content Include="ws\Login.asmx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clases\carreras\Carrera.cs" />
     <Compile Include="clases\ejemplo\DetalleEjemplo.cs" />
     <Compile Include="clases\ejemplo\Ejemplo.cs" />
     <Compile Include="clases\examen\ModeloExamen.cs" />
+    <Compile Include="clases\GestorListas\GestorCarreras.cs" />
     <Compile Include="clases\persona\Admin.cs" />
     <Compile Include="clases\persona\Alumno.cs" />
     <Compile Include="clases\persona\Persona.cs" />
@@ -165,6 +217,10 @@
     </Compile>
     <Compile Include="ws\altaRtaPreg.asmx.cs">
       <DependentUpon>altaRtaPreg.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ws\Corrector.asmx.cs">
+      <DependentUpon>Corrector.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ws\EjemploWS.asmx.cs">
@@ -215,7 +271,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50539</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50539/</IISUrl>
+          <IISUrl>http://localhost:3005/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

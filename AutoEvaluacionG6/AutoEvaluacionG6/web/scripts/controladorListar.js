@@ -73,10 +73,10 @@ function armarColumnasTitulos(columnas) {
 
     for (var i = 0; i < columnas.length; i++){
 
-        htmtColumnas += "<th style=\"min-width:" + columnas[i].tamanio + "px\">" + columnas[i].titulo + "</th> ";
+        htmtColumnas += "<th class=\"columnas\" style=\"width:" + columnas[i].tamanio + "px\">" + columnas[i].titulo + "</th> ";
     }
  
-    htmtColumnas += "<th style=\"min-width:50px\">Acciones</th>";
+    htmtColumnas += "<th clas=\"columnas\" style=\"width:400px\">Acciones</th>";
     htmtColumnas += "</tr></thead>";
 
     $("#table_form").append(htmtColumnas);
@@ -114,11 +114,15 @@ function insertarRegistrosFilas( defForm, registros) {
 
             }
             if (acciones.editar == true) {
-                htmlAgregar += "<a href=\"/"+ redireccion + ".html?accion=editar&clave=" + claveAux +"\" class=\"btn btn-link\" style=\"padding-top:0px\">Editar</a>";
+                htmlAgregar += "<a href=\"/" + redireccion + ".html?accion=editar&clave=" + claveAux + "\" class=\"btn btn-success\" style=\"padding-top:0px; margin-right:5px;\"><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i>Editar</a>";
             }
             if (acciones.baja == true) {
-                htmlAgregar += "<a href=\"/" + redireccion + ".html?accion=baja&clave=" + claveAux +"\" class=\"btn btn-link\" style=\"padding-top:0px\">Eliminar</a>";
-            }
+                htmlAgregar += "<a href=\"/" + redireccion + ".html?accion=baja&clave=" + claveAux + "\" class=\"btn btn-danger\" style=\"padding-top:0px\"><i class=\"fa fa-trash-o\" aria-hidden=\"true\"></i>Eliminar</a>";
+        }
+        if (acciones.realizar == true) {
+            htmlAgregar += "<a href=\"/" + redireccion + ".html?accion=realizar&clave=" + claveAux + "\" class=\"btn btn-success\" style=\"padding-top:0px; margin-right:5px;\"><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i>Realizar</a>";
+        }
+
      
             htmlAgregar += "</div></td>";
         htmlAgregar += "</tr>";

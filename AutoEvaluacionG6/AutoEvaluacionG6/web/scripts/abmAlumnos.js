@@ -97,7 +97,7 @@ window.onload = function () {
                
 
 
-                $("#divButton").append("<br /><input type=\"button\" id=\"btn_Mod_Persona\" value=\"Enviar Edicion\" />");
+                $("#divButton").append("<br /><input type=\"button\" id=\"btn_Mod_Persona\" class=\"btn-submit\" value=\"Enviar Edicion\" />");
 
                 var btn_enviarEdicion = $("#btn_Mod_Persona");
                 btn_enviarEdicion.on("click", function () {
@@ -201,7 +201,7 @@ window.onload = function () {
 
 
 
-                $("#divButton").append("<br /><input type=\"button\" id=\"btn_Baja_Persona\" value=\"Enviar Baja\" />");
+                $("#divButton").append("<br /><input type=\"button\" id=\"btn_Baja_Persona\" value=\"Enviar Baja\" class=\"btn-submit\"/>");
 
                 var btn_enviarBaja = $("#btn_Baja_Persona");
                 btn_enviarBaja.on("click", function () {
@@ -252,7 +252,7 @@ window.onload = function () {
 
                 
 
-                $("#divButton").append("<br /><input type=\"button\" id=\"btn_Alta_Persona\" value=\"Enviar Alta\" />");
+                $("#divButton").append("<br /><input type=\"button\" id=\"btn_Alta_Persona\" value=\"Enviar Alta\" class=\"btn-submit\" />");
 
                 var btn_enviarAlta = $("#btn_Alta_Persona");
                 btn_enviarAlta.on("click", function () {
@@ -270,14 +270,17 @@ window.onload = function () {
 function cargarDivAdmin() {
     $("#tipoPerfil").empty();
     $("#tipoPerfil").append(
-        "Id Admin: <input type=\"text\" id=\"idAdmin\" readonly=\"readonly\"><br />"+
-            "Nombre: <input type=\"text\" id=\"nombreAdmin\"><br />"+
-                "Tipo: <select id=\"idTipo\">"+
-                    "<option value=\"1\">AG</option>" +
-                    "<option value=\"2\">AP</option>"+
+        "<label for=\"idAdmin\" class=\"form-label\">Id Admin:</label>" +
+        " <input type=\"text\" name=\"idAdmin\" id=\"idAdmin\" class=\"form-input\">" +
+        "<label for=\"nombreAdmin\" class=\"form-label\">Nombre Admin:</label>" +
+        "<input type=\"text\" name=\"nombreAdmin\" id=\"nombreAdmin\" class=\"form-input\">" +
+        "<label for=\"idTipo\" class=\"form-label\">Tipo de administrador:</label>" +
+        "<select id=\"idTipo\" name=\"idTipo\" class=\"form-selector\">" +
+        "<option value=\"1\">AG</option>" +
+        "<option value=\"2\">AP</option>"+
                     "<option value=\"3\">AS</option>"+
-                 "</select>"
-    );
+        "</select>");
+
     $("#idPerfilUsuario").val($("#idPerfil").val());
     $("#idAdmin").val($("#idPersona").val());
 }

@@ -4,7 +4,7 @@
   "sql": "select idModeloExamen, C.nombre as nomCarrera, '25/10/2019' as fecha from modeloExamen M inner join Carrera C on C.idCarrera = M.idCarrera  ",
   "acciones": {
     "alta": false,
-    "editar": false,
+    "editar": true,
     "baja": true
   },
   "columnas": [
@@ -12,19 +12,19 @@
       "titulo": "ID",
       "nomBD": "idModeloExamen",
       "clave": true,
-      "tamanio": 50
+      "tamanio": 80
     },
     {
       "titulo": "Carrera",
       "nomBD": "nomCarrera",
       "clave": false,
-      "tamanio": 400
+      "tamanio": 420
     },
     {
       "titulo": "Fecha",
       "nomBD": "fecha",
       "clave": false,
-      "tamanio": 100
+      "tamanio": 300
     }
   ],
   "redireccion": "web/examen"

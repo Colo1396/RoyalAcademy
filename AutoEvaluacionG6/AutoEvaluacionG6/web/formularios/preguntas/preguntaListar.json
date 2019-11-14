@@ -11,19 +11,19 @@
       "titulo": "ID",
       "nomBD": "idPregunta",
       "clave": true,
-      "tamanio": 50
+      "tamanio": 80
     },
     {
       "titulo": "Consigna",
       "nomBD": "consigna",
       "clave": false,
-      "tamanio": 250
+      "tamanio": 510
     },
     {
       "titulo": "Tipo",
       "nomBD": "nombreTipo",
       "clave": false,
-      "tamanio": 120
+      "tamanio": 200
     }
   ],
 
