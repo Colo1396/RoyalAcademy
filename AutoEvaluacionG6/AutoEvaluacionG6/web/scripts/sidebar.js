@@ -14,4 +14,9 @@
         p.stopPropagation();
     })
 
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+
 });
+
