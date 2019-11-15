@@ -138,7 +138,7 @@
         }
         $.ajax({
             type: 'POST',
-            url: '/ws/Corrector.asmx/ObtenerFechasExamenes',
+            url: '/ws/Corrector.asmx/ObtenerFechasExamen',
             data: JSON.stringify(idCarrera),
             contentType: 'application/json; utf-8',
             dataType: 'json',
