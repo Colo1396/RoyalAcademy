@@ -273,7 +273,7 @@ namespace AutoEvaluacionG6.ws
         public String cantidadPreguntas(String id)
         {
             String c = "";
-            int cantidadPreguntas;
+            int cantidadPreguntas=0;
             MySqlConnection connection = null;
             MySqlDataReader lector = null;
             System.Diagnostics.Debug.WriteLine("ListarWS.ObtenerRegistros SQL : " + id);
