@@ -208,12 +208,13 @@ window.onload = function () {
                     }
                 });
 
-                $("#divButton").append("<div class=\"row\"><div class=\"col-sm-6\">" +
+                $("#divButton").append("<div class=\"row\"><div class=\"col-6\">" +
                     "<input type=\"button\" id=\"btn_Mod_preg\" class=\"btn btn-success btn-lg btn-block\"" +
-                    "value=\"Enviar modificación\" />" +
-                    " <a type=\"button\" id=\"btn_cancelar\" class=\"btn btn-danger\" " +
-                    "href=\"/web/menu.html \">Cancelar</a>"+
+                    "value=\"Enviar modificación\" />" + 
                     "</div >" +
+                    "<div class=\"col-6\">" +
+                    "<button  class=\"btn btn-danger btn-lg btn-block\" onclick=\"location.href='/web/menu.html'\">Cancelar</button>"+
+                    "</div >" + 
                     " </div >");
 
                 //$("#divButton").append(" <input type=\"button\" id=\"btn_Mod_preg\" value=\"Enviar Edicion\" />");
@@ -365,12 +366,12 @@ window.onload = function () {
                     }
                 }
 
-
-                $("#divButton").append("<div class=\"row\"><div class=\"col-sm-6\">" +
+                $("#divButton").append("<div class=\"row\"><div class=\"col-6\">" +
                     "<input type=\"button\" id=\"btn_Baja_preg\" class=\"btn btn-success btn-lg btn-block\"" +
                     "value=\"Enviar baja\" />" +
-                    " <a type=\"button\" id=\"btn_cancelar\" class=\"btn btn-danger\" " +
-                    "href=\"/web/menu.html \">Cancelar</a>"+
+                    "</div >" +
+                    "<div class=\"col-6\">" +
+                    "<button  class=\"btn btn-danger btn-lg btn-block\" onclick=\"location.href='/web/menu.html'\">Cancelar</button>" +
                     "</div >" +
                     " </div >");
 
@@ -472,14 +473,14 @@ window.onload = function () {
                 }
             });
 
-
-            $("#divButton").append("<div class=\"row\"><div class=\"col-sm-6\"><input type=\"button\" id=\"btn_Alta_preg\" class=\"btn btn-success\"" +
-                "value=\"Enviar alta\"/></div>" +
-                "<div class=\"col-sm-6\">"+
-                   " <a type=\"button\" id=\"btn_cancelar\" class=\"btn btn-danger\" " +
-                         "href=\"/web/menu.html \">Cancelar</a>"+
-                "</div>"+
-               " </div > ");
+            $("#divButton").append("<div class=\"row mt-2\"><div class=\"col-6\">" +
+                "<input type=\"button\" id=\"btn_Alta_preg\" class=\"btn btn-success btn-lg btn-block\"" +
+                "value=\"Enviar alta\" />" +
+                "</div >" +
+                "<div class=\"col-6\">" +
+                "<button  class=\"btn btn-danger btn-lg btn-block \" onclick=\"location.href='/web/menu.html'\">Cancelar</button>" +
+                "</div >" +
+                " </div >");
 
             // Se captura el boton de "enviar alta " 
             var btn_enviarAlta = $("#btn_Alta_preg");
