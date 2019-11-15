@@ -207,6 +207,12 @@ window.onload = function () {
                 btn_enviarBaja.on("click", function () {
                    
                     var retorno = llamarWS({ "idBaja": personaRetorno.idPersona }, "/ws/abmAlumnos.asmx/PersistirBaja", false);
+                    if (retorno == "true") {
+                        // redireccion al menu
+                        location.href = "/web/menu.html";
+                    } else {
+                        alert("No se pudo enviar alta de persona");
+                    }
                 });
                 break;
             }
@@ -338,12 +344,12 @@ function altaPersona() {
     console.log(retornoWs);
 
 
-    /*if (retornoWs == "true") {
+    if (retornoWs == "true") {
         // redireccion al menu
-        location.href = "menu.html";//esto es mal pero no se como se hace hay borrarlo porque hay 2 menu.html
+        location.href = "/web/menu.html";
     } else {
         alert("No se pudo enviar alta de persona");
-    }*/
+    }
 }
 
 
@@ -395,5 +401,12 @@ function persistirEdicion() {
     console.log(parametros);
     var retornoWs = llamarWS(parametros, "/ws/abmAlumnos.asmx/PersistirEdicion", false);
     console.log(retornoWs);
+
+    if (retornoWs == "true") {
+        // redireccion al menu
+        location.href = "/web/menu.html";
+    } else {
+        alert("No se pudo enviar alta de persona");
+    }
 
 }
