@@ -1,183 +1,132 @@
-﻿body {
-    margin: 0;
+﻿* {
+    /* margin: 0; */
     padding: 0;
-    width: 100%;
-    background: url('../img/3.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+    box-sizing: border-box;
+}
+
+body {
+    background: url('/web/img/3.jpg') no-repeat center center fixed;
     background-size: cover;
-    /* font-family: 'Open Sans Condensed', sans-serif; */
+    font-family: sans-serif;
 }
 
-.form-container {
+.login-wrapper {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    position: relative;
+    width: 100%;
+    /* max-width: 380px; */
+    max-width: 500px;
+    height: 100%;
+    max-height: 450px;
+    padding: 80px 40px 40px;
+    background: rgba(0,0,0,0.7);
+    /* background-color: rgba(50,64,77,.90); */
+    border-radius: 10px;
     color: #fff;
-    padding: 20px;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+    margin-left: 20px;
+    margin-top:80px;
+}
+
+    .form::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        background: rgba(255,255,255, 0.08);
+        transform: skewX(-26deg);
+        transform-origin: bottom left;
+        border-radius: 10px;
+        pointer-events: none;
+    }
+
+    .form img {
+        position: absolute;
+        /* top: -50px; */
+        top: -110px;
+        /* left: calc(50% - 50px); */
+        left: calc(50% - 95px);
+        /* width: 100px; */
+        width: 190px;
+        background: rgba(255,255,255, 0.8);
+        /* border-radius: 50%; */
+        border-radius: 50px;
+        margin-top: 2rem;
+    }
+
+    .form h2 {
+        text-align: center;
+        letter-spacing: 1px;
+        margin-bottom: 3rem;
+        /* color: #3412f0; */
+        color: #fff;
+        font-size: 35px;
+        font-family: 'Alegreya Sans SC', sans-serif;
+        margin-top: 2rem;
+    }
+
+    .form .input-group {
+        position: relative;
+        /*margin: 1rem;*/
+    }
+
+        .form .input-group input {
+            width: 100%;
+            padding: 10px 0;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            border: none;
+            border-bottom: 1px solid #fff;
+            outline: none;
+            background-color: transparent;
+            color: inherit;
+            font-family: 'Open Sans Condensed', sans-serif;
+        }
+
+        .form .input-group label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 10px 0;
+            font-size: 1.5rem;
+            pointer-events: none;
+            transition: .3s ease-out;
+            font-family: 'Open Sans Condensed', sans-serif;
+        }
+
+        .form .input-group input:focus + label,
+        .form .input-group input:valid + label {
+            transform: translateY(-24px);
+            /* color: #3412f0; */
+            color: #fff;
+            font-size: 1.2rem;
+           
+        }
+
+.submit-btn {
+    display: block;
+    margin-left: auto;
+    border: none;
+    outline: none;
+    /*background: #ff652f;*/
+    /* background: #3412f0; */
+    background-color: transparent;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    /*padding: 10px 20px;*/
     border-radius: 5px;
-    background-color: rgba(50,64,77,.90);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    /* outline: 1px solid red;  */
-    /* width: 20em; */
-}
-
-h4 {
-    font-family: 'Alegreya Sans SC', sans-serif;
-}
-
-form {
+    cursor: pointer;
+    color: #fff;
     font-family: 'Open Sans Condensed', sans-serif;
 }
-
-.group-material-login {
-    position: relative;
-    margin-bottom: 25px;
-}
-
-.material-login-control,
-.material-control-login {
-    background-color: transparent;
-    font-size: 17px;
-    padding: 10px 10px 10px 5px;
-    display: block;
-    width: 100%;
-    border: none;
-    border-bottom: 1px solid #fff;
-    outline: none;
-}
-
-    .material-login-control:focus {
-        outline: none;
-    }
-
-.group-material-login label {
-    color: #fff;
-    font-size: 17px;
-    font-weight: normal;
-    position: absolute;
-    pointer-events: none;
-    left: 5px;
-    top: 10px;
-    transition: all 0.2s ease;
-    -moz-transition: all 0.2s ease;
-    -webkit-transition: all 0.2s ease;
-}
-/* Estado activo */
-input.material-login-control:focus:valid ~ label,
-input.material-login-control:valid ~ label {
-    top: -18px;
-    font-size: 13px;
-    color: #fff;
-}
-
-input.material-login-control:focus:invalid:required,
-input.material-login-control:invalid:required {
-    outline: none;
-    box-shadow: none;
-}
-/*Barra de formularios material desing ================*/
-.bar-login {
-    position: relative;
-    display: block;
-    width: 100%;
-}
-
-    .bar-login:before, .bar-login:after {
-        content: '';
-        height: 2px;
-        width: 0;
-        bottom: 1px;
-        position: absolute;
-        background: #fff;
-        transition: all 0.2s ease;
-        -moz-transition: all 0.2s ease;
-        -webkit-transition: all 0.2s ease;
-    }
-
-    .bar-login:before {
-        left: 50%;
-    }
-
-    .bar-login:after {
-        right: 50%;
-    }
-
-input.material-login-control:focus ~ .bar-login:before, input.material-login-control:focus ~ .bar-login:after {
-    width: 50%;
-}
-
-.btn-login {
-    background-color: transparent;
-    text-align: center;
-    border: none;
-    box-shadow: none;
-    font-size: 19px;
-    line-height: 19px;
-    color: #fff;
-    padding: 0;
-    margin: 0;
-    position: absolute;
-    bottom: 3%;
-    right: 3%;
-}
-
-    .btn-login:hover {
-        border: none;
-        box-shadow: none;
-    }
-
-    .btn-login:focus,
-    .btn-login:active {
-        outline: none;
-        border: none;
-        box-shadow: none;
-    }
-
-label {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-}
-
-.radio-inline label:hover {
-    cursor: pointer;
-}
-
-select.material-control-login {
-    -ms-appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    background: #444F55 url(../assets/icons/SelectMaterialIndicator-white.png) no-repeat scroll right 0.75rem center / 13px 8px;
-}
-
-    select.material-control-login:hover {
-        cursor: pointer;
-    }
-
-.form-container {
-    width: 97%;
-    max-width: 370px;
-}
-
-/*
-/* col-sm 
-@media (min-width: 768px) and (max-width: 991px) {
-    .form-container{ width: 370px; }
-   
-}
-*/
-/* col-md 
-@media (min-width: 992px) and (max-width: 1199px) {
-    .form-container{ width: 370px; }
-   
-}*/
-
-/* col-lg 
-@media (min-width: 1200px) {
-    .form-container{ width: 370px; }
-} */

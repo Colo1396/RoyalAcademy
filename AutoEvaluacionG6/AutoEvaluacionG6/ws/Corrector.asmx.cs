@@ -18,7 +18,7 @@ namespace AutoEvaluacionG6.ws
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // Para permitir que se llame a este servicio web desde un script, usando ASP.NET AJAX, quite la marca de comentario de la línea siguiente. 
-    [System.Web.Script.Services.ScriptService]
+     [System.Web.Script.Services.ScriptService]
     public class Corrector : System.Web.Services.WebService
     {
 
@@ -46,7 +46,7 @@ namespace AutoEvaluacionG6.ws
                 while (lector.Read())
                 {
                     Console.WriteLine(lector);
-
+ 
                 }
             }
             catch (Exception ex)
@@ -67,7 +67,7 @@ namespace AutoEvaluacionG6.ws
             MySqlConnection connection = null;
             MySqlDataReader lector = null;
             System.Diagnostics.Debug.WriteLine("ListarWS.ObtenerRegistros SQL : " + sql);
-
+             
 
 
             GestorCarreras carreras = new GestorCarreras();
@@ -94,8 +94,8 @@ namespace AutoEvaluacionG6.ws
                     }
                 }
                 lector.Close();
-
-
+               
+                 
 
             }
             //    while (lector.Read())
@@ -202,10 +202,10 @@ namespace AutoEvaluacionG6.ws
             MySqlConnection connection = null;
             MySqlDataReader lector = null;
             System.Diagnostics.Debug.WriteLine("ListarWS.ObtenerRegistros SQL : " + id);
-
+            
             int idCarrera = Int32.Parse(id);
             String fechas = "";
-            String registros = "";
+            String registros ="";
             GestorCarreras carreras = new GestorCarreras();
             try
             {
@@ -259,83 +259,12 @@ namespace AutoEvaluacionG6.ws
             //},
 
             //{ "fechas":"{"fecha":"2019 - 11 - 08"}{"fecha":"2019 - 11 - 15"}"}
-            // registros = "{\"fechas\"[\":\"" + registros + "\"}";
+           // registros = "{\"fechas\"[\":\"" + registros + "\"}";
             //registros = "{\"fechas\":[{\"" + registros + "\"}]}";
-            registros = "" + registros + "";
+            registros = ""+ registros + "";
             return registros;
         }
 
-
-
-
-
-        [WebMethod]
-        public String cantidadPreguntas(String id)
-        {
-            String c = "";
-            int cantidadPreguntas;
-            MySqlConnection connection = null;
-            MySqlDataReader lector = null;
-            System.Diagnostics.Debug.WriteLine("ListarWS.ObtenerRegistros SQL : " + id);
-
-            int idCarrera = Int32.Parse(id);
-            String fechas = "";
-            String registros = "";
-            GestorCarreras carreras = new GestorCarreras();
-            try
-            {
-                connection = Conexion.getConexion();
-
-
-
-
-                String consulta = "SELECT  COUNT(modeloexamen.idModeloExamen) as cantidad FROM `modeloexamen` " +
-                     "INNER JOIN examenpregunta on modeloexamen.idModeloExamen = examenpregunta.idModeloExamen " +
-                     "INNER JOIN pregunta on  examenpregunta.idPregunta = pregunta.idPregunta" +
-                     " INNER JOIN rtapregunta on pregunta.idPregunta = rtapregunta.idPregunta " +
-                     "INNER JOIN instanciaexamen on instanciaexamen.idModeloExamen = modeloexamen.idModeloExamen" +
-                     "WHERE modeloexamen.idModeloExamen = 1" +
-                     "and rtapregunta.correcta = 1";
-
-                MySqlCommand cmd = new MySqlCommand(consulta, connection);
-
-                cmd.CommandType = System.Data.CommandType.Text;
-                connection.Open();
-                cmd.CommandTimeout = 240;
-
-                lector = cmd.ExecuteReader();
-                System.Diagnostics.Debug.WriteLine(consulta);
-                if (lector.HasRows)
-                {
-                    cantidadPreguntas = lector.GetInt32("cantidad");
-                    while (lector.Read())
-                    {
-                        DateTime fecha = new DateTime();
-                        String fechaS = "";
-                        // fecha=(lector.GetMySqlDateTime(1));
-                        fecha = lector.GetDateTime("fecha");
-                        fechas = Funciones.deFechaDateAstringSQL(fecha);
-                        registros += "{\"fecha\":\"" + fechas + "\"}";
-
-
-                        //carreras.lstCarreras.Add(carrera);
-                        //registros += "{\"idCarrera\":\"" + lector.GetValue(0).ToString() + "\",\"nombreCarrera\":\"" + lector.GetValue(1).ToString() + "\"}";
-                    }
-                }
-                lector.Close();
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine("Error durante la generación automática del examen!" + ex.Message);
-            }
-            finally
-            {
-                if (lector != null) lector.Close();
-                if (connection != null) connection.Close();
-            }
-            c = cantidadPreguntas.ToString();
-            return c;
-        }
     }
 }
    

@@ -49,19 +49,19 @@ function dibujarPaginas() {
 function dibujarBtnPaginado() {
 
     var paginado = "";
-    paginado += "<ul class=\"pagination\">";
+    paginado += "<ul class=\"pagination\" style=\" margin-top:4px;\">";
     var cantPreguntas = modeloExamen.preguntas.length;
     var cantPaginas = Math.ceil(cantPreguntas / preguntasXPagina);
 
     var claseActiva = "page-item active";
     for (var i = 0; i < cantPaginas; i++) {
         //<li class="page-item active"><a class="page-link">1</a></li>
-        paginado += "<li class=\"" + claseActiva + " pointer\"  data-nro=\"" + (i + 1) + "\"  ><a  class=\"page-link\">" + (i + 1) + "</a></li>";
+        paginado += "<li style=\" margin-top:4px;\" class=\"" + claseActiva + " pointer\"  data-nro=\"" + (i + 1) + "\"  ><a  class=\"page-link\">" + (i + 1) + "</a></li>";
         claseActiva = "page-item";
     }
 
-    paginado += " <div align=\"center\"><li class=\"\" ><a  class=\"page-link\">" + "-" + "</a></li>  </div>";
-    paginado += " <div><li class=\"btn_guardar pointer\" ><a  class=\"page-link\" style=\"background-color:#007bff;\">Guardar</a></li> </div>";
+    paginado += " <div style=\" margin-top:4px;\"align=\"center\"><li class=\"\" ><a  class=\"page-link\">" + "-" + "</a></li>  </div>";
+    paginado += " <div><li class=\"btn_guardar pointer\" ><a  class=\"page-link\" style=\"background-color:green; margin-left:700px; margin-top:4px;\">Guardar</a></li> </div>";
 
     paginado += "</ul>";
     var nodoPAginado = $(paginado);
@@ -96,7 +96,9 @@ function guardarRespuestas() {
         var retorno = llamarWS(obj, "/ws/ResolucionExamen.asmx/guardarResolucionExamen", false);
 
         if (retorno == "true") {
-            location.href = "/web/menu.html";
+            //location.href = "/web/menu.html";
+            var modal = document.getElementById("modal");
+            modal.style.display = "block";
         } else {
             alert("ERROR! No se pudo persistir");
         }
