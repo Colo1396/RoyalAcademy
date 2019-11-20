@@ -279,7 +279,7 @@ function cargarDivAdmin() {
     $("#tipoPerfil").empty();
     $("#tipoPerfil").append(
         "<label for=\"idAdmin\" class=\"form-label\">Id Admin:</label>" +
-        " <input type=\"text\" name=\"idAdmin\" id=\"idAdmin\" class=\"form-input\">" +
+        " <input type=\"text\" name=\"idAdmin\" id=\"idAdmin\" class=\"form-input\" readonly>" +
         "<label for=\"nombreAdmin\" class=\"form-label\">Nombre Admin:</label>" +
         "<input type=\"text\" name=\"nombreAdmin\" id=\"nombreAdmin\" class=\"form-input\">" +
         "<label for=\"idTipo\" class=\"form-label\">Tipo de administrador:</label>" +
@@ -299,7 +299,7 @@ function cargarDivAlumno() {
         "<label for=\"idAlumno\" class=\"form-label\">Id Alumno:</label>"+
         "<input type=\"text\" name=\"idAlumno\" id=\"idAlumno\" class=\"form-input\" value=\"\" readonly>"+
         "<label for=\"nroLegajo\" class=\"form-label\">Nro Legajo:</label>"+
-        "<input type=\"text\" name=\"nroLegajo\" id=\"nroLegajo\" class=\"form-input\" value=\"\" readonly>");
+        "<input type=\"text\" name=\"nroLegajo\" id=\"nroLegajo\" class=\"form-input\" value=\"\" >");
     $("#idPerfilUsuario").val($("#idPerfil").val());
     $("#idAlumno").val($("#idPersona").val());
 }
