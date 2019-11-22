@@ -2,7 +2,7 @@
 
     cargarNavMenu();
     filtroCarrera();
-
+    var carrera;
 
 
     function filtroCarrera(carrera) {
@@ -127,10 +127,10 @@
 
 
     //});
-
+    
     $('select#idCarrera').on('change', function () {
 
-        var carrera = $(this).val();
+        carrera = $(this).val();
         console.log(carrera);
         var idCarrera = {
             "id": carrera
@@ -183,15 +183,35 @@
 
 
 
-
-    $('select#idFecha').on('change', function () {
-        var fecha = $(this).val();
+    var btn_buscar = $("#btn_buscar");
+    btn_buscar.on("click", function (){
+        var fecha = $("#idFecha").val();
+        var carrera = $("#idCarrera").val();
         console.log(fecha);
-        var idCarrera = {
-            "id": carrera
+         
+        var dates = {
+            "id": carrera,
+            "fecha" : fecha
 
         }
+        $.ajax({
+            type: 'POST',
+            url: '/ws/Corrector.asmx/CorregirExamen',
+            data: JSON.stringify(dates),
+            contentType: 'application/json; utf-8',
+            dataType: 'json',
+            async: true,
+            success: function (data) {
+                if (data.d != null) {
+                    console.log(data.d);
+                    var jsonReg = data.d;
+                }
 
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+            }
+        });
 
     });
         

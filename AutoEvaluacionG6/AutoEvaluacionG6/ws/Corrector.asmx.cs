@@ -338,7 +338,142 @@ namespace AutoEvaluacionG6.ws
         //        return c;
         //    }
         //}
+
+        [WebMethod]
+        public string CorregirExamen(string id, string fecha)
+        {
+            MySqlConnection connection = null;
+            MySqlDataReader lector = null;
+            System.Diagnostics.Debug.WriteLine("fecha traidad del js " + fecha);
+            int cantidadCorrectas = 0;
+
+            string fecha1 = fecha.Replace('-','/');
+            String registros = "", reg = "", coma_lista = "";
+            String fechi="";
+            DateTime fechaTraida = new DateTime();
+            String fechaSql ;
+
+
+            fechaTraida = Funciones.deFechaStringADateTime(fecha1);
+            fechaSql = Funciones.deFechaDateTimeAstringSQL(fechaTraida);
+             
+            int idCarrera = Int32.Parse(id);
+            List<String> Legajos = new List<String>();
+            
+            int modeloExamen = 0;
+            GestorCarreras carreras = new GestorCarreras();
+            string consulta1= "SELECT alumno.nroLegajo , modeloexamen.idModeloExamen FROM   alumno " +
+                              " INNER JOIN examen on alumno.idAlumno = examen.idAlumno " +
+                               "INNER join instanciaexamen on examen.idInstanciaExamen = instanciaexamen.idInstanciaExamen " +
+                               "inner join modeloexamen on instanciaexamen.idModeloExamen = modeloexamen.idModeloExamen " +
+                               "where instanciaexamen.fecha =  '"+ fechaSql +"'  and modeloexamen.idCarrera = '" + idCarrera + "'";
+
+            //string fechaConsulta = "SELECT STR_TO_DATE('" + fecha1 + "', '%d/%m/%Y') as fecha";
+            try
+            {
+
+
+                MySqlCommand cmd = new MySqlCommand();
+                connection = Conexion.getConexion();
+                cmd.Connection = connection;
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandTimeout = 240;
+                connection.Open();
+
+                cmd.CommandText = consulta1;
+                lector = cmd.ExecuteReader();
+                if (lector.HasRows)
+                {
+                    while (lector.Read())
+                    {
+
+                        Legajos.Add(lector.GetString(0));
+                        //// fecha=Funciones.(lector.GetMySqlDateTime(1));
+                        modeloExamen = lector.GetInt32(1);
+                        //System.Diagnostics.Debug.WriteLine(Legajos);
+                    }
+                }
+                if (lector != null) lector.Close();
+
+
+
+                //////////////////////////////////////FOR DE SEGUNDA PARTE //////////////////////////////////
+                foreach (string legajo in Legajos)
+                {
+
+
+                    String consulta2 = "SELECT alumno.idAlumno ,rtapregunta.idPregunta, rtaalumno.nroRespuesta 'elegida', rtapregunta.idRespuesta as 'respuestaVerdadera'  ,COUNT(*) " +
+                                       "FROM alumno, examen, rtaalumno, instanciaexamen, modeloexamen, examenpregunta, pregunta, rtapregunta " +
+                                       "where alumno.idAlumno = examen.idAlumno and examen.idExamen = rtaalumno.idExamen " +
+                                       "and examen.idInstanciaExamen = instanciaexamen.idInstanciaExamen " +
+                                       "and instanciaexamen.idModeloExamen = modeloexamen.idModeloExamen " +
+                                       "and modeloexamen.idModeloExamen = examenpregunta.idModeloExamen " +
+                                       "and examenpregunta.idPregunta = pregunta.idPregunta " +
+                                       "and pregunta.idPregunta = rtapregunta.idPregunta " +
+                                       "and examen.fecha = '" + fechaSql + "'" +
+                                       "and alumno.nroLegajo = '" + legajo + "' " +
+                                       "and modeloexamen.idCarrera ='" + idCarrera + "' " +
+                                       "and rtapregunta.correcta = 1 and rtaalumno.nroRespuesta = rtapregunta.idRespuesta";
+
+                    
+
+                    cmd.CommandText = consulta2;
+                    lector = cmd.ExecuteReader();
+                    if (lector.HasRows)
+                    {
+                        while (lector.Read())
+                        {
+
+
+                            reg = "\"" + legajo + "\":" + "" + lector.GetValue(4).ToString() + "";
+                            registros += coma_lista + "" + reg + "";
+                            coma_lista = ",";
+
+                            //reg = "\"" + legajo + "\":" + "\"" + lector.GetValue(4).ToString() + "\"";
+                            //registros += coma_lista + "{" + reg + "}";
+                            //coma_lista = ",";
+
+
+                            //Legajos.Add(lector.GetString(0));
+                            ////// fecha=Funciones.(lector.GetMySqlDateTime(1));
+                            //modeloExamen = lector.GetInt32(1);
+                            ////System.Diagnostics.Debug.WriteLine(Legajos);
+                        }
+                    }
+                    
+                    if (lector != null) lector.Close();
+
+
+                }
+                registros = "{" + registros + "}";
+
+
+
+                ///////////////////////////// 2da parte /////////////////////////////////////////////
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Error durante la correccion" + ex.Message);
+                registros = "{\"registros\":[]}";
+            }
+            finally
+            {
+                if (lector != null) lector.Close();
+                if (connection != null) connection.Close();
+            }
+            System.Diagnostics.Debug.WriteLine(modeloExamen);
+            return registros;
+        }
+
+
+
     }
+
+
 }
    
 
