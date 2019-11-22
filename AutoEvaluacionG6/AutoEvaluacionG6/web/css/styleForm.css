@@ -22,7 +22,8 @@ body {
     font-weight: 700;
     letter-spacing: 3px;
     /*color: rgb(4, 181, 194);*/
-    color: #a2c0ff;
+    /* color: #5c8cf3; */
+    color: rgb(219, 214, 214); 
     /*color: #ff851b;*/
     text-align: center;
     padding: 10px 0;
@@ -43,11 +44,12 @@ body {
     /*margin-top: 30px;*/
     padding-bottom: 30px;
     border-radius: 3px;
+    margin-bottom: 30px;
 }
 
     .main_container .form .form-label {
         display: block;
-        color: rgb(42, 236, 250); 
+        color: rgb(219, 214, 214); 
         /*color: rgb(18, 70, 168);*/
         font-size: 15px;
         font-family: Roboto;
@@ -87,7 +89,7 @@ body {
     padding: 5px;
     margin-bottom: 5px;
     font-size: 14px;
-    color: #FFF;
+    color: black;
     /*color: rgba(78, 41, 41, 0.678);*/
     font-family: Roboto;
 }
@@ -158,7 +160,7 @@ body {
 /* TITULO DE LAS RESPUESTAS DE VoF o Multiplechoice*/
 .title2 {
     margin-top: 10px;
-    color: white;
+    color: rgb(132, 171, 255);
     font-size: 20px;
 }
 

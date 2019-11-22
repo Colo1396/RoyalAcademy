@@ -66,8 +66,8 @@ window.onload = function () {
                             " <div class=\"col-sm-10\">" +
                             "<ol id=\"listaMC\">" +
                             "<li>" +
-                            "<input type=\"checkbox\" id=\"correctaMC\" />" +
-                            "<input type=\"text\" id=\"respuestaMC\" value=\"respuesta1\" class=\"form-input2\" >" +
+                            "<input type=\"checkbox\" id=\"correcta\" />" +
+                            "<input type=\"text\" id=\"respuesta\" value=\"respuesta1\" class=\"form-input2\" >" +
                             "</li>" +
                             "</ol>" +
                             "</div>" +
@@ -113,7 +113,8 @@ window.onload = function () {
                         // si se elije tipo de pregunta 1 entramos  en el formulario de Vof
                         $("#RtaPreg").empty();// vacia el div RtaPreg
                         // cargo el div con el formulario de Vof
-                        $("#RtaPreg").append("<p class=\"title2\">Preguntas Verdadero / Falso</p>" +
+                        $("#RtaPreg").append(" <div id=\"RtaVoF\">" +
+                            "<p class=\"title2\">Preguntas Verdadero / Falso</p>" +
                             "<ol>" +
                             "<li>" +
                             "<div class=\"form-check\">" +
@@ -127,7 +128,7 @@ window.onload = function () {
                             "<input type=\"text\" id=\"respuesta\" value=\"F\" class=\"form-input2\" />" +
                             "</div> " +
                             "</li>" +
-                            "</ol>");
+                            "</ol></div>");
 
                         // ----------------------------VERDADERO O FALSO-----------------------------                   
                         // reviso si se cargo el div RtaVof
@@ -278,8 +279,8 @@ window.onload = function () {
                             " <div class=\"col-sm-10\">" +
                             "<ol id=\"listaMC\">" +
                             "<li>" +
-                            "<input type=\"checkbox\" id=\"correctaMC\" />" +
-                            "<input type=\"text\" id=\"respuestaMC\" value=\"respuesta1\" class=\"form-input2\" >" +
+                            "<input type=\"checkbox\" id=\"correcta\" />" +
+                            "<input type=\"text\" id=\"respuesta\" value=\"respuesta1\" class=\"form-input2\" >" +
                             "</li>" +
                             "</ol>" +
                             "</div>" +
@@ -323,7 +324,8 @@ window.onload = function () {
                         // si se elije tipo de pregunta 1 entramos  en el formulario de Vof
                         $("#RtaPreg").empty();// vacia el div RtaPreg
                         // cargo el div con el formulario de Vof
-                        $("#RtaPreg").append("<p class=\"title2\">Preguntas Verdadero / Falso</p>" +
+                        $("#RtaPreg").append(" <div id=\"RtaVoF\">" +
+                            "<p class=\"title2\">Preguntas Verdadero / Falso</p>" +
                             "<ol>" +
                             "<li>" +
                             "<div class=\"form-check\">" +
@@ -337,7 +339,7 @@ window.onload = function () {
                             "<input type=\"text\" id=\"respuesta\" value=\"F\" class=\"form-input2\" />" +
                             "</div> " +
                             "</li>" +
-                            "</ol>");
+                            "</ol></div > ");
 
                         // ----------------------------VERDADERO O FALSO-----------------------------                   
                         // reviso si se cargo el div RtaVof
@@ -430,8 +432,8 @@ window.onload = function () {
                         " <div class=\"col-sm-10\">" +
                         "<ol id=\"listaMC\">" +
                         "<li>" +
-                        "<input type=\"checkbox\" id=\"correctaMC\" />" +
-                        "<input type=\"text\" id=\"respuestaMC\" value=\"respuesta1\" class=\"form-input2\" >" +
+                        "<input type=\"checkbox\" id=\"correcta\" />" +
+                        "<input type=\"text\" id=\"respuesta\" value=\"respuesta1\" class=\"form-input2\" >" +
                         "</li>" +
                         "</ol>" +
                         "</div>" +
@@ -455,7 +457,8 @@ window.onload = function () {
                     // si se elije tipo de pregunta 1 entramos  en el formulario de Vof
                     $("#RtaPreg").empty();// vacia el div RtaPreg
                     // cargo el div con el formulario de Vof
-                    $("#RtaPreg").append("<p class=\"title2\">Preguntas Verdadero / Falso</p>" +
+                    $("#RtaPreg").append(" <div id=\"RtaVoF\">" +
+                        "<p class=\"title2\">Preguntas Verdadero / Falso</p>" +
                         "<ol>" +
                         "<li>" +
                         "<div class=\"form-check\">" +
@@ -469,7 +472,7 @@ window.onload = function () {
                         "<input type=\"text\" id=\"respuesta\" value=\"F\" class=\"form-input2\" />" +
                         "</div> " +
                         "</li>" +
-                        "</ol>");
+                        "</ol></div > ");
                 }
             });
 
@@ -487,7 +490,7 @@ window.onload = function () {
             btn_enviarAlta.on("click", function () {
                 //llamo a la funcion que va a llamar al WS para persistir la pregunta con sus respuestas
                 validaAltaPregunta()
-                // validaAltaRta()
+                //validaAltaRta()
             });
 
         }
@@ -548,12 +551,19 @@ function validaAltaPregunta() {
             "correcta": correcta,
             "respuesta": item.find("#respuesta").val()
         }
+        console.log("es correcta");
+        console.log(correcta);
+        console.log("la respuesta");
+        console.log(item.find("#respuesta").val());
+        console.log("El objeto que pusheo al json");
+        console.log(respuesta);
         //con el push meto la respuesta en el json Ws
         //con esto quiero decir que voy a buscar al json "parametros" y le inserto a su atributo "rtas" el json "respuesta"
         parametros.rtas.push(respuesta);
         //console.log(parametros.rtas.length);
     }
     //muestro el json "parametros"  que devolveria una especie de "OBJETO" Pregunta que contiene sus atributos y una lista de respuetas.
+    console.log("el json parametro");
     console.log(parametros);
     // ------------------------------------------------------------------------
 
@@ -569,9 +579,11 @@ function validaAltaPregunta() {
         var correcta = -1;
         if (item.find("#correcta").prop('checked') == true) {// el find reemplaza el $
             correcta = 1;
+            console.log(correcta);
         }
         else {
             correcta = 0;
+            console.log(correcta);
         }
         //armo json
         var respuesta = {
@@ -606,8 +618,8 @@ function validaAltaPregunta() {
 //-----------------------------------------------------------------AGREGA MULTIPLE CHOICE---------------------------------------------
 function agregarPregMC() {
     // con esta funcion lo que se espera es cargar mas respuestas a una pregunta MC
-    $("#listaMC").append("<li><input type=\"checkbox\" id =\"correctaMC\" />" +
-        "<input type=\"text\" id=\"respuestaMC\" value=\"respuesta1\" class=\"form-input2\"></li>");
+    $("#listaMC").append("<li><input type=\"checkbox\" id =\"correcta\" />" +
+        "<input type=\"text\" id=\"respuesta\" value=\"respuesta1\" class=\"form-input2\"></li>");
 }
 
 

@@ -23,13 +23,13 @@
       "titulo": "Apellido",
       "nomBD": "apellido",
       "clave": false,
-      "tamanio": 120
+      "tamanio": 250
     },
     {
       "titulo": "Cuil",
       "nomBD": "cuil",
       "clave": false,
-      "tamanio": 120
+      "tamanio": 250
     },
     {
       "titulo": "NroLegajo",

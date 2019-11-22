@@ -91,7 +91,8 @@
         .container #paginador div {
             margin-right: 200px;
             text-decoration: none;
-            color: rgba(0,0,150,.9);
+            /* color: rgba(0,0,150,.9); */
+            color: white;
         }
 
         /* On mouse-over, add a grey background color */
@@ -128,6 +129,7 @@
 
         .pregunta {
             margin-bottom: 2%;
+                        font-family: 'Open Sans Condensed', sans-serif;
         }
 
         .miContainer {
@@ -141,6 +143,8 @@
             border-radius: 3px;
             height: calc(100vh - 100px);
             overflow-y: scroll;
+            font-family: 'Open Sans Condensed', sans-serif;
+
         }
 
         h1 {
@@ -184,7 +188,8 @@
         }
 
         .consigna {
-            font-size: 20px;
+            font-size: 23px;
+            font-family: 'Open Sans Condensed', sans-serif;
         }
 
         .form-input {
@@ -199,9 +204,36 @@
             font-size: 14px;
             /*color:#FFF;*/
             color: rgba(78, 41, 41, 0.678);
-            font-family: Roboto;
+            font-family: 'Open Sans Condensed', sans-serif;
             border-radius: 10px;
+
         }
+
+        /******************************************************************************************************/
+/*MODAL*/
+#modal{
+    display: none;
+    width:100%;
+    height: 100%;
+    position: fixed;
+        background: rgba(0,0,0,0.7); /* PARA QUE APAREZCA UN FONDO NEGRO */
+    top:0;
+    /*background-image: url("../imagenes/adi.jpg");
+*/
+}
+
+#contenido{
+    width: 800px;
+    margin: 100px auto;
+    height: 400px;
+    background-image: none;
+    background: #fff;
+}
+
+#modal button{
+    float: right;
+}
+/******************************************************************************************************/
     </style>
 </head>
 <body>
@@ -211,12 +243,12 @@
             <div class="row">
                 <div class="col" align="left">
                     <a class="navbar-brand" id="logo" href="#">
-                      
 
-                <img src="/web/img/4.png" alt="" class="rounded-circle d-inline-block align-top" width="50" height="50" >
-                Royal Academy
-                </a>
-            </div>
+
+                        <img src="/web/img/logoNav.png" alt="" class="rounded-circle d-inline-block align-top" width="50" height="50">
+                        Royal Academy
+                    </a>
+                </div>
             </div>
             <div class="col" align="right">
                 <h1>Examen</h1>
@@ -229,6 +261,8 @@
 
         </div>
 
+
+
         <div class="footer text-center">
 
             <div class="container" id="paginador">
@@ -238,5 +272,47 @@
         </div>
     </div>
 
+    <!-- MODAL -->
+    <div id="modal">
+        <div id="contenido">
+            <!--<div class="card text-center">
+        <div class="card-header">
+            <button type="button" class="close" aria-label="Close" onclick="location.href='/web/menu.html'">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            ROYAL ACADEMY
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">¡Examen guardado exitosamente!</h5>
+            <p class="card-text">El examen fue completado y guardado sin ningún inconveniente. En brevedad te informaremos de la nota del mismo.</p>
+            <p>Muchas gracias</p>
+            <a href="/web/menu.html" class="btn btn-success">Aceptar</a>
+        </div>
+    </div>-->
+            <div class="card border-success mb-3" >
+                <div class="row no-gutters">
+                    <div class="col-md-6">
+                        <img src="/web/img/a.png" class="card-img" alt=""  width="800" height="400" style="border: .6px solid grey;">
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <div class="card-header" style="font-family: 'Alegreya Sans SC', sans-serif; color:#2e4ead; font-size:25px;">
+                            <button type="button" class="close" aria-label="Close" onclick="location.href='/web/menu.html'">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            Royal Academy
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title text-success"><span style="font-family: 'Alegreya Sans SC', sans-serif;">¡Examen guardado exitosamente!</span></h3>
+                            <br />
+                            <p class="card-text">El examen fue completado y guardado sin ningún inconveniente. En brevedad te informaremos de la nota del mismo.</p>
+                            <p class="card-text">Muchas gracias.</p>
+                            <a href="/web/menu.html" class="btn btn-success">Aceptar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </body>
 </html>

@@ -18,7 +18,7 @@ namespace AutoEvaluacionG6.ws
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // Para permitir que se llame a este servicio web desde un script, usando ASP.NET AJAX, quite la marca de comentario de la línea siguiente. 
-    [System.Web.Script.Services.ScriptService]
+     [System.Web.Script.Services.ScriptService]
     public class Corrector : System.Web.Services.WebService
     {
 
@@ -46,7 +46,7 @@ namespace AutoEvaluacionG6.ws
                 while (lector.Read())
                 {
                     Console.WriteLine(lector);
-
+ 
                 }
             }
             catch (Exception ex)
@@ -67,7 +67,7 @@ namespace AutoEvaluacionG6.ws
             MySqlConnection connection = null;
             MySqlDataReader lector = null;
             System.Diagnostics.Debug.WriteLine("ListarWS.ObtenerRegistros SQL : " + sql);
-
+             
 
 
             GestorCarreras carreras = new GestorCarreras();
@@ -94,8 +94,8 @@ namespace AutoEvaluacionG6.ws
                     }
                 }
                 lector.Close();
-
-
+               
+                 
 
             }
             //    while (lector.Read())

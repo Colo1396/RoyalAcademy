@@ -95,9 +95,14 @@ window.onload = function () {
               //-----------------------------------------------------------------------------------------
 
                
-
-
-                $("#divButton").append("<br /><input type=\"button\" id=\"btn_Mod_Persona\" class=\"btn-submit\" value=\"Enviar Edicion\" />");
+                $("#divButton").append("<div class=\"row mb-2 mt-3\"><div class=\"col-6\">" +
+                    "<input type=\"button\" id=\"btn_Mod_Persona\" class=\"btn btn-success btn-lg btn-block\"" +
+                    "value=\"Enviar Edicion\" />" +
+                    "</div >" +
+                    "<div class=\"col-6\">" +
+                    "<button  class=\"btn btn-danger btn-lg btn-block\" onclick=\"location.href='/web/menu.html'\">Cancelar</button>" +
+                    "</div >" +
+                    " </div >");
 
                 var btn_enviarEdicion = $("#btn_Mod_Persona");
                 btn_enviarEdicion.on("click", function () {
@@ -197,11 +202,15 @@ window.onload = function () {
                 }
               //-----------------------------------------------------------------------------------------
 
+                $("#divButton").append("<div class=\"row mb-2 mt-3\"><div class=\"col-6\">" +
+                    "<input type=\"button\" id=\"btn_Baja_Persona\" class=\"btn btn-success btn-lg btn-block\"" +
+                    "value=\"Enviar Baja\" />" +
+                    "</div >" +
+                    "<div class=\"col-6\">" +
+                    "<button  class=\"btn btn-danger btn-lg btn-block\" onclick=\"location.href='/web/menu.html'\">Cancelar</button>" +
+                    "</div >" +
+                    " </div >");
 
-
-
-
-                $("#divButton").append("<br /><input type=\"button\" id=\"btn_Baja_Persona\" value=\"Enviar Baja\" class=\"btn-submit\"/>");
 
                 var btn_enviarBaja = $("#btn_Baja_Persona");
                 btn_enviarBaja.on("click", function () {
@@ -250,9 +259,14 @@ window.onload = function () {
                 var maxIdUsuario = this.llamarWS(jsonSql, "/ws/abmAlumnos.asmx/TraerMaxId", false);
                 $("#idUsuario").val(maxIdUsuario + 1);
 
-                
-
-                $("#divButton").append("<br /><input type=\"button\" id=\"btn_Alta_Persona\" value=\"Enviar Alta\" class=\"btn-submit\" />");
+                $("#divButton").append("<div class=\"row mb-2 mt-3\"><div class=\"col-6\">" +
+                    "<input type=\"button\" id=\"btn_Alta_Persona\" class=\"btn btn-success btn-lg btn-block\"" +
+                    "value=\"Enviar Alta\" />" +
+                    "</div >" +
+                    "<div class=\"col-6\">" +
+                    "<button  class=\"btn btn-danger btn-lg btn-block\" onclick=\"location.href='/web/menu.html'\">Cancelar</button>" +
+                    "</div >" +
+                    " </div >");
 
                 var btn_enviarAlta = $("#btn_Alta_Persona");
                 btn_enviarAlta.on("click", function () {
@@ -271,7 +285,7 @@ function cargarDivAdmin() {
     $("#tipoPerfil").empty();
     $("#tipoPerfil").append(
         "<label for=\"idAdmin\" class=\"form-label\">Id Admin:</label>" +
-        " <input type=\"text\" name=\"idAdmin\" id=\"idAdmin\" class=\"form-input\">" +
+        " <input type=\"text\" name=\"idAdmin\" id=\"idAdmin\" class=\"form-input\" readonly>" +
         "<label for=\"nombreAdmin\" class=\"form-label\">Nombre Admin:</label>" +
         "<input type=\"text\" name=\"nombreAdmin\" id=\"nombreAdmin\" class=\"form-input\">" +
         "<label for=\"idTipo\" class=\"form-label\">Tipo de administrador:</label>" +
@@ -288,9 +302,10 @@ function cargarDivAdmin() {
 function cargarDivAlumno() {
     $("#tipoPerfil").empty();
     $("#tipoPerfil").append(
-        "Id Alumno: <input type=\"text\" id=\"idAlumno\" readonly=\"readonly\"><br />" +
-        "Legajo: <input type=\"text\" id=\"nroLegajo\"><br />"
-    );
+        "<label for=\"idAlumno\" class=\"form-label\">Id Alumno:</label>"+
+        "<input type=\"text\" name=\"idAlumno\" id=\"idAlumno\" class=\"form-input\" value=\"\" readonly>"+
+        "<label for=\"nroLegajo\" class=\"form-label\">Nro Legajo:</label>"+
+        "<input type=\"text\" name=\"nroLegajo\" id=\"nroLegajo\" class=\"form-input\" value=\"\" >");
     $("#idPerfilUsuario").val($("#idPerfil").val());
     $("#idAlumno").val($("#idPersona").val());
 }
@@ -408,5 +423,4 @@ function persistirEdicion() {
     } else {
         alert("No se pudo enviar alta de persona");
     }
-
 }
